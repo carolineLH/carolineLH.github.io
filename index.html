@@ -146,40 +146,41 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-IOS-安卓兼容性问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/01/hello-world/">Hello World</a>
+      <a class="article-title" href="/2019/08/01/IOS-安卓兼容性问题/">IOS 安卓兼容性问题</a>
     </h1>
   
 
         
-        <a href="/2019/08/01/hello-world/" class="archive-article-date">
-  	<time datetime="2019-08-01T02:10:11.110Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
+        <a href="/2019/08/01/IOS-安卓兼容性问题/" class="archive-article-date">
+  	<time datetime="2019-08-01T03:07:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h2 id="1-安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题"><a href="#1-安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题" class="headerlink" title="1. 安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题"></a>1. 安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题</h2><p> 安卓手机跟苹果手机 获取的body 高度不一样 ，所以导致了 当软键盘出现的时候 安卓手机上面页面并没有向上滚动。<br> 解决办法：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> window.addEventListener(&apos;resize&apos;, function () &#123;</span><br><span class="line">  if (document.activeElement.tagName === &apos;INPUT&apos; || document.activeElement.tagName === &apos;TEXTAREA&apos;) &#123;</span><br><span class="line">    window.setTimeout(function () &#123;</span><br><span class="line">      document.activeElement.scrollIntoViewIfNeeded()</span><br><span class="line">    &#125;, 10)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-ios上下滑动卡顿"><a href="#2-ios上下滑动卡顿" class="headerlink" title="2. ios上下滑动卡顿"></a>2. ios上下滑动卡顿</h2><p>因为现在移动设备真是贼辣多，手机屏幕的高度，宽度各式各样。<br>所以我们有一些页面高度不够长，在iPhone8x、三星长屏手机等页面显示不全，所以我开发的时候，有时候会给html和body都设置上height：100%，所以在ios手机上这个页面滑动的时候就会卡顿了。<br>正确的做法应该是这样的：给html设置一个min-height:100%;给body设置一个:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">max-width: 750px;</span><br><span class="line">margin: 0 auto;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>所以，错误就出在了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">html,body&#123;</span><br><span class="line"></span><br><span class="line">  height: 100%;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>删除上述代码即可。</p>
+<p>如果还不行啊，网上有人是这样推荐的</p>
+<p>其他原因：增加代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">  -webkit-overflow-scrolling: touch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+<p>但是这个代码也是有问题的，有时候滑动到底部的时候还是会卡顿。</p>
+<h2 id="3-history-pushState-在IOS微信浏览器上面不生效"><a href="#3-history-pushState-在IOS微信浏览器上面不生效" class="headerlink" title="3.history.pushState()在IOS微信浏览器上面不生效"></a>3.history.pushState()在IOS微信浏览器上面不生效</h2><h2 id="4-（tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。"><a href="#4-（tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。" class="headerlink" title="4. （tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。"></a>4. （tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。</h2><p>这个问题解决，首先要判断是否在安卓端，只在安卓端进行处理。<br>解决思路：在data定义两个变量screenHeight: document.body.clientHeight,originHeight: document.body.clientHeight，都赋值为document.body.clientHeight。然后利用window.onresize方法，这个方法会监听页面上尺寸的变化，在window.onresize回调函数中让一个变量screenHeight在onresize里面改变，watch中监听screenHeight的值，再做操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      screenHeight: document.body.clientHeight,</span><br><span class="line">      originHeight: document.body.clientHeight</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">watch: &#123;</span><br><span class="line">  screenHeight (newVal) &#123;</span><br><span class="line">    if (this.originHeight != newVal) &#123;</span><br><span class="line">      document.getElementById(&apos;tabbarBottom&apos;).style.display = &apos;none&apos;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      document.getElementById(&apos;tabbarBottom&apos;).style.display = &apos;flex&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"> mounted () &#123;</span><br><span class="line">    let u = navigator.userAgent</span><br><span class="line">    let isAndroid = u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Adr&apos;) &gt; -1 //android终端</span><br><span class="line">    let h = document.body.scrollHeight</span><br><span class="line">    // 安卓手机下处理底部tabbar在软键盘弹起的时候一起弹起的问题</span><br><span class="line">    if (isAndroid) &#123;</span><br><span class="line">      window.onresize = () =&gt; &#123;</span><br><span class="line">        this.screenHeight = document.body.clientHeight</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -187,11 +188,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">手机兼容</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/01/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/01/IOS-安卓兼容性问题/">展开全文 >></a>
         </p>
       
 
@@ -314,6 +326,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
