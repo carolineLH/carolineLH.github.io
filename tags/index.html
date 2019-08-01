@@ -6,20 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>IOS 安卓兼容性问题 | Hexo</title>
+  <title>tags | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题 安卓手机跟苹果手机 获取的body 高度不一样 ，所以导致了 当软键盘出现的时候 安卓手机上面页面并没有向上滚动。 解决办法： 1234567 window.addEventListener(&amp;apos;resize&amp;apos;, function () &amp;#123;  if (document.activeElement.tagName">
-<meta name="keywords" content="手机兼容">
-<meta property="og:type" content="article">
-<meta property="og:title" content="IOS 安卓兼容性问题">
-<meta property="og:url" content="http://yoursite.com/2019/08/01/IOS-安卓兼容性问题/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题 安卓手机跟苹果手机 获取的body 高度不一样 ，所以导致了 当软键盘出现的时候 安卓手机上面页面并没有向上滚动。 解决办法： 1234567 window.addEventListener(&amp;apos;resize&amp;apos;, function () &amp;#123;  if (document.activeElement.tagName">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-01T03:22:13.043Z">
+<meta property="og:updated_time" content="2019-08-01T03:21:33.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IOS 安卓兼容性问题">
-<meta name="twitter:description" content="1. 安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题 安卓手机跟苹果手机 获取的body 高度不一样 ，所以导致了 当软键盘出现的时候 安卓手机上面页面并没有向上滚动。 解决办法： 1234567 window.addEventListener(&amp;apos;resize&amp;apos;, function () &amp;#123;  if (document.activeElement.tagName">
+<meta name="twitter:title" content="tags">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,41 +145,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-IOS-安卓兼容性问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      IOS 安卓兼容性问题
+      tags
     </h1>
   
 
         
-        <a href="/2019/08/01/IOS-安卓兼容性问题/" class="archive-article-date">
-  	<time datetime="2019-08-01T03:07:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
+        <a href="/tags/index.html" class="archive-article-date">
+  	<time datetime="2019-08-01T03:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题"><a href="#1-安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题" class="headerlink" title="1. 安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题"></a>1. 安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题</h2><p> 安卓手机跟苹果手机 获取的body 高度不一样 ，所以导致了 当软键盘出现的时候 安卓手机上面页面并没有向上滚动。<br> 解决办法：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> window.addEventListener(&apos;resize&apos;, function () &#123;</span><br><span class="line">  if (document.activeElement.tagName === &apos;INPUT&apos; || document.activeElement.tagName === &apos;TEXTAREA&apos;) &#123;</span><br><span class="line">    window.setTimeout(function () &#123;</span><br><span class="line">      document.activeElement.scrollIntoViewIfNeeded()</span><br><span class="line">    &#125;, 10)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-ios上下滑动卡顿"><a href="#2-ios上下滑动卡顿" class="headerlink" title="2. ios上下滑动卡顿"></a>2. ios上下滑动卡顿</h2><p>因为现在移动设备真是贼辣多，手机屏幕的高度，宽度各式各样。<br>所以我们有一些页面高度不够长，在iPhone8x、三星长屏手机等页面显示不全，所以我开发的时候，有时候会给html和body都设置上height：100%，所以在ios手机上这个页面滑动的时候就会卡顿了。<br>正确的做法应该是这样的：给html设置一个min-height:100%;给body设置一个:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">max-width: 750px;</span><br><span class="line">margin: 0 auto;</span><br></pre></td></tr></table></figure>
-
-<p>所以，错误就出在了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">html,body&#123;</span><br><span class="line"></span><br><span class="line">  height: 100%;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>删除上述代码即可。</p>
-<p>如果还不行啊，网上有人是这样推荐的</p>
-<p>其他原因：增加代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">  -webkit-overflow-scrolling: touch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是这个代码也是有问题的，有时候滑动到底部的时候还是会卡顿。</p>
-<h2 id="3-history-pushState-在IOS微信浏览器上面不生效"><a href="#3-history-pushState-在IOS微信浏览器上面不生效" class="headerlink" title="3.history.pushState()在IOS微信浏览器上面不生效"></a>3.history.pushState()在IOS微信浏览器上面不生效</h2><h2 id="4-（tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。"><a href="#4-（tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。" class="headerlink" title="4. （tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。"></a>4. （tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。</h2><p>这个问题解决，首先要判断是否在安卓端，只在安卓端进行处理。<br>解决思路：在data定义两个变量screenHeight: document.body.clientHeight,originHeight: document.body.clientHeight，都赋值为document.body.clientHeight。然后利用window.onresize方法，这个方法会监听页面上尺寸的变化，在window.onresize回调函数中让一个变量screenHeight在onresize里面改变，watch中监听screenHeight的值，再做操作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      screenHeight: document.body.clientHeight,</span><br><span class="line">      originHeight: document.body.clientHeight</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">watch: &#123;</span><br><span class="line">  screenHeight (newVal) &#123;</span><br><span class="line">    if (this.originHeight != newVal) &#123;</span><br><span class="line">      document.getElementById(&apos;tabbarBottom&apos;).style.display = &apos;none&apos;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      document.getElementById(&apos;tabbarBottom&apos;).style.display = &apos;flex&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"> mounted () &#123;</span><br><span class="line">    let u = navigator.userAgent</span><br><span class="line">    let isAndroid = u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Adr&apos;) &gt; -1 //android终端</span><br><span class="line">    let h = document.body.scrollHeight</span><br><span class="line">    // 安卓手机下处理底部tabbar在软键盘弹起的时候一起弹起的问题</span><br><span class="line">    if (isAndroid) &#123;</span><br><span class="line">      window.onresize = () =&gt; &#123;</span><br><span class="line">        this.screenHeight = document.body.clientHeight</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
       
 
       
@@ -191,17 +173,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">手机兼容</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -252,7 +223,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/01/IOS-安卓兼容性问题/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/tags/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -285,7 +256,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题"><span class="toc-number">1.</span> <span class="toc-text">1. 安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-ios上下滑动卡顿"><span class="toc-number">2.</span> <span class="toc-text">2. ios上下滑动卡顿</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-history-pushState-在IOS微信浏览器上面不生效"><span class="toc-number">3.</span> <span class="toc-text">3.history.pushState()在IOS微信浏览器上面不生效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-（tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。"><span class="toc-number">4.</span> <span class="toc-text">4. （tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -328,7 +299,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
