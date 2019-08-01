@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题 安卓手机跟苹果手机 获取的body 高度不一样 ，所以导致了 当软键盘出现的时候 安卓手机上面页面并没有向上滚动。 解决办法： 1234567 window.addEventListener(&amp;apos;resize&amp;apos;, function () &amp;#123;  if (document.activeElement.tagName">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-01T03:33:27.443Z">
+<meta property="og:updated_time" content="2019-08-01T06:46:05.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IOS 安卓兼容性问题">
 <meta name="twitter:description" content="1. 安卓手机上面软键盘弹起的时候挡住输入框的兼容性问题 安卓手机跟苹果手机 获取的body 高度不一样 ，所以导致了 当软键盘出现的时候 安卓手机上面页面并没有向上滚动。 解决办法： 1234567 window.addEventListener(&amp;apos;resize&amp;apos;, function () &amp;#123;  if (document.activeElement.tagName">
@@ -62,9 +62,7 @@
 	        
 				<li><a href="/tags/随笔/">随笔</a></li>
 	        
-				<li><a href="/categories/">归档</a></li>
-	        
-				<li><a href="/tags/">标签</a></li>
+				<li><a href="/archives">所有文章</a></li>
 	        
 			</ul>
 		</nav>
@@ -118,8 +116,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -134,13 +130,11 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/">归档</a></li>
-		        
-					<li style="width: 25%"><a href="/tags/">标签</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives">所有文章</a></li>
 		        
 				</ul>
 			</nav>
@@ -188,6 +182,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">  -webkit-overflow-scrolling: touch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>但是这个代码也是有问题的，有时候滑动到底部的时候还是会卡顿。</p>
+<a id="more"></a>
 <h2 id="3-history-pushState-在IOS微信浏览器上面不生效"><a href="#3-history-pushState-在IOS微信浏览器上面不生效" class="headerlink" title="3.history.pushState()在IOS微信浏览器上面不生效"></a>3.history.pushState()在IOS微信浏览器上面不生效</h2><h2 id="4-（tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。"><a href="#4-（tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。" class="headerlink" title="4. （tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。"></a>4. （tabbar）fixed定位的在底部的按钮，安卓端，input触发键盘弹起的时候底部按钮弹起问题解决。</h2><p>这个问题解决，首先要判断是否在安卓端，只在安卓端进行处理。<br>解决思路：在data定义两个变量screenHeight: document.body.clientHeight,originHeight: document.body.clientHeight，都赋值为document.body.clientHeight。然后利用window.onresize方法，这个方法会监听页面上尺寸的变化，在window.onresize回调函数中让一个变量screenHeight在onresize里面改变，watch中监听screenHeight的值，再做操作。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      screenHeight: document.body.clientHeight,</span><br><span class="line">      originHeight: document.body.clientHeight</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">watch: &#123;</span><br><span class="line">  screenHeight (newVal) &#123;</span><br><span class="line">    if (this.originHeight != newVal) &#123;</span><br><span class="line">      document.getElementById(&apos;tabbarBottom&apos;).style.display = &apos;none&apos;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      document.getElementById(&apos;tabbarBottom&apos;).style.display = &apos;flex&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"> mounted () &#123;</span><br><span class="line">    let u = navigator.userAgent</span><br><span class="line">    let isAndroid = u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Adr&apos;) &gt; -1 //android终端</span><br><span class="line">    let h = document.body.scrollHeight</span><br><span class="line">    // 安卓手机下处理底部tabbar在软键盘弹起的时候一起弹起的问题</span><br><span class="line">    if (isAndroid) &#123;</span><br><span class="line">      window.onresize = () =&gt; &#123;</span><br><span class="line">        this.screenHeight = document.body.clientHeight</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
