@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>vue小技巧和一些使用 | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vue中的小技巧：1. 组件style的scoped:当标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada. 问题：在组件中用js动态创建的dom，css中添加的样式不生效？答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识对不上，所">
+  <meta name="description" content="vue中的小技巧：1. 组件style的scoped:当style标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada. 问题：在组件中用js动态创建的dom，css中添加的样式不生效？答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue小技巧和一些使用">
 <meta property="og:url" content="http://yoursite.com/2019/08/05/vue小技巧和一些使用/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="vue中的小技巧：1. 组件style的scoped:当标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada. 问题：在组件中用js动态创建的dom，css中添加的样式不生效？答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识对不上，所">
+<meta property="og:description" content="vue中的小技巧：1. 组件style的scoped:当style标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada. 问题：在组件中用js动态创建的dom，css中添加的样式不生效？答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-05T10:18:23.618Z">
+<meta property="og:updated_time" content="2019-08-05T10:22:53.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue小技巧和一些使用">
-<meta name="twitter:description" content="vue中的小技巧：1. 组件style的scoped:当标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada. 问题：在组件中用js动态创建的dom，css中添加的样式不生效？答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识对不上，所">
+<meta name="twitter:description" content="vue中的小技巧：1. 组件style的scoped:当style标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada. 问题：在组件中用js动态创建的dom，css中添加的样式不生效？答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -169,7 +169,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="vue中的小技巧："><a href="#vue中的小技巧：" class="headerlink" title="vue中的小技巧："></a>vue中的小技巧：</h2><h4 id="1-组件style的scoped"><a href="#1-组件style的scoped" class="headerlink" title="1. 组件style的scoped:"></a>1. 组件style的scoped:</h4><p>当<style>标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada.</p>
+        <h2 id="vue中的小技巧："><a href="#vue中的小技巧：" class="headerlink" title="vue中的小技巧："></a>vue中的小技巧：</h2><h4 id="1-组件style的scoped"><a href="#1-组件style的scoped" class="headerlink" title="1. 组件style的scoped:"></a>1. 组件style的scoped:</h4><p>当style标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada.</p>
 <p>问题：在组件中用js动态创建的dom，css中添加的样式不生效？<br>答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识对不上，所以css不在dom上面生效。</p>
 <a id="more"></a>
 <h4 id="2-Vue-数组-对象更新-视图不更新："><a href="#2-Vue-数组-对象更新-视图不更新：" class="headerlink" title="2. Vue 数组/对象更新 视图不更新："></a>2. Vue 数组/对象更新 视图不更新：</h4><p>很多时候，我们会这样操作数组：</p>
@@ -203,7 +203,7 @@
 <li>不应该使用箭头函数来定义watche函数</li>
 </ul>
 <p>箭头函数绑定了父级作用域的上下文，this将不会按照期望指向Vue实例。<br>也就是说，你不能使用this来访问你组件中的data数据以及method方法了。<br>this将会指向undefined。 </p>
-</style></p>
+
       
 
       
@@ -326,7 +326,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue中的小技巧："><span class="toc-number">1.</span> <span class="toc-text">vue中的小技巧：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-组件style的scoped"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 组件style的scoped:</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue中的小技巧："><span class="toc-number">1.</span> <span class="toc-text">vue中的小技巧：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-组件style的scoped"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 组件style的scoped:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Vue-数组-对象更新-视图不更新："><span class="toc-number">1.0.2.</span> <span class="toc-text">2. Vue 数组/对象更新 视图不更新：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-vue-filters过滤器的使用："><span class="toc-number">1.0.3.</span> <span class="toc-text">3. vue filters过滤器的使用：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-列表渲染相关："><span class="toc-number">1.0.4.</span> <span class="toc-text">4. 列表渲染相关：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#v-if尽量不要与v-for在同一节点使用"><span class="toc-number">1.0.4.0.1.</span> <span class="toc-text">v-if尽量不要与v-for在同一节点使用:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#如果你想要根据某些条件跳过循环，而又跟将要渲染的每一项数据没有关系的话，你可以将v-if放在v-for的父节点："><span class="toc-number">1.0.4.0.2.</span> <span class="toc-text">如果你想要根据某些条件跳过循环，而又跟将要渲染的每一项数据没有关系的话，你可以将v-if放在v-for的父节点：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-这些情况下不要使用箭头函数："><span class="toc-number">1.0.5.</span> <span class="toc-text">5. 这些情况下不要使用箭头函数：</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -440,7 +440,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -452,7 +452,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>
