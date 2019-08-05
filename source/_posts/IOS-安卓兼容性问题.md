@@ -80,4 +80,44 @@ watch: {
 }
 ```
 ## 5. 微信浏览器中安卓和ios路由跳转的差异：
-测试测试彻底结束
+### 背景：
+想要隐藏所有非基础按钮接口
+###### 由于在微信浏览器中在跳转页面的时候url改变时，安卓和ios获得签名的原理不同，导致实现的差异。
+在ios内部，当页面跳转的时候，url改变，但是当签名存在的时候，即使时url改变了也不会去重新获取签名。所以，只需要在入口组件里面执行一次wx.hideAllNonBaseMenuItem();就好；
+但是在安卓，url改变时，就会重新去获取签名。所以就要在每次url改变之后执行一次wx.hideAllNonBaseMenuItem();
+
+### 实现方法：
+在vue项目中，给index.html中创建一个script标签，通过这个标签执行wx.hideAllNonBaseMenuItem()方法。核心代码;
+```
+// 调用微信配置js
+export function configWx () {
+  return new Promise((resolve, reject) => {
+    if (window.wx) {
+      resolve(window.wx)
+    } else {
+      let script = document.createElement('script')
+      script.type = 'text/javascript'
+      script.async = true
+      script.src = '' // 获得签名的方法
+      script.setAttribute('apiList', 'hideAllNonBaseMenuItem')
+      script.setAttribute('fn', 'wx.hideAllNonBaseMenuItem()')
+      script.id = 'shareScript'
+      script.onerror = reject
+      document.head.appendChild(script)
+      resolve(window.wx)
+    }
+  })
+}
+
+```
+在beforeEach中判断是ios还是安卓，如果是ios就执行一次；不是的话就要每个页面执行一次configWx方法：
+```
+router.beforeEach((to, from, next) => {
+  if (isIOS()) {
+    if (from.path === '/') {
+      configWx()
+    }
+  }
+  next()
+})
+```
