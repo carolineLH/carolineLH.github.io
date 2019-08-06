@@ -94,6 +94,7 @@ export function configWx () {
   return new Promise((resolve, reject) => {
     if (window.wx) {
       resolve(window.wx)
+      window.wx.hideAllNonBaseMenuItem()
     } else {
       let script = document.createElement('script')
       script.type = 'text/javascript'
