@@ -149,6 +149,101 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js深拷贝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/26/js深拷贝/">js深拷贝</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/26/js深拷贝/" class="archive-article-date">
+  	<time datetime="2019-08-26T08:05:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h4><p>今天在公司写代码的时候，有个场景：需要在一个页面添加证书信息，但是所有添加的信息暂时只能存在前端，在提交表单之后才会提交到后端保存。所以用了vux来存数据代码如下：</p>
+        
+          <a class="article-more-a" href="/2019/08/26/js深拷贝/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">work</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js/work//" class="article-tag-list-link color5">work</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/26/js深拷贝/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue小技巧和一些使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -171,10 +266,6 @@
       
         <h2 id="vue中的小技巧："><a href="#vue中的小技巧：" class="headerlink" title="vue中的小技巧："></a>vue中的小技巧：</h2><h4 id="1-组件style的scoped"><a href="#1-组件style的scoped" class="headerlink" title="1. 组件style的scoped:"></a>1. 组件style的scoped:</h4><p>当style标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada.</p>
 <p>问题：在组件中用js动态创建的dom，css中添加的样式不生效？<br>答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识对不上，所以css不在dom上面生效。</p>
-<h4 id="2-Vue-数组-对象更新-视图不更新："><a href="#2-Vue-数组-对象更新-视图不更新：" class="headerlink" title="2. Vue 数组/对象更新 视图不更新："></a>2. Vue 数组/对象更新 视图不更新：</h4><p>很多时候，我们会这样操作数组：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">data() &#123; // data数据</span><br><span class="line">    return &#123;</span><br><span class="line">      arr: [1,2,3],</span><br><span class="line">      obj:&#123;</span><br><span class="line">          a: 1,</span><br><span class="line">          b: 2</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">// 数据更新 数组视图不更新</span><br><span class="line">this.arr[0] = &apos;OBKoro1&apos;;</span><br><span class="line">this.arr.length = 1;</span><br><span class="line">console.log(arr);// [&apos;OBKoro1&apos;];</span><br><span class="line">// 数据更新 对象视图不更新</span><br><span class="line">this.obj.c = &apos;OBKoro1&apos;;</span><br><span class="line">delete this.obj.a;</span><br><span class="line">console.log(obj);  // &#123;b:2,c:&apos;OBKoro1&apos;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由于js的限制，Vue不能检测以上数组的变动，以及对象的添加/删除，很多人会因为像上面的操作，出现视图没有更新的问题。</p>
         
           <a class="article-more-a" href="/2019/08/05/vue小技巧和一些使用/#more">more >></a>
         
@@ -524,15 +615,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">work</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>

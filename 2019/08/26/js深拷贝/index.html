@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>vue 实现一个倒计时功能 | caroline&#39;s blog</title>
+  <title>js深拷贝 | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景：需要实现一个倒计时，给定一个截止时间，展示一个当前时间到截止时间差的倒计时，表现格式为，天，时分秒。 实现：思路：根据时间差来调用setInterval,setInterval内部是调用将时间戳转化为年月日时分秒的格式展示的方法。vue中filter字面意思，过滤器，通过管道符号，将参数经过过滤器后返回你需要的格式。所以这里可以使用vue中filter来表示。 注意：用到了定时器要清除，考虑">
-<meta name="keywords" content="work,Vue">
+  <meta name="description" content="背景：今天在公司写代码的时候，有个场景：需要在一个页面添加证书信息，但是所有添加的信息暂时只能存在前端，在提交表单之后才会提交到后端保存。所以用了vux来存数据代码如下：">
+<meta name="keywords" content="work,js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue 实现一个倒计时功能">
-<meta property="og:url" content="http://yoursite.com/2019/08/05/vue-实现一个倒计时功能/index.html">
+<meta property="og:title" content="js深拷贝">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/js深拷贝/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="背景：需要实现一个倒计时，给定一个截止时间，展示一个当前时间到截止时间差的倒计时，表现格式为，天，时分秒。 实现：思路：根据时间差来调用setInterval,setInterval内部是调用将时间戳转化为年月日时分秒的格式展示的方法。vue中filter字面意思，过滤器，通过管道符号，将参数经过过滤器后返回你需要的格式。所以这里可以使用vue中filter来表示。 注意：用到了定时器要清除，考虑">
+<meta property="og:description" content="背景：今天在公司写代码的时候，有个场景：需要在一个页面添加证书信息，但是所有添加的信息暂时只能存在前端，在提交表单之后才会提交到后端保存。所以用了vux来存数据代码如下：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-05T09:29:04.648Z">
+<meta property="og:updated_time" content="2019-08-26T10:27:29.468Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue 实现一个倒计时功能">
-<meta name="twitter:description" content="背景：需要实现一个倒计时，给定一个截止时间，展示一个当前时间到截止时间差的倒计时，表现格式为，天，时分秒。 实现：思路：根据时间差来调用setInterval,setInterval内部是调用将时间戳转化为年月日时分秒的格式展示的方法。vue中filter字面意思，过滤器，通过管道符号，将参数经过过滤器后返回你需要的格式。所以这里可以使用vue中filter来表示。 注意：用到了定时器要清除，考虑">
+<meta name="twitter:title" content="js深拷贝">
+<meta name="twitter:description" content="背景：今天在公司写代码的时候，有个场景：需要在一个页面添加证书信息，但是所有添加的信息暂时只能存在前端，在提交表单之后才会提交到后端保存。所以用了vux来存数据代码如下：">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -149,30 +149,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue-实现一个倒计时功能" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-js深拷贝" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      vue 实现一个倒计时功能
+      js深拷贝
     </h1>
   
 
         
-        <a href="/2019/08/05/vue-实现一个倒计时功能/" class="archive-article-date">
-  	<time datetime="2019-08-05T09:28:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
+        <a href="/2019/08/26/js深拷贝/" class="archive-article-date">
+  	<time datetime="2019-08-26T08:05:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h3><p>需要实现一个倒计时，给定一个截止时间，展示一个当前时间到截止时间差的倒计时，表现格式为，天，时分秒。</p>
-<h3 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h3><h5 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h5><p>根据时间差来调用setInterval,setInterval内部是调用将时间戳转化为年月日时分秒的格式展示的方法。vue中filter字面意思，过滤器，通过管道符号，将参数经过过滤器后返回你需要的格式。所以这里可以使用vue中filter来表示。</p>
-<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><p>用到了定时器要清除，考虑到内存的问题。<br> <a id="more"></a></p>
-<h5 id="实现代码："><a href="#实现代码：" class="headerlink" title="实现代码："></a>实现代码：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;tempalet&gt;</span><br><span class="line">&lt;span&gt;支付剩余时间：&#123;&#123;end | countDown&#125;&#125;&lt;/span&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      end: &apos;&apos;, // 付款结束时间</span><br><span class="line">      timer: &apos;&apos;,</span><br><span class="line">  &#125;,</span><br><span class="line">  filters: &#123;</span><br><span class="line">    countDown (val) &#123;</span><br><span class="line">      // 参数为秒为单位</span><br><span class="line">      let totalTime = val</span><br><span class="line">      let day = parseInt(totalTime/(24*60*60)) // 计算整数天数</span><br><span class="line">      let afterDay = totalTime - day*24*60*60 // 取得算出天数后剩余的秒数</span><br><span class="line">      let hour = parseInt(afterDay/(60*60)) &gt; 10 ? parseInt(afterDay/(60*60)) : &apos;0&apos; + parseInt(afterDay/(60*60))  // 计算整数小时数</span><br><span class="line">      let afterHour = totalTime - day*24*60*60 - hour*60*60 // 取得算出小时数后剩余的秒数</span><br><span class="line">      let min = parseInt(afterHour/60) &gt; 10 ? parseInt(afterHour/60) : &apos;0&apos; + parseInt(afterHour/60) // 计算整数分</span><br><span class="line">      let afterMin = parseInt(totalTime - day*24*60*60 - hour*60*60 - min*60) &gt; 10 ? parseInt(totalTime - day*24*60*60 - hour*60*60 - min*60) : &apos;0&apos; + parseInt(totalTime - day*24*60*60 - hour*60*60 - min*60) // 取得算出分后剩余的秒数</span><br><span class="line">      let lastTime = day + &apos;天  &apos;  + hour + &apos;:&apos; + min + &apos;:&apos; + afterMin</span><br><span class="line">      return lastTime</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">method: &#123;</span><br><span class="line">  test () &#123;</span><br><span class="line">    // 处理倒计时</span><br><span class="line">    let endTime = new Date(this.orderObj.payEndIn).getTime()</span><br><span class="line">    let nowTime = new Date().getTime()</span><br><span class="line">    this.end = Math.floor((endTime - nowTime)/1000)</span><br><span class="line">    if (this.timer) clearInterval(this.timer)</span><br><span class="line">    this.timer = setInterval(() =&gt; &#123;</span><br><span class="line">      this.end--</span><br><span class="line">    &#125;, 1000)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h4><p>今天在公司写代码的时候，有个场景：需要在一个页面添加证书信息，但是所有添加的信息暂时只能存在前端，在提交表单之后才会提交到后端保存。所以用了vux来存数据代码如下：</p>
+<a id="more"></a>
+
+<p>在添加证书页面：（不只是添加，编辑证书也是在这个页面）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      credential: &#123;</span><br><span class="line">        title: &apos;&apos;,</span><br><span class="line">        value: &apos;&apos;</span><br><span class="line">      &#125;, // 证件信息</span><br><span class="line">      credentialList: []</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> mounted () &#123;</span><br><span class="line">   if (temp === &apos;edit&apos;) &#123;</span><br><span class="line">      this.credential = this.$store.state.credential.credential // 当前在vux中存的添加/编辑的证书对象</span><br><span class="line">    &#125;</span><br><span class="line">    this.credentialList = this.$store.getters.getCredentialList // 存储在vuex中的证书列表对象</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是在点击保存证书的按钮的时候，会对所添加的证书进行校验，如果有重复的证书就会提示“您已经添加过此证书”！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 校验证书函数</span><br><span class="line">checkForm () &#123;</span><br><span class="line">  // 是否有存入重复的回执编号</span><br><span class="line">  for (let i = 0; i &lt; this.credentialList.length; i++) &#123;</span><br><span class="line">    if (this.credentialList[i].value === this.credential.value) &#123;</span><br><span class="line">      Toast(&apos;您的条形码已添加，请勿重复输入。&apos;)</span><br><span class="line">      return false</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 保存到接口</span><br><span class="line">save () &#123;</span><br><span class="line">  this.credentialList.push(this.credential)</span><br><span class="line">  this.$store.commit(&apos;setCredentialList&apos;, this.credentialList)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码在这里其实是写完了的，但是在编辑证书的情况下，我改变了证书的value，证书列表的信息也会随之改变。其实就是在编辑状态下，改变this.credential.value，this.credentialList也会<br>随之改变。原因就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.credentialList = this.$store.getters.getCredentialList</span><br></pre></td></tr></table></figure>
+
+<p>这一句，数组对象的浅拷贝，用深拷贝：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.credentialList = JSON.parse(JSON.stringify(this.$store.getters.getCredentialList))</span><br></pre></td></tr></table></figure>
+
+<p>就可以解决。</p>
+<h2 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h2><p>那这篇文章就来学习一下什么是深拷贝、什么是浅拷贝，他们的区别以及应用。</p>
+<h4 id="堆和栈的区别："><a href="#堆和栈的区别：" class="headerlink" title="堆和栈的区别："></a>堆和栈的区别：</h4><p>其实深拷贝和浅拷贝的主要区别就是其在内存中存储的类型不同。</p>
+<p>堆和栈都是内存正划分出来用来存储的区域。</p>
+<h6 id="栈（stack）为自动分配的内存空间，它由系统自动释放；而堆（heap）则是动态分配的内存，大小不定也不会自动释放。"><a href="#栈（stack）为自动分配的内存空间，它由系统自动释放；而堆（heap）则是动态分配的内存，大小不定也不会自动释放。" class="headerlink" title="栈（stack）为自动分配的内存空间，它由系统自动释放；而堆（heap）则是动态分配的内存，大小不定也不会自动释放。"></a>栈（stack）为自动分配的内存空间，它由系统自动释放；而堆（heap）则是动态分配的内存，大小不定也不会自动释放。</h6><h4 id="JS的数据类型："><a href="#JS的数据类型：" class="headerlink" title="JS的数据类型："></a>JS的数据类型：</h4><h5 id="基本数据类型：undefined、boolean、number、string、null"><a href="#基本数据类型：undefined、boolean、number、string、null" class="headerlink" title="基本数据类型：undefined、boolean、number、string、null"></a>基本数据类型：undefined、boolean、number、string、null</h5><h6 id="基本数据类型存放在栈中"><a href="#基本数据类型存放在栈中" class="headerlink" title="基本数据类型存放在栈中;"></a>基本数据类型存放在栈中;</h6><p>存放在栈内存中的简单数据段，数据大小确定，内存空间大小可以分配，是直接按值存放的，所以可以直接当问。</p>
+<h6 id="基本数据类型值不可以变："><a href="#基本数据类型值不可以变：" class="headerlink" title="基本数据类型值不可以变："></a>基本数据类型值不可以变：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javascript中的原始值（undefined、null、布尔值、数字和字符串）与对象（包括数组和函数）有着根本区别。原始值是不可更改的：任何方法都无法更改（或“突变”）一个原始值。对数字和布尔值来说显然如此 —— 改变数字的值本身就说不通，而对字符串来说就不那么明显了，因为字符串看起来像由字符组成的数组，我们期望可以通过指定索引来假改字符串中的字符。实际上，javascript 是禁止这样做的。字符串中所有的方法看上去返回了一个修改后的字符串，实际上返回的是一个新的字符串值。</span><br></pre></td></tr></table></figure>
+
+<p>基本数据类型的值是不可变的，动态修改了基本数据类型的值，它的原始值也是不会改变的，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;abc&quot;;</span><br><span class="line">console.log(str[1]=&quot;f&quot;);    // f</span><br><span class="line">console.log(str)</span><br></pre></td></tr></table></figure>
+
+<h6 id="基本类型的比较是值的比较"><a href="#基本类型的比较是值的比较" class="headerlink" title="基本类型的比较是值的比较:"></a>基本类型的比较是值的比较:</h6><p>基本类型的比较是值的比较，只要它们的值相等就认为他们是相等的，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br><span class="line">var b = 1;</span><br><span class="line">console.log(a === b);//true</span><br></pre></td></tr></table></figure>
+
+<h4 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型:"></a>引用类型:</h4><h6 id="引用类型存放在堆中："><a href="#引用类型存放在堆中：" class="headerlink" title="引用类型存放在堆中："></a>引用类型存放在堆中：</h6>
       
 
       
@@ -189,7 +214,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -201,11 +226,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/work//" class="article-tag-list-link color5">work</a>
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/work/Vue//" class="article-tag-list-link color4">Vue</a>
+        			<a href="/categories/js/work//" class="article-tag-list-link color5">work</a>
         		</li>
       		
 		</ul>
@@ -260,7 +285,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/05/vue-实现一个倒计时功能/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/26/js深拷贝/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +299,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/05/vue小技巧和一些使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vue小技巧和一些使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/01/IOS-安卓兼容性问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">IOS 安卓兼容性问题</div>
+    <a href="/2019/08/05/vue小技巧和一些使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue小技巧和一些使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -312,7 +328,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景："><span class="toc-number">1.</span> <span class="toc-text">背景：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现："><span class="toc-number">2.</span> <span class="toc-text">实现：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#思路："><span class="toc-number">2.0.1.</span> <span class="toc-text">思路：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注意："><span class="toc-number">2.0.2.</span> <span class="toc-text">注意：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#实现代码："><span class="toc-number">2.0.3.</span> <span class="toc-text">实现代码：</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#背景："><span class="toc-number">1.</span> <span class="toc-text">背景：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正文："><span class="toc-number"></span> <span class="toc-text">正文：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#堆和栈的区别："><span class="toc-number">1.</span> <span class="toc-text">堆和栈的区别：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#栈（stack）为自动分配的内存空间，它由系统自动释放；而堆（heap）则是动态分配的内存，大小不定也不会自动释放。"><span class="toc-number">1.0.1.</span> <span class="toc-text">栈（stack）为自动分配的内存空间，它由系统自动释放；而堆（heap）则是动态分配的内存，大小不定也不会自动释放。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JS的数据类型："><span class="toc-number">2.</span> <span class="toc-text">JS的数据类型：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#基本数据类型：undefined、boolean、number、string、null"><span class="toc-number">2.1.</span> <span class="toc-text">基本数据类型：undefined、boolean、number、string、null</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#基本数据类型存放在栈中"><span class="toc-number">2.1.1.</span> <span class="toc-text">基本数据类型存放在栈中;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#基本数据类型值不可以变："><span class="toc-number">2.1.2.</span> <span class="toc-text">基本数据类型值不可以变：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#基本类型的比较是值的比较"><span class="toc-number">2.1.3.</span> <span class="toc-text">基本类型的比较是值的比较:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引用类型"><span class="toc-number">3.</span> <span class="toc-text">引用类型:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#引用类型存放在堆中："><span class="toc-number">3.0.1.</span> <span class="toc-text">引用类型存放在堆中：</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
