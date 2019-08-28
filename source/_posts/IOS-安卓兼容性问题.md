@@ -122,3 +122,39 @@ router.beforeEach((to, from, next) => {
   next()
 })
 ```
+
+## 6.ios滚动穿透：
+
+#### 背景：
+场景就是在页面上有一个popup弹层，当弹层出现的时候，你滑动弹层，发现弹层下面的页面可以滚动。只会出现在ios上面。
+
+#### 解决：
+解决思路就是在弹框出现后，禁止页面滑动，对话框关闭的时候再移除监听。
+
+在弹层出现的时候调用禁止默认事件函数，在弹层关闭的时候调用打开默认事件函数：
+```
+/**
+   * 禁止页面滚动和解除滚动的共用函数，具体看这个文章
+   * https://blog.csdn.net/qq_29606781/article/details/67650869
+   * 1：相同事件绑定和解除，需要使用共用函数；绑定和解除事件时 事件没有"on" 即onclick写成click
+   * 2：共用函数不能带参数；（即下面在调用的时候是用的 this.bodyScroll，不能带()。）
+   */
+  bodyScroll(event){
+    event.preventDefault();
+  }
+  
+  /**
+   * 禁止页面滚动，解决弹框出现时 IOS 上滚动穿透的问题
+   */
+  forbidBodyScroll () {
+    document.getElementsByTagName('body')[0].addEventListener('touchmove', this.bodyScroll, false)
+  }
+  
+  /**
+   * 解除禁止滚动，解决弹框出现时 IOS 上滚动穿透的问题
+   */
+  allowBodyScroll () {
+    document.getElementsByTagName('body')[0].removeEventListener('touchmove', this.bodyScroll, false)
+  }
+
+```
