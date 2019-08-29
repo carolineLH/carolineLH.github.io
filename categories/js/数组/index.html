@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>上传文件或图片时选择相同文件无法触发change事件的问题 | caroline&#39;s blog</title>
+  <title>Category: 数组 | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景：最近在项目中，遇到做一个上传文件的模块时：打开文件上传，上传成功之后，再次上传，再次选之前的那个文件，change事件不会被触发。">
-<meta name="keywords" content="work">
-<meta property="og:type" content="article">
-<meta property="og:title" content="上传文件或图片时选择相同文件无法触发change事件的问题">
-<meta property="og:url" content="http://yoursite.com/2019/08/28/上传文件或图片时选择相同文件无法触发change事件的问题/index.html">
+  <meta name="description" content="我爱学习，学习爱我">
+<meta property="og:type" content="website">
+<meta property="og:title" content="caroline&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/categories/js/数组/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="背景：最近在项目中，遇到做一个上传文件的模块时：打开文件上传，上传成功之后，再次上传，再次选之前的那个文件，change事件不会被触发。">
+<meta property="og:description" content="我爱学习，学习爱我">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-28T07:51:08.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="上传文件或图片时选择相同文件无法触发change事件的问题">
-<meta name="twitter:description" content="背景：最近在项目中，遇到做一个上传文件的模块时：打开文件上传，上传成功之后，再次上传，再次选之前的那个文件，change事件不会被触发。">
+<meta name="twitter:title" content="caroline&#39;s blog">
+<meta name="twitter:description" content="我爱学习，学习爱我">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -149,185 +147,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-上传文件或图片时选择相同文件无法触发change事件的问题" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      上传文件或图片时选择相同文件无法触发change事件的问题
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/08/29/js数组/" class="archive-article-date">
+  	<time datetime="2019-08-29T02:22:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/29/js数组/">js数组</a>
     </h1>
   
 
-        
-        <a href="/2019/08/28/上传文件或图片时选择相同文件无法触发change事件的问题/" class="archive-article-date">
-  	<time datetime="2019-08-28T07:45:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h4><p>最近在项目中，遇到做一个上传文件的模块时：打开文件上传，上传成功之后，再次上传，再次选之前的那个文件，change事件不会被触发。<br> <a id="more"></a><br>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot; name=&quot;file&quot; class=&quot;file-input&quot; @change=&quot;setFile&quot; /&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h4><p>原因是第一个选择文件一时，存放的文件由空变成了文件一，上传成功之后，再次选择文件一，此时相当于文件没有change，所以这时候change不会触发了。</p>
-<p>解决就是需要在选择的文件清空。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setFile(e)&#123;</span><br><span class="line">       ......</span><br><span class="line">       e.srcElement.value = &quot;&quot;//及时清空</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">work</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/work//" class="article-tag-list-link color5">work</a>
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js/数组//" class="article-tag-list-link color3">数组</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/28/上传文件或图片时选择相同文件无法触发change事件的问题/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/08/29/js数组/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js数组
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/08/28/微信扫一扫，扫条码去掉code-128/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">微信扫一扫，扫条码去掉code_128 </div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#背景："><span class="toc-number">1.</span> <span class="toc-text">背景：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决："><span class="toc-number">2.</span> <span class="toc-text">解决：</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -351,10 +243,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
