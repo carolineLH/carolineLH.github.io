@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>js数组 | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="foreach无法终止遍历：foreach 正常不可以终端遍历过程。可以抛除一个异常终止循环。用some 和 every 可以轻松实现。 1234567891011121314151617181920212223242526272829303132var arr = [1,2,3,4,5,6,7];try &amp;#123;  arr.forEach((item,index) =&amp;gt; &amp;#123;">
+  <meta name="description" content="foreach无法终止遍历：foreach 正常不可以终端遍历过程。可以抛除一个异常终止循环。用some 和 every 可以轻松实现。">
 <meta name="keywords" content="js,数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js数组">
 <meta property="og:url" content="http://yoursite.com/2019/08/29/js数组/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="foreach无法终止遍历：foreach 正常不可以终端遍历过程。可以抛除一个异常终止循环。用some 和 every 可以轻松实现。 1234567891011121314151617181920212223242526272829303132var arr = [1,2,3,4,5,6,7];try &amp;#123;  arr.forEach((item,index) =&amp;gt; &amp;#123;">
+<meta property="og:description" content="foreach无法终止遍历：foreach 正常不可以终端遍历过程。可以抛除一个异常终止循环。用some 和 every 可以轻松实现。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-29T03:33:47.168Z">
+<meta property="og:updated_time" content="2019-08-29T03:37:44.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js数组">
-<meta name="twitter:description" content="foreach无法终止遍历：foreach 正常不可以终端遍历过程。可以抛除一个异常终止循环。用some 和 every 可以轻松实现。 1234567891011121314151617181920212223242526272829303132var arr = [1,2,3,4,5,6,7];try &amp;#123;  arr.forEach((item,index) =&amp;gt; &amp;#123;">
+<meta name="twitter:description" content="foreach无法终止遍历：foreach 正常不可以终端遍历过程。可以抛除一个异常终止循环。用some 和 every 可以轻松实现。">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -169,7 +169,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="foreach无法终止遍历："><a href="#foreach无法终止遍历：" class="headerlink" title="foreach无法终止遍历："></a>foreach无法终止遍历：</h2><p>foreach 正常不可以终端遍历过程。可以抛除一个异常终止循环。用some 和 every 可以轻松实现。</p>
+        <h2 id="foreach无法终止遍历："><a href="#foreach无法终止遍历：" class="headerlink" title="foreach无法终止遍历："></a>foreach无法终止遍历：</h2><p>foreach 正常不可以终端遍历过程。可以抛除一个异常终止循环。用some 和 every 可以轻松实现。<br> <a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4,5,6,7];</span><br><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">  arr.forEach((item,index) =&gt; &#123;</span><br><span class="line">    console.log(item);</span><br><span class="line">    if(item == 3)&#123;</span><br><span class="line">      throw new Error(&apos;break&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125; catch (e) &#123;</span><br><span class="line">  // console.log(e);</span><br><span class="line">&#125; finally &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// some 返回true时终端遍历</span><br><span class="line">arr.some(item =&gt; &#123;</span><br><span class="line">  console.log(item); // 1 2 3</span><br><span class="line">  if(item == 3)&#123;</span><br><span class="line">      return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// every 返回false时终端遍历,返回true继续遍历</span><br><span class="line">arr.every(item =&gt; &#123;</span><br><span class="line">  console.log(item); // 1 2 3 4</span><br><span class="line">  if(item == 4)&#123;</span><br><span class="line">      return false;</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">      return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="JS数组遍历："><a href="#JS数组遍历：" class="headerlink" title="JS数组遍历："></a>JS数组遍历：</h2><h4 id="1-forEach"><a href="#1-forEach" class="headerlink" title="1. forEach()"></a>1. forEach()</h4><p>有三个参数，第三个参数是数组本身（可选）<br>循环数组，不会改变元素，不会返回新的数组。只是遍历数组内的每个元素对他进行某些操作。没有返回值。</p>
@@ -457,6 +457,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -473,15 +477,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">微信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
+                <a href="javascript:void(0)" class="js-tag color3">微信</a>
               </li>
             
             <div class="clearfix"></div>

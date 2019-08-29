@@ -169,50 +169,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="foreach无法终止遍历："><a href="#foreach无法终止遍历：" class="headerlink" title="foreach无法终止遍历："></a>foreach无法终止遍历：</h2><p>foreach 正常不可以终端遍历过程。可以抛除一个异常终止循环。用some 和 every 可以轻松实现。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,4,5,6,7];</span><br><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">  arr.forEach((item,index) =&gt; &#123;</span><br><span class="line">    console.log(item);</span><br><span class="line">    if(item == 3)&#123;</span><br><span class="line">      throw new Error(&apos;break&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125; catch (e) &#123;</span><br><span class="line">  // console.log(e);</span><br><span class="line">&#125; finally &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// some 返回true时终端遍历</span><br><span class="line">arr.some(item =&gt; &#123;</span><br><span class="line">  console.log(item); // 1 2 3</span><br><span class="line">  if(item == 3)&#123;</span><br><span class="line">      return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// every 返回false时终端遍历,返回true继续遍历</span><br><span class="line">arr.every(item =&gt; &#123;</span><br><span class="line">  console.log(item); // 1 2 3 4</span><br><span class="line">  if(item == 4)&#123;</span><br><span class="line">      return false;</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">      return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="JS数组遍历："><a href="#JS数组遍历：" class="headerlink" title="JS数组遍历："></a>JS数组遍历：</h2><h4 id="1-forEach"><a href="#1-forEach" class="headerlink" title="1. forEach()"></a>1. forEach()</h4><p>有三个参数，第三个参数是数组本身（可选）<br>循环数组，不会改变元素，不会返回新的数组。只是遍历数组内的每个元素对他进行某些操作。没有返回值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.foreach((value,index)=&gt;&#123;&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-map"><a href="#2-map" class="headerlink" title="2. map()"></a>2. map()</h4><p>有三个参数，第三个参数是数组本身（可选）<br>返回每个元素返回值的集合.不会改变原数组的值。<br>遍历数组，对每个元素进行处理，之后返回元素，会返回一个新数组。<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var arr2 = arr.map((value,index)=&gt;&#123;value++ return value&#125;)</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-some"><a href="#3-some" class="headerlink" title="3. some()"></a>3. some()</h4><p>遍历数组，在回调函数里进行条件的判断，返回 true 或 false 。当有一个元素满足条件时就停止遍历并返回true；当全部的元素都不满足要求时，返回false</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var bool = arr.some((value,index)=&gt;&#123;return value&gt;3&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-every"><a href="#4-every" class="headerlink" title="4. every()"></a>4. every()</h4><p>遍历数组，同上。当有一个元素不满足条件时就停止遍历并返回false；当全部元素都满足时，返回true</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var bool = arr.every((value,index)=&gt;&#123;return value&gt;3&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-filter"><a href="#5-filter" class="headerlink" title="5. filter()"></a>5. filter()</h4><p>得到返回值为true的元素的集合   (过滤器)<br>遍历数组，在回调函数里进行条件判断，当结果为true时，将该元素返回，组成一个新数组。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr2 = arr.filter((value,index)=&gt;&#123;return value&gt;3&#125;)</span><br><span class="line"></span><br><span class="line">var arr2 = arr.filter((value,index)=&gt;&#123; if(value&gt;3)&#123;return true&#125;  &#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-reduce"><a href="#6-reduce" class="headerlink" title="6. reduce()"></a>6. reduce()</h4><p>-依次执行ck(prv.next)<br>reduce(callback,init)  init为初始值。</p>
-<p>当init为空时，回调函数第一次执行的res是数组的第一个元素，value是第二个；第二次执行的时候res是第一次执行返回的内容，value是第三个元素；之后同第二次</p>
-<p>当init不为空时，回调函数第一次执行的res是init，value是第一个元素；当第二次执行时res是第一次执行返回的内容，value是第二个元素；第三次的value是第三个元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var result = arr.reduce((res,value)=&gt;&#123;res = res+value return res&#125;)</span><br><span class="line"></span><br><span class="line">var result = arr.reduce((res,value)-&gt;&#123;res = res+value return res&#125;,100)</span><br></pre></td></tr></table></figure>
-
-<h4 id="7-for…in循环"><a href="#7-for…in循环" class="headerlink" title="7. for…in循环"></a>7. for…in循环</h4><p>for…in循环可用于循环对象和数组,推荐用于循环对象,可以用来遍历json</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123;</span><br><span class="line">    name: &apos;王大锤&apos;,</span><br><span class="line">    age: &apos;18&apos;,</span><br><span class="line">    weight: &apos;70kg&apos;</span><br><span class="line">&#125;</span><br><span class="line">for(var key in obj) &#123;</span><br><span class="line">    console.log(key);       //  name age weight</span><br><span class="line">    console.log(obj[key]);  //  王大锤 18 70kg</span><br><span class="line">&#125;</span><br><span class="line">let arr = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;];</span><br><span class="line">for(var key in arr) &#123;</span><br><span class="line">    console.log(key);  //  0 1 2 3 4 返回数组索引</span><br><span class="line">    console.log(arr[key]) //  a b c d e</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="8-for…of循环"><a href="#8-for…of循环" class="headerlink" title="8. for…of循环"></a>8. for…of循环</h4><p>可循环数组和对象，推荐用于遍历数组。</p>
-<h6 id="for…of提供了三个新方法："><a href="#for…of提供了三个新方法：" class="headerlink" title="for…of提供了三个新方法："></a>for…of提供了三个新方法：</h6><ol>
-<li>key()是对键名的遍历；</li>
-<li>value()是对键值的遍历；</li>
-<li>entries()是对键值对的遍历；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let arr = [&apos;科大讯飞&apos;, &apos;政法BG&apos;, &apos;前端开发&apos;];</span><br><span class="line">for (let item of arr) &#123;  </span><br><span class="line">  console.log(item); //  科大讯飞  政法BG  前端开发</span><br><span class="line">&#125;</span><br><span class="line">// 输出数组索引</span><br><span class="line">for (let item of arr.keys()) &#123;  </span><br><span class="line">  console.log(item);  // 0 1 2</span><br><span class="line">&#125;</span><br><span class="line">// 输出内容和索引</span><br><span class="line">for (let [item, val] of arr.entries()) &#123;  </span><br><span class="line">  console.log(item + &apos;:&apos; + val); //  0:科大讯飞  1：政法BG  2：前端开发</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>forEach、map、filter、reduce、every、some 都会有 break 和 continue 不生效的问题，因为是在function中，但function解决了闭包陷阱的问题；要使用 break、continue 可以使用 for、for…in、for…of、while。</p>
-<h2 id="foreach（）和map（）的区别"><a href="#foreach（）和map（）的区别" class="headerlink" title="foreach（）和map（）的区别"></a>foreach（）和map（）的区别</h2><ol>
-<li>forEach没有返回值；不会改变原数组的值。</li>
-<li>map会返回回调函数返回的值的集合,不会改变原数组的值。</li>
-<li>map的执行速度会比foreach更快</li>
-<li>forEach()允许callback更改原始数组的元素。map()返回新的数组。</li>
-</ol>
-<h4 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h4><p>forEach适合于你并不打算改变数据的时候，而只是想用数据做一些事情 – 比如存入数据库或则打印出来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;];</span><br><span class="line">arr.forEach((letter) =&gt; &#123;</span><br><span class="line">    console.log(letter);</span><br><span class="line">&#125;);</span><br><span class="line">// a</span><br><span class="line">// b</span><br><span class="line">// c</span><br><span class="line">// d</span><br></pre></td></tr></table></figure>
-
-<p>map()适用于你要改变数据值的时候。不仅仅在于它更快，而且返回一个新的数组。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1, 2, 3, 4, 5];</span><br><span class="line">let arr2 = arr.map(num =&gt; num * 2).filter(num =&gt; num &gt; 5);</span><br><span class="line">// arr2 = [6, 8, 10]</span><br></pre></td></tr></table></figure>
+        <h2 id="foreach无法终止遍历："><a href="#foreach无法终止遍历：" class="headerlink" title="foreach无法终止遍历："></a>foreach无法终止遍历：</h2><p>foreach 正常不可以终端遍历过程。可以抛除一个异常终止循环。用some 和 every 可以轻松实现。<br>
+        
+          <a class="article-more-a" href="/2019/08/29/js数组/#more">more >></a>
+        
       
 
       
@@ -928,6 +888,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -944,15 +908,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">微信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
+                <a href="javascript:void(0)" class="js-tag color3">微信</a>
               </li>
             
             <div class="clearfix"></div>
