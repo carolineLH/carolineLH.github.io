@@ -93,7 +93,7 @@ export default {
 
 #### 中间件目录：
 middleware 目录用于存放应用的中间件。
-* 中间件允许您定义一个自定义函数运行在一个页面或一组页面渲染之前。
+* 中间件允许您定义一个自定义函数运行在一个页面或一组页面渲染之前。(中间件可以使您自定义的函数在渲染页面之前运行。)
 * 每一个中间件应放置在 middleware/ 目录。文件名的名称将成为中间件名称(middleware/auth.js将成为 auth 中间件)。
 一个中间件接收 context 作为第一个参数：
 ```
@@ -149,4 +149,46 @@ asyncData方法会在组件（限于页面组件）每次加载之前被调用�
 #### 关于nuxt中的vuex：
 nuxt中的vuex是客户端和服务端共享的，里面的资源都是在客户端和服务端共享的。
 
+#### 重要理解的点：
+* nuxt里面创建即配置：
+例如，我们再nuxt-link中我们使用了to跳转到注册页面"/register"，只需要创建一个register页面就可以，也不用配置路由。
+*  rout-link、a标签、nuxt-link实现的其实都是a标签。
+*  package-lock.json的作用：
+其实用一句话来概括很简单，就是锁定安装时的包的版本号，并且需要上传到git，以保证其他人在npm install时大家的依赖能保证一致。
 
+根据官方文档，这个package-lock.json 是在 `npm install`时候生成一份文件，用以记录当前状态下实际安装的各个npm package的具体来源和版本号。
+#### 什么叫ssr？ssr意义是什么？
+ssr意为Server Side Rendering（服务端渲染），目的是为了解决单页面应用的SEO的问题，对于一般网站影响不大，但对于论坛类，内容类网站来说是致命的。搜索引擎无法抓取页面相关内容，也就是用户搜不到此网站的相关信息。
+
+抓取页面的前提是html含有被抓取内容，我们不妨看看基于vue的线上SPA页面请求时返回了什么:
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>iDareX敢玩</title>
+    <meta name=keywords content="敢玩, iDareX, 敢玩TV, 敢玩活动, 敢玩自频道, 敢玩主题, 户外, 极限运动, 周边游, 探险, 时尚, 新潮, 运动视频, 体育, 新奇, 生活方式, 刺激, 惊险, 户外装备, 达人, 90后">
+    <meta name=description content=自2014年10月创办以来，敢玩专注于极限户外和娱乐体育。从顽童、玩具、玩法三个方面，产出更专注于‘玩’的内容，已打造了一系列深受喜爱的娱乐体育真人秀和引爆网络的运动视频。!>
+    <meta name=renderer content=webkit>
+    <meta name=force-rendering content=webkit>
+    <meta name=viewport content="width=1140">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <link rel="shortcut icon" href=static/favicon.ico type=image/x-icon>
+    <link href=/static/css/app.eef5b81a3d1bee5054a791f452a34147.css rel=stylesheet>
+  </head>
+  <body>
+    <div id=app></div>
+    <script type=text/javascript src=/static/js/manifest.6d0adb8f2d8884be1c03.js></script>
+    <script type=text/javascript src=/static/js/vendor.ec1cc90c9847c434ba7d.js></script>
+    <script type=text/javascript src=/static/js/app.d7fd10ae7e4a68598037.js></script>
+  </body>
+</html>
+
+```
+我们的组件都是这个 html 文件返回后再渲染到 <div id=app></div> 里的。这就合理的解释了 SEO 缺陷的原因。(网页是通过服务端渲染生成后输出给客户端。 )
+
+###### 另外 SSR 还适用以下场景
+
+* 客户端的网络比较慢
+
+* 客户端运行在老的或者直接没有 JavaScript 引擎上

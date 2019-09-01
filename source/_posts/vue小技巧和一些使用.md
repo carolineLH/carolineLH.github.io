@@ -93,3 +93,8 @@ v-for的优先级比v-if的更高，如果他们处于同一节点的话，那�
 箭头函数绑定了父级作用域的上下文，this将不会按照期望指向Vue实例。
 也就是说，你不能使用this来访问你组件中的data数据以及method方法了。
 this将会指向undefined。 
+#### 6. vue中template？
+* HTML中内容模板(template)元素是一种用于保存客户端内容机制，改内容再加载页面时不会呈现，但随后可以在运行时使用JavaScript实例化。
+* template本身没有很特别的意义。
+* vue组件中只能有一个根元素，就是说第一个<template></template>下面必须只有一个根元素,不包括template本身。
+* vue中可以使用template来循环模块。
