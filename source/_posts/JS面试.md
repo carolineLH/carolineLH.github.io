@@ -39,22 +39,42 @@ new Boolean(false)是布尔值的包装对象    typeof (new Boolean(false))  //
 
 new Boolean()出来的一定是个对象，但是Boolean(value)的值是要看所传递的参数value是不是0,-0,null,undefined,'',NaN这六个，只要不是这六个就是true。
 
-## 2. 类的优先级：
-* 内联样式，优先级1000
+## 2. javaScript有哪几种方法定义函数：
+1. 函数声明表达式；
+```
+function calcRectArea(width, height) {
+  return width * height;
+}
 
-* id选择器，优先级100
+console.log(calcRectArea(5, 6));
+```
+2. function操作符
+```
+var getRectArea = function(width, height) {
+    return width * height;
+}
 
-* 类和伪类，优先级10
+console.log(getRectArea(3,4));
+```
+3. Function构造函数：
+```
+var sum = new Function('a', 'b', 'return a + b');
 
-* 元素选择器，优先级1
+console.log(sum(2, 6));
+```
+4. ES6: arrow function:
+```
+var materials = [
+  'Hydrogen',
+  'Helium',
+  'Lithium',
+  'Beryllium'
+];
 
-* 通配选择器，优先级0
+console.log(materials.map(material => material.length));
+```
 
-* 继承的样式没有优先级
-
-* 当选择器包含多种选择器时，需要将多种选择器的优先级相加然后进行比较。但是注意，选择器的优先级计算不会超过他的最大数量级，如果选择器的优先级一样，则使用靠后的样式。
-
-* 并集选择器的优先级时单独计算。
-
-* 可以在样式的最后添加一个!important，则此时该样式会获得一个最高的一个优先级，将会超过所有的样式甚至超过内联样式，所以在开发中尽量避免使用。
-
+## 3. javascript 有哪些方法定义对象
+1. 对象字面量： var obj = {};
+2. 构造函数： var obj = new Object();
+3. Object.create(): var obj = Object.create(Object.prototype);
