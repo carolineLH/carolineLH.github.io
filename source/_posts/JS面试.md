@@ -151,3 +151,12 @@ undefined === undefined  //true
 2. 此时如果有一个操作数是字符串，其他的操作数都转换为字符串并执行连接
 3. 否则：所有操作数都转换为数字并执行加法
 
+## 11. 函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组
+* arguments所有函数中都包含的一个局部变量，是一个类数组对象，对应函数调用时的实参。如果函数定义同名参数会在调用时覆盖默认对象。
+* arguments[index]分别对应函数调用时的实参，并且通过arguments修改实参会同时修改实参。
+* arguments.length 为实参的个数（Function.length 表示形参长度）。
+* arguments.callee 为当前正在执行的函数本身，使用这个属性进行递归调用时需注意 this 的变化。
+* arguments.caller 为调用当前函数的函数（已被遗弃）
+* 转换为数组：var args = Array.prototype.slice.call(arguments, 0);
+
+## js继承
