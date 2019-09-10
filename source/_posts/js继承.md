@@ -10,7 +10,7 @@ tags:
 ---
 
 ## 一、原型链继承
-
+ <!--more-->
 ```
 function Parent(name) {
   this.name = name;
