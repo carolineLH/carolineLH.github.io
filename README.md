@@ -28,3 +28,5 @@ issue中也有一些笔记。
 [vue小技巧和一些使用](https://carolinelh.github.io/2019/08/05/vue%E5%B0%8F%E6%8A%80%E5%B7%A7%E5%92%8C%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8/)<br>
 [vue 实现一个倒计时功能](https://carolinelh.github.io/2019/08/05/vue-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%80%92%E8%AE%A1%E6%97%B6%E5%8A%9F%E8%83%BD/)<br>
 
+## 其他 <br>
+[nuxt学习](https://carolinelh.github.io/2019/08/25/nuxt%E5%AD%A6%E4%B9%A0/)
