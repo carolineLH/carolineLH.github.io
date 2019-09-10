@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>vue小技巧和一些使用 | caroline&#39;s blog</title>
+  <title>Promise | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vue中的小技巧：1. 组件style的scoped:当style标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada. 问题：在组件中用js动态创建的dom，css中添加的样式不生效？答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识">
-<meta name="keywords" content="vue">
+  <meta name="description" content="相信大家一定很熟悉Promise这个单词了吧，就算你不是很理解它，应该也挺嫌弃它的吧。毕竟面试官都喜欢问：你了解Promise吗？能不能说一下Promise….. 那我们就来彻底的认识一下Promise吧。">
+<meta name="keywords" content="面试,ES6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue小技巧和一些使用">
-<meta property="og:url" content="http://yoursite.com/2019/08/05/vue小技巧和一些使用/index.html">
+<meta property="og:title" content="Promise">
+<meta property="og:url" content="http://yoursite.com/2019/09/09/Promise/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="vue中的小技巧：1. 组件style的scoped:当style标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada. 问题：在组件中用js动态创建的dom，css中添加的样式不生效？答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识">
+<meta property="og:description" content="相信大家一定很熟悉Promise这个单词了吧，就算你不是很理解它，应该也挺嫌弃它的吧。毕竟面试官都喜欢问：你了解Promise吗？能不能说一下Promise….. 那我们就来彻底的认识一下Promise吧。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-02T03:46:43.328Z">
+<meta property="og:updated_time" content="2019-09-10T02:17:59.186Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue小技巧和一些使用">
-<meta name="twitter:description" content="vue中的小技巧：1. 组件style的scoped:当style标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada. 问题：在组件中用js动态创建的dom，css中添加的样式不生效？答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识">
+<meta name="twitter:title" content="Promise">
+<meta name="twitter:description" content="相信大家一定很熟悉Promise这个单词了吧，就算你不是很理解它，应该也挺嫌弃它的吧。毕竟面试官都喜欢问：你了解Promise吗？能不能说一下Promise….. 那我们就来彻底的认识一下Promise吧。">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -149,66 +149,129 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue小技巧和一些使用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Promise" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      vue小技巧和一些使用
+      Promise
     </h1>
   
 
         
-        <a href="/2019/08/05/vue小技巧和一些使用/" class="archive-article-date">
-  	<time datetime="2019-08-05T10:17:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
+        <a href="/2019/09/09/Promise/" class="archive-article-date">
+  	<time datetime="2019-09-09T14:04:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="vue中的小技巧："><a href="#vue中的小技巧：" class="headerlink" title="vue中的小技巧："></a>vue中的小技巧：</h2><h4 id="1-组件style的scoped"><a href="#1-组件style的scoped" class="headerlink" title="1. 组件style的scoped:"></a>1. 组件style的scoped:</h4><p>当style标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada.</p>
-<p>问题：在组件中用js动态创建的dom，css中添加的样式不生效？<br>答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识对不上，所以css不在dom上面生效。</p>
-<a id="more"></a>
-<h4 id="2-Vue-数组-对象更新-视图不更新："><a href="#2-Vue-数组-对象更新-视图不更新：" class="headerlink" title="2. Vue 数组/对象更新 视图不更新："></a>2. Vue 数组/对象更新 视图不更新：</h4><p>很多时候，我们会这样操作数组：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">data() &#123; // data数据</span><br><span class="line">    return &#123;</span><br><span class="line">      arr: [1,2,3],</span><br><span class="line">      obj:&#123;</span><br><span class="line">          a: 1,</span><br><span class="line">          b: 2</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">// 数据更新 数组视图不更新</span><br><span class="line">this.arr[0] = &apos;OBKoro1&apos;;</span><br><span class="line">this.arr.length = 1;</span><br><span class="line">console.log(arr);// [&apos;OBKoro1&apos;];</span><br><span class="line">// 数据更新 对象视图不更新</span><br><span class="line">this.obj.c = &apos;OBKoro1&apos;;</span><br><span class="line">delete this.obj.a;</span><br><span class="line">console.log(obj);  // &#123;b:2,c:&apos;OBKoro1&apos;&#125;</span><br></pre></td></tr></table></figure>
+        <p>相信大家一定很熟悉Promise这个单词了吧，就算你不是很理解它，应该也挺嫌弃它的吧。毕竟面试官都喜欢问：你了解Promise吗？能不能说一下Promise…..</p>
+<p>那我们就来彻底的认识一下Promise吧。<br> <a id="more"></a></p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在Promise之前，在js中的异步编程都是采用回调函数和事件的方式。比如当我们要处理一个异步网络请求，大概是这样处理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 请求 代表一个异步网络调用</span><br><span class="line">// 请求结果 代表网络请求的相应。</span><br><span class="line"></span><br><span class="line">请求1(function(请求结果1)&#123;</span><br><span class="line">    处理请求结果1</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>由于js的限制，Vue不能检测以上数组的变动，以及对象的添加/删除，很多人会因为像上面的操作，出现视图没有更新的问题。</p>
-<p>解决方式：</p>
-<ol>
-<li><p>this.$set(你要改变的数组/对象，你要改变的位置/key，你要改成什么value)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">this.$set(this.arr, 0, &quot;OBKoro1&quot;); // 改变数组</span><br><span class="line">this.$set(this.obj, &quot;c&quot;, &quot;OBKoro1&quot;); // 改变对象</span><br></pre></td></tr></table></figure>
+<p>这样处理是没毛病的。<br>但是，现在需求变了，我们需要根据第一次网络请求的结果，再去执行第二个网络请求，实现代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">请求1(function(请求结果1)&#123;</span><br><span class="line">    请求2(function(请求结果2)&#123;</span><br><span class="line">        处理请求结果2</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>目前这种情况也是可以接受的，但是需求越来越复杂的时候，很容易出现callback hell(回调地狱)，使得代码很难被理解和维护。<br>就会出现下面的场景：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">请求1(function(请求结果1)&#123;</span><br><span class="line">    请求2(function(请求结果2)&#123;</span><br><span class="line">        请求3(function(请求结果3)&#123;</span><br><span class="line">            请求4(function(请求结果4)&#123;</span><br><span class="line">                请求5(function(请求结果5)&#123;</span><br><span class="line">                    请求6(function(请求结果3)&#123;</span><br><span class="line">                        ...</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>是不是很吓人。</p>
+<h6 id="回调地狱带来的负面作用有以下几点："><a href="#回调地狱带来的负面作用有以下几点：" class="headerlink" title="回调地狱带来的负面作用有以下几点："></a>回调地狱带来的负面作用有以下几点：</h6><ul>
+<li>代码臃肿</li>
+<li>可读性差</li>
+<li>耦合度过高，可维护性差</li>
+<li>代码复用性差</li>
+<li>容易滋生bug</li>
+<li>只能在回调里处理异常</li>
+</ul>
+<p>为了改善回调地狱的问题，Promise就出现了。</p>
+<h2 id="Promise的含义"><a href="#Promise的含义" class="headerlink" title="Promise的含义"></a>Promise的含义</h2><p>promise是异步编程的一种解决办法，比传统的回调函数和事件更合理更强大。它由社区最早提出和实现，ES6将其写进语言标准，统一了用法，原声提供了promise对象。</p>
+<p>所谓promise，简单说是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果，从语法上说，promise是一个对象，从它可以获取异步操作的消息，promise提供了统一的API，各种异步操作都可以用同样的方法进行处理。</p>
+<h4 id="Promise理解"><a href="#Promise理解" class="headerlink" title="Promise理解"></a>Promise理解</h4><p>其实通俗一点来讲，promise就是可以让我们用同步的思想来实现异步编程。</p>
+<p>对于回调地狱一层层嵌套的回调函数，我们希望的应该是这种写代码的方式吧：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let 请求结果1 = 请求1();</span><br><span class="line">let 请求结果2 = 请求2(请求结果1); </span><br><span class="line">let 请求结果3 = 请求3(请求结果2); </span><br><span class="line">let 请求结果4 = 请求2(请求结果3); </span><br><span class="line">let 请求结果5 = 请求3(请求结果4);</span><br></pre></td></tr></table></figure>
+
+<p>当然这是我们希望的，通过promise来编写就是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">new Promise(请求1)</span><br><span class="line">    .then(请求2(请求结果1))</span><br><span class="line">    .then(请求3(请求结果2))</span><br><span class="line">    .then(请求4(请求结果3))</span><br><span class="line">    .then(请求5(请求结果4))</span><br><span class="line">    .catch(处理异常(异常信息))</span><br></pre></td></tr></table></figure>
+
+<p>是不是符合我们的预期。<br>这些都只是伪代码，为了让我们更好的理解写的。</p>
+<h2 id="Promise对象的特点："><a href="#Promise对象的特点：" class="headerlink" title="Promise对象的特点："></a>Promise对象的特点：</h2><ol>
+<li><p>对象的状态不受外界影响，promise对象代表一个异步操作，有三种状态，pending（进行中）、fulfilled（已成功）、rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态，这也是promise这个名字的由来“承诺”；</p>
 </li>
-<li><p>数组原生方法触发视图更新：<br>Vue可以监测到数组变化的，数组原生方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">splice()、push()、pop()、shift()、unshift()、sort()、reverse()</span><br></pre></td></tr></table></figure>
-
+<li><p>一旦状态改变就不会再变，任何时候都可以得到这个结果，promise对象的状态改变，只有两种可能：从pending变为fulfilled，从pending变为rejected。这时就称为resolved（已定型）。如果改变已经发生了，你再对promise对象添加回调函数，也会立即得到这个结果，这与事件（event）完全不同，事件的特点是：如果你错过了它，再去监听是得不到结果的。</p>
+</li>
+<li><p>Promise也有一些缺点。首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</p>
 </li>
 </ol>
-<p>意思是使用这些方法不用我们再进行额外的操作，视图自动进行更新。</p>
-<h4 id="3-vue-filters过滤器的使用："><a href="#3-vue-filters过滤器的使用：" class="headerlink" title="3. vue filters过滤器的使用："></a>3. vue filters过滤器的使用：</h4><p>过滤器，通常用于后台管理系统，或者一些约定类型，过滤。</p>
-<p>在html模板中的两种用法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在双花括号中 --&gt;</span><br><span class="line">&#123;&#123; message | filterTest &#125;&#125;</span><br><span class="line">&lt;!-- 在 `v-bind` 中 --&gt;</span><br><span class="line">&lt;div :id=&quot;message | filterTest&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="promise用法："><a href="#promise用法：" class="headerlink" title="promise用法："></a>promise用法：</h2><p>promise对象是一个构造函数，用来生成promise实例;<br>创建一个promise对象实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var promise = new Promise( function( resolve, reject) &#123;</span><br><span class="line">       //some code </span><br><span class="line">      if(//异步操作成功)&#123;</span><br><span class="line">        resolve(value);</span><br><span class="line">         &#125;else&#123;</span><br><span class="line">         reject(error);</span><br><span class="line">         &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>在组建script中的用法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;    </span><br><span class="line">     data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">         message:1   </span><br><span class="line">        &#125;</span><br><span class="line">     &#125;,</span><br><span class="line">    filters: &#123; // 一点是返回某个结果，将参数经过过滤器后返回你需要的格式</span><br><span class="line">        filterTest(value) &#123;</span><br><span class="line">            // value在这里是message的值</span><br><span class="line">            if(value===1)&#123;</span><br><span class="line">                return &apos;最后输出这个值&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Promise构造函数接收一个函数作为参数，该函数的两个参数分别是resolve和reject，他们是两个函数，由Javascript引擎提供，不用自己部署。</p>
+<p>resolve函数的作用是，将promise对象的状态从“pending”变为‘’resolved‘’，在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；</p>
+<p>reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
+<p>promise实例生成以后，可以用then方法分别指定resolved状态和rejected状态的回调函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">promise.then(</span><br><span class="line">    function(value)&#123;</span><br><span class="line">   //success</span><br><span class="line">   &#125;,</span><br><span class="line">    function(error)&#123;</span><br><span class="line">   //failure</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-列表渲染相关："><a href="#4-列表渲染相关：" class="headerlink" title="4. 列表渲染相关："></a>4. 列表渲染相关：</h4><h6 id="v-if尽量不要与v-for在同一节点使用"><a href="#v-if尽量不要与v-for在同一节点使用" class="headerlink" title="v-if尽量不要与v-for在同一节点使用:"></a>v-if尽量不要与v-for在同一节点使用:</h6><p>v-for的优先级比v-if的更高，如果他们处于同一节点的话，那么每一个循环都会执行一遍v-if。如果是想要根据循环中的每一项的数据来判断是都渲染，那可以那样做。</p>
-<h6 id="如果你想要根据某些条件跳过循环，而又跟将要渲染的每一项数据没有关系的话，你可以将v-if放在v-for的父节点："><a href="#如果你想要根据某些条件跳过循环，而又跟将要渲染的每一项数据没有关系的话，你可以将v-if放在v-for的父节点：" class="headerlink" title="如果你想要根据某些条件跳过循环，而又跟将要渲染的每一项数据没有关系的话，你可以将v-if放在v-for的父节点："></a>如果你想要根据某些条件跳过循环，而又跟将要渲染的每一项数据没有关系的话，你可以将v-if放在v-for的父节点：</h6><h4 id="5-这些情况下不要使用箭头函数："><a href="#5-这些情况下不要使用箭头函数：" class="headerlink" title="5. 这些情况下不要使用箭头函数："></a>5. 这些情况下不要使用箭头函数：</h4><ul>
-<li>不应该使用剪头函数来定义一个生命周期方法；</li>
-<li>不应该使用箭头函数来定义method函数；</li>
-<li>不应该使用箭头函数来定义计算属性函数；</li>
-<li>不应该对data属性使用箭头函数；</li>
-<li>不应该使用箭头函数来定义watche函数</li>
+<p>then方法可以接受连个回调函数作为参数，第一个回调函数是promise对象的状态变为resolved时调用，第二个回调函数是promise对象的状态变为rejected时调用，其中，第二个函数是可选的，不一定要提供，这两个函数都接受promise对象传出的值作为参数；</p>
+<p>promise对象的简单例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function timeOut (ms) &#123;</span><br><span class="line">      return new Promise(function(resolve,reject) &#123;</span><br><span class="line">                 return    setTimeout(resolve,ms,&quot;done&quot;);</span><br><span class="line">       &#125;)</span><br><span class="line">&#125;</span><br><span class="line">timeOut(3000).then( function(value)&#123;</span><br><span class="line">console.log(value);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>timeOut方法返回一个promise实例，表示一段时间以后才会发生的结果，过了指定的时间（ms）以后，promise实例的状态变为resolved，就会触发then方法绑定的回调函数</p>
+<p>Promise新建后就会立即执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let promise = new Promise(function(resolve, reject) &#123;</span><br><span class="line">  console.log(&apos;Promise&apos;);</span><br><span class="line">  resolve();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">promise.then(function() &#123;</span><br><span class="line">  console.log(&apos;resolved.&apos;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(&apos;Hi!&apos;);</span><br><span class="line"></span><br><span class="line">// Promise</span><br><span class="line">// Hi!</span><br><span class="line">// resolved</span><br></pre></td></tr></table></figure>
+
+<p>Promise 新建后立即执行，所以首先输出的是Promise。然后，then方法指定的回调函数，将在当前脚本所有同步任务执行完才会执行，所以resolved最后输出。</p>
+<h2 id="Promsie-与事件循环"><a href="#Promsie-与事件循环" class="headerlink" title="Promsie 与事件循环"></a>Promsie 与事件循环</h2><p>Promise在初始化时，传入的函数是同步执行的，然后注册then回调。注册完之后，继续往下执行同步代码，在这之前，then中回调不会执行。同步代码块执行完毕后，才会在事件循环中检测是否有可用的 promise 回调，如果有，那么执行，如果没有，继续下一个事件循环。</p>
+<p>关于 Promise 在事件循环中还有一个 微任务的概念（microtask），感兴趣的话可以看这篇<a href="https://juejin.im/post/5af1413ef265da0b851cce80" target="_blank" rel="noopener">关于nodejs 时间循环</a>的文章 剖析nodejs的事件循环，虽然和浏览器端有些不同，但是Promise 微任务的执行时机相差不大。</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>Promise 的常用 API 如下：</p>
+<h4 id="Promise-resolve-value"><a href="#Promise-resolve-value" class="headerlink" title="Promise.resolve(value)"></a>Promise.resolve(value)</h4><p>类方法，该方法返回一个以 value 值解析后的 Promise 对象<br>1、如果这个值是个 thenable（即带有 then 方法），返回的 Promise 对象会“跟随”这个 thenable 的对象，采用它的最终状态（指 resolved/rejected/pending/settled）<br>2、如果传入的 value 本身就是 Promise 对象，则该对象作为 Promise.resolve 方法的返回值返回。<br>3、其他情况以该值为成功状态返回一个 Promise 对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//如果传入的 value 本身就是 Promise 对象，则该对象作为 Promise.resolve 方法的返回值返回。  </span><br><span class="line">function fn(resolve)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        resolve(123);</span><br><span class="line">    &#125;,3000);</span><br><span class="line">&#125;</span><br><span class="line">let p0 = new Promise(fn);</span><br><span class="line">let p1 = Promise.resolve(p0);</span><br><span class="line">// 返回为true，返回的 Promise 即是 入参的 Promise 对象。</span><br><span class="line">console.log(p0 === p1);</span><br></pre></td></tr></table></figure>
+
+<p>传入 thenable 对象，返回 Promise 对象跟随 thenable 对象的最终状态。<br>jQuery.ajax，它的返回值就是 thenable 对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//如果传入的 value 本身就是 thenable 对象，返回的 promise 对象会跟随 thenable 对象的状态。</span><br><span class="line">let promise = Promise.resolve($.ajax(&apos;/test/test.json&apos;));// =&gt; promise对象</span><br><span class="line">promise.then(function(value)&#123;</span><br><span class="line">   console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Promise-reject"><a href="#Promise-reject" class="headerlink" title="Promise.reject"></a>Promise.reject</h4><p>类方法，且与 resolve 唯一的不同是，返回的 promise 对象的状态为 rejected。</p>
+<h4 id="Promise-prototype-then"><a href="#Promise-prototype-then" class="headerlink" title="Promise.prototype.then"></a>Promise.prototype.then</h4><p>Promise实例具有then方法，也就是说,then方法定义在原型对象Promise.prototype上的。他的作用是为Promise实例添加状态改变时的回调函数。前面说过，then方法的第一个参数是resolved状态的回调函数 ,第二个参数是rejected状态的回调函数。<br>then方法返回的是一个新的Promise实例（不是原来那个Promise实例），因此可以采用链式写法，即then方法后面再调用另一个then方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">getJSON(&quot;posts.json&quot;).then(function (json)&#123;</span><br><span class="line">           return post.json;</span><br><span class="line">&#125;).then(function(post)&#123;</span><br><span class="line">           //...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>依次指定了两个回调函数，第一个回到函数完成以后会将返回结果作为参数，传入第二个回调函数。</p>
+<h4 id="Promise-prototype-catch"><a href="#Promise-prototype-catch" class="headerlink" title="Promise.prototype.catch"></a>Promise.prototype.catch</h4><p>实例方法，捕获异常，函数形式：fn(err){}, err 是 catch 注册 之前的回调抛出的异常信息。</p>
+<h4 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race"></a>Promise.race</h4><p>类方法，多个 Promise 任务同时执行，返回最先执行结束的 Promise 任务的结果，不管这个 Promise 结果是成功还是失败。 。</p>
+<h4 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h4><p>类方法，多个 Promise 任务同时执行。<br>如果全部成功执行，则以数组的方式返回所有 Promise 任务的执行结果。 如果有一个 Promise 任务 rejected，则只返回 rejected 任务的结果。</p>
+<h2 id="ES6-实现自己的-Promise-手写promise"><a href="#ES6-实现自己的-Promise-手写promise" class="headerlink" title="ES6 实现自己的 Promise(手写promise)"></a>ES6 实现自己的 Promise(手写promise)</h2><p>可以参考这篇<a href="https://github.com/Jocs/jocs.github.io/issues/7" target="_blank" rel="noopener">文章</a></p>
+<h2 id="Promise的使用总结"><a href="#Promise的使用总结" class="headerlink" title="Promise的使用总结"></a>Promise的使用总结</h2><ul>
+<li><p>首先初始化一个 Promise 对象，可以通过两种方式创建， 这两种方式都会返回一个 Promise 对象。</p>
+<ol>
+<li>new Promise(fn)</li>
+<li>Promise.resolve(fn)</li>
+</ol>
+</li>
+<li><p>然后调用上一步返回的 promise 对象的 then 方法，注册回调函数。</p>
+<ol>
+<li>then 中的回调函数可以有一个参数，也可以不带参数。如果 then 中的回调函数依赖上一步的返回结果，那么要带上参数。比如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new Promise(fn)</span><br><span class="line">  .then(fn1(value）&#123;</span><br><span class="line">      //处理value</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>最后注册 catch 异常处理函数，处理前面回调中可能抛出的异常.</p>
+</li>
 </ul>
-<p>箭头函数绑定了父级作用域的上下文，this将不会按照期望指向Vue实例。<br>也就是说，你不能使用this来访问你组件中的data数据以及method方法了。<br>this将会指向undefined。 </p>
-<h4 id="6-vue中template？"><a href="#6-vue中template？" class="headerlink" title="6. vue中template？"></a>6. vue中template？</h4><ul>
-<li>HTML中内容模板(template)元素是一种用于保存客户端内容机制，改内容再加载页面时不会呈现，但随后可以在运行时使用JavaScript实例化。</li>
-<li>template本身没有很特别的意义。</li>
-<li>vue组件中只能有一个根元素，就是说第一个<template></template>下面必须只有一个根元素,不包括template本身。</li>
-<li>vue中可以使用template来循环模块。</li>
-</ul>
+<h4 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h4><p>比如你要买菜做饭送给孩子。<br>所以你需要做以下几件事情：</p>
+<ol>
+<li>你先去超市买菜。</li>
+<li>用超市买回来的菜做饭。</li>
+<li>将做好的饭菜送到学校</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 先去超市买菜</span><br><span class="line">new Promise(买菜)</span><br><span class="line">//用买好的菜做饭</span><br><span class="line">.then((买好的菜)=&gt;&#123;</span><br><span class="line">    return new Promise(做饭);</span><br><span class="line">&#125;)</span><br><span class="line">//把做好的饭送到学校</span><br><span class="line">.then((做好的饭)=&gt;&#123;</span><br><span class="line">    return new Promise(送饭);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h6 id="请一定要谨记：如果我们的后续任务是异步任务的话，必须return-一个-新的-promise-对象。如果后续任务是同步任务，只需-return-一个结果即可。"><a href="#请一定要谨记：如果我们的后续任务是异步任务的话，必须return-一个-新的-promise-对象。如果后续任务是同步任务，只需-return-一个结果即可。" class="headerlink" title="请一定要谨记：如果我们的后续任务是异步任务的话，必须return 一个 新的 promise 对象。如果后续任务是同步任务，只需 return 一个结果即可。"></a>请一定要谨记：如果我们的后续任务是异步任务的话，必须return 一个 新的 promise 对象。如果后续任务是同步任务，只需 return 一个结果即可。</h6><h2 id="Promise-的升级"><a href="#Promise-的升级" class="headerlink" title="Promise 的升级"></a>Promise 的升级</h2><p>ES6 出现了 generator 以及 async/await 语法，使异步处理更加接近同步代码写法，可读性更好，同时异常捕获和同步代码的书写趋于一致。<br>上面的列子可以写成这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(async ()=&gt;&#123;</span><br><span class="line">    let 蔬菜 = await 买菜();</span><br><span class="line">    let 饭菜 = await 做饭(蔬菜);</span><br><span class="line">    let 送饭结果 = await 送饭(饭菜);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>需要记住的是，async/await也是基于 Promise 实现的，所以，我们仍然有必要深入理解 Promise 的用法。</p>
 
       
 
@@ -222,7 +285,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
         		</li>
       		
 		</ul>
@@ -234,7 +301,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        			<a href="/categories/ES6//" class="article-tag-list-link color4">ES6</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ES6/面试//" class="article-tag-list-link color3">面试</a>
         		</li>
       		
 		</ul>
@@ -289,7 +360,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/05/vue小技巧和一些使用/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/09/Promise/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -303,18 +374,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/25/nuxt学习/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          nuxt学习
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/05/vue-实现一个倒计时功能/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vue 实现一个倒计时功能</div>
+    <a href="/2019/09/03/title/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">-webkit-overflow-scrolling:touch带来的问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -341,7 +403,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue中的小技巧："><span class="toc-number">1.</span> <span class="toc-text">vue中的小技巧：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-组件style的scoped"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 组件style的scoped:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Vue-数组-对象更新-视图不更新："><span class="toc-number">1.0.2.</span> <span class="toc-text">2. Vue 数组/对象更新 视图不更新：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-vue-filters过滤器的使用："><span class="toc-number">1.0.3.</span> <span class="toc-text">3. vue filters过滤器的使用：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-列表渲染相关："><span class="toc-number">1.0.4.</span> <span class="toc-text">4. 列表渲染相关：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#v-if尽量不要与v-for在同一节点使用"><span class="toc-number">1.0.4.0.1.</span> <span class="toc-text">v-if尽量不要与v-for在同一节点使用:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#如果你想要根据某些条件跳过循环，而又跟将要渲染的每一项数据没有关系的话，你可以将v-if放在v-for的父节点："><span class="toc-number">1.0.4.0.2.</span> <span class="toc-text">如果你想要根据某些条件跳过循环，而又跟将要渲染的每一项数据没有关系的话，你可以将v-if放在v-for的父节点：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-这些情况下不要使用箭头函数："><span class="toc-number">1.0.5.</span> <span class="toc-text">5. 这些情况下不要使用箭头函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-vue中template？"><span class="toc-number">1.0.6.</span> <span class="toc-text">6. vue中template？</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#回调地狱带来的负面作用有以下几点："><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">回调地狱带来的负面作用有以下几点：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise的含义"><span class="toc-number">2.</span> <span class="toc-text">Promise的含义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise理解"><span class="toc-number">2.0.1.</span> <span class="toc-text">Promise理解</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise对象的特点："><span class="toc-number">3.</span> <span class="toc-text">Promise对象的特点：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#promise用法："><span class="toc-number">4.</span> <span class="toc-text">promise用法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promsie-与事件循环"><span class="toc-number">5.</span> <span class="toc-text">Promsie 与事件循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">6.</span> <span class="toc-text">API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-resolve-value"><span class="toc-number">6.0.1.</span> <span class="toc-text">Promise.resolve(value)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-reject"><span class="toc-number">6.0.2.</span> <span class="toc-text">Promise.reject</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-prototype-then"><span class="toc-number">6.0.3.</span> <span class="toc-text">Promise.prototype.then</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-prototype-catch"><span class="toc-number">6.0.4.</span> <span class="toc-text">Promise.prototype.catch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-race"><span class="toc-number">6.0.5.</span> <span class="toc-text">Promise.race</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-all"><span class="toc-number">6.0.6.</span> <span class="toc-text">Promise.all</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6-实现自己的-Promise-手写promise"><span class="toc-number">7.</span> <span class="toc-text">ES6 实现自己的 Promise(手写promise)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise的使用总结"><span class="toc-number">8.</span> <span class="toc-text">Promise的使用总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例子："><span class="toc-number">8.0.1.</span> <span class="toc-text">例子：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#请一定要谨记：如果我们的后续任务是异步任务的话，必须return-一个-新的-promise-对象。如果后续任务是同步任务，只需-return-一个结果即可。"><span class="toc-number">8.0.1.0.1.</span> <span class="toc-text">请一定要谨记：如果我们的后续任务是异步任务的话，必须return 一个 新的 promise 对象。如果后续任务是同步任务，只需 return 一个结果即可。</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-的升级"><span class="toc-number">9.</span> <span class="toc-text">Promise 的升级</span></a></li></ol>
                     </div>
                 </span>
             </div>

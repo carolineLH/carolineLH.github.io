@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="caroline&#39;s blog">
 <meta property="og:description" content="1. new Boolean(false)是真还是假？JavaScript的其他数据类型都可以转化成Boolean类型，但是注意">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-06T10:07:41.291Z">
+<meta property="og:updated_time" content="2019-09-10T02:02:52.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS面试">
 <meta name="twitter:description" content="1. new Boolean(false)是真还是假？JavaScript的其他数据类型都可以转化成Boolean类型，但是注意">
@@ -249,7 +249,15 @@
 <li>此时如果有一个操作数是字符串，其他的操作数都转换为字符串并执行连接</li>
 <li>否则：所有操作数都转换为数字并执行加法</li>
 </ol>
-
+<h2 id="11-函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组"><a href="#11-函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组" class="headerlink" title="11. 函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组"></a>11. 函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组</h2><ul>
+<li>arguments所有函数中都包含的一个局部变量，是一个类数组对象，对应函数调用时的实参。如果函数定义同名参数会在调用时覆盖默认对象。</li>
+<li>arguments[index]分别对应函数调用时的实参，并且通过arguments修改实参会同时修改实参。</li>
+<li>arguments.length 为实参的个数（Function.length 表示形参长度）。</li>
+<li>arguments.callee 为当前正在执行的函数本身，使用这个属性进行递归调用时需注意 this 的变化。</li>
+<li>arguments.caller 为调用当前函数的函数（已被遗弃）</li>
+<li>转换为数组：var args = Array.prototype.slice.call(arguments, 0);</li>
+</ul>
+<h2 id="js继承"><a href="#js继承" class="headerlink" title="js继承"></a>js继承</h2>
       
 
       
@@ -389,7 +397,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-new-Boolean-false-是真还是假？"><span class="toc-number">1.</span> <span class="toc-text">1. new Boolean(false)是真还是假？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#只有这几种类型会转化成false："><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">只有这几种类型会转化成false：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#其他的都会转化成true。空对象-，空数组-，负数，false的对象包装（值为-false-的-Boolean-对象）等等。"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">其他的都会转化成true。空对象{}，空数组[]，负数，false的对象包装（值为 false 的 Boolean 对象）等等。</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-if语句中条件的判断"><span class="toc-number">2.</span> <span class="toc-text">2. if语句中条件的判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-javaScript有哪几种方法定义函数："><span class="toc-number">3.</span> <span class="toc-text">3. javaScript有哪几种方法定义函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-javascript-有哪些方法定义对象"><span class="toc-number">4.</span> <span class="toc-text">4. javascript 有哪些方法定义对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-运算符判断相等的流程是怎样的"><span class="toc-number">5.</span> <span class="toc-text">5. ===运算符判断相等的流程是怎样的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-运算符判断相等的流程是怎样的"><span class="toc-number">6.</span> <span class="toc-text">6. ==运算符判断相等的流程是怎样的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-对象到字符串的转换步骤"><span class="toc-number">7.</span> <span class="toc-text">7. 对象到字符串的转换步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-对象到数字的转换步骤"><span class="toc-number">8.</span> <span class="toc-text">8. 对象到数字的转换步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-lt-gt-lt-gt-的比较规则"><span class="toc-number">9.</span> <span class="toc-text">9. &lt;,&gt;,&lt;=,&gt;=的比较规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-运算符工作流程"><span class="toc-number">10.</span> <span class="toc-text">10. +运算符工作流程</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-new-Boolean-false-是真还是假？"><span class="toc-number">1.</span> <span class="toc-text">1. new Boolean(false)是真还是假？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#只有这几种类型会转化成false："><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">只有这几种类型会转化成false：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#其他的都会转化成true。空对象-，空数组-，负数，false的对象包装（值为-false-的-Boolean-对象）等等。"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">其他的都会转化成true。空对象{}，空数组[]，负数，false的对象包装（值为 false 的 Boolean 对象）等等。</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-if语句中条件的判断"><span class="toc-number">2.</span> <span class="toc-text">2. if语句中条件的判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-javaScript有哪几种方法定义函数："><span class="toc-number">3.</span> <span class="toc-text">3. javaScript有哪几种方法定义函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-javascript-有哪些方法定义对象"><span class="toc-number">4.</span> <span class="toc-text">4. javascript 有哪些方法定义对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-运算符判断相等的流程是怎样的"><span class="toc-number">5.</span> <span class="toc-text">5. ===运算符判断相等的流程是怎样的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-运算符判断相等的流程是怎样的"><span class="toc-number">6.</span> <span class="toc-text">6. ==运算符判断相等的流程是怎样的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-对象到字符串的转换步骤"><span class="toc-number">7.</span> <span class="toc-text">7. 对象到字符串的转换步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-对象到数字的转换步骤"><span class="toc-number">8.</span> <span class="toc-text">8. 对象到数字的转换步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-lt-gt-lt-gt-的比较规则"><span class="toc-number">9.</span> <span class="toc-text">9. &lt;,&gt;,&lt;=,&gt;=的比较规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-运算符工作流程"><span class="toc-number">10.</span> <span class="toc-text">10. +运算符工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组"><span class="toc-number">11.</span> <span class="toc-text">11. 函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js继承"><span class="toc-number">12.</span> <span class="toc-text">js继承</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -511,11 +519,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,11 +531,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">work</a>
+                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,11 +543,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">work</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微信</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
             
             <div class="clearfix"></div>
