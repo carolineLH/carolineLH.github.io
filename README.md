@@ -12,6 +12,7 @@ issue中也有一些笔记。
 [js面试](https://carolinelh.github.io/2019/08/31/JS%E9%9D%A2%E8%AF%95/)<br>
 [js数组](https://carolinelh.github.io/2019/08/29/js%E6%95%B0%E7%BB%84/)<br>
 [js浅拷贝&深拷贝](https://carolinelh.github.io/2019/08/26/js%E6%B7%B1%E6%8B%B7%E8%B4%9D/)<br>
+[js继承](https://carolinelh.github.io/2019/09/10/js%E7%BB%A7%E6%89%BF/)<br>
 
 ## 面试 <br>
 [js面试](https://carolinelh.github.io/2019/08/31/JS%E9%9D%A2%E8%AF%95/)<br>
