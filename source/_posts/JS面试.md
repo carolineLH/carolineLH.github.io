@@ -159,4 +159,17 @@ undefined === undefined  //true
 * arguments.caller 为调用当前函数的函数（已被遗弃）
 * 转换为数组：var args = Array.prototype.slice.call(arguments, 0);
 
-## js继承
+## 12、offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别
+* offsetWidth/offsetHeight返回值包含content + padding + border，效果与e.getBoundingClientRect()相同。
+* clientWidth/clientHeight返回值只包含content + padding，如果有滚动条，也不包含滚动条。
+* scrollWidth/scrollHeight返回值包含content + padding + 溢出内容的尺寸。
+
+## 13、focus/blur与focusin/focusout的区别与联系
+1.focus/blur不冒泡，focusin/focusout冒泡；
+2.focus/blur兼容性好，focusin/focusout在除FireFox外的浏览器下都保持良好兼容性，如需使用事件托管，可考虑在FireFox下使用事件捕获elem.addEventListener('focus', handler, true)；
+3.可获得焦点的元素：
+* window
+* 链接被点击或键盘操作
+* 表单空间被点击或键盘操作
+* 设置tabindex属性的元素被点击或键盘操作
+
