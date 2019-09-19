@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>caroline&#39;s blog</title>
+  <title>js继承 | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我爱学习，学习爱我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="caroline&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="一、原型链继承">
+<meta name="keywords" content="js,面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js继承">
+<meta property="og:url" content="http://yoursite.com/2019/09/10/js继承/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="我爱学习，学习爱我">
+<meta property="og:description" content="一、原型链继承">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-12T01:31:19.270Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="caroline&#39;s blog">
-<meta name="twitter:description" content="我爱学习，学习爱我">
+<meta name="twitter:title" content="js继承">
+<meta name="twitter:description" content="一、原型链继承">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -147,16 +149,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-js继承" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-js继承" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/10/js继承/">js继承</a>
+    <h1 class="article-title" itemprop="name">
+      js继承
     </h1>
   
 
@@ -169,386 +169,58 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、原型链继承"><a href="#一、原型链继承" class="headerlink" title="一、原型链继承"></a>一、原型链继承</h2>
-        
-          <a class="article-more-a" href="/2019/09/10/js继承/#more">more >></a>
-        
-      
+        <h2 id="一、原型链继承"><a href="#一、原型链继承" class="headerlink" title="一、原型链继承"></a>一、原型链继承</h2> <a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function Parent(name) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.sayName = function() &#123;</span><br><span class="line">  console.log(&apos;parent name:&apos;, this.name);</span><br><span class="line">&#125;</span><br><span class="line">function Child(name) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Child.prototype = new Parent(&apos;father&apos;);</span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line">Child.prototype.sayName = function() &#123;</span><br><span class="line">    console.log(&apos;child name:&apos;, this.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var child = new Child(&apos;son&apos;);</span><br><span class="line">child.sayName();    // child name: son</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/面试//" class="article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/10/js继承/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Promise" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/09/Promise/">Promise</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/09/Promise/" class="archive-article-date">
-  	<time datetime="2019-09-09T14:04:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>相信大家一定很熟悉Promise这个单词了吧，就算你不是很理解它，应该也挺嫌弃它的吧。毕竟面试官都喜欢问：你了解Promise吗？能不能说一下Promise…..</p>
-<p>那我们就来彻底的认识一下Promise吧。<br>
-        
-          <a class="article-more-a" href="/2019/09/09/Promise/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ES6//" class="article-tag-list-link color4">ES6</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ES6/面试//" class="article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/09/Promise/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-title" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/03/title/">-webkit-overflow-scrolling:touch带来的问题</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/03/title/" class="archive-article-date">
-  	<time datetime="2019-09-03T08:40:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近开发当中，当页面内容的高度超过屏幕高度的时候，使用overflow-y:scorll属性的时候，发现页面在ios上面很卡顿。所以网上搜了一下，在全局样式文件中加上了:<br>
-        
-          <a class="article-more-a" href="/2019/09/03/title/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">手机兼容</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/手机兼容//" class="article-tag-list-link color5">手机兼容</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/03/title/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CSS面试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/02/CSS面试/">CSS面试</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/02/CSS面试/" class="archive-article-date">
-  	<time datetime="2019-09-02T08:28:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-类的优先级："><a href="#1-类的优先级：" class="headerlink" title="1. 类的优先级："></a>1. 类的优先级：</h2><ul>
-<li><p>内联样式，优先级1000</p>
+<p>只要是原型链中出现过的原型，都可以说是该原型链派生的实例的原型。</p>
+<p>这种方式方式的优缺点：</p>
+<ul>
+<li><p>优点：正确设置原型链实现继承</p>
 </li>
-<li><p>id选择器，优先级100</p>
-        
-          <a class="article-more-a" href="/2019/09/02/CSS面试/#more">more >></a>
-        
-      
+<li><p>优点：父类实例属性得到继承，原型链查找效率提高，也能为一些属性提供合理的默认值。</p>
+</li>
+<li><p>缺点：父类实例属性为引用类型时，不恰当地修改会导致所有子类被修改。例如：Child.prototype.sayName必须写在Child.prototype = new Parent(‘father’)之后，不然就会被覆盖掉。</p>
+</li>
+<li><p>缺点：子类型无法给超类型传递参数，在面向对象的继承中，我们总希望通过var child = new Child(‘son’, ‘father’)；让子类去调用父类的构造器来完成继承。而不是通过像这样new Parent(‘father’)去调用父类。</p>
+</li>
+</ul>
+<h2 id="类式继承（借用构造函数继承）"><a href="#类式继承（借用构造函数继承）" class="headerlink" title="类式继承（借用构造函数继承）"></a>类式继承（借用构造函数继承）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function Parent(name) &#123; </span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.sayName = function() &#123;</span><br><span class="line">    console.log(&apos;parent name:&apos;, this.name);</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.doSomthing = function() &#123;</span><br><span class="line">    console.log(&apos;parent do something!&apos;);</span><br><span class="line">&#125;</span><br><span class="line">function Child(name, parentName) &#123;</span><br><span class="line">    Parent.call(this, parentName);</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Child.prototype.sayName = function() &#123;</span><br><span class="line">    console.log(&apos;child name:&apos;, this.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var child = new Child(&apos;son&apos;);</span><br><span class="line">child.sayName();      // child name: son</span><br><span class="line">child.doSomthing();   // TypeError: child.doSomthing is not a function</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<p>相当于Parent这个函数在Child函数中执行了一遍，并且将所有与this绑定的变量都切换到了Child上，这样就克服了第一种方式带来的问题。</p>
+<p>这种方式的特点：</p>
+<ul>
+<li><p>只继承了父类构造函数的属性，没有继承父类原型的属性。</p>
+</li>
+<li><p>可以继承多个构造函数属性（call多个）。</p>
+</li>
+<li><p>在子实例中可向父实例传参。</p>
+</li>
+<li><p>缺点：只能继承父类构造函数的属性。</p>
+</li>
+<li><p>没有原型，每次创建一个 Child 实例对象时候都需要执行一遍 Parent 函数，无法复用一些公用函数。</p>
+</li>
+</ul>
+<h2 id="组合式继承：-前两种方式的结合"><a href="#组合式继承：-前两种方式的结合" class="headerlink" title="组合式继承： 前两种方式的结合"></a>组合式继承： 前两种方式的结合</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function Parent(name) &#123; </span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Parent.prototype.sayName = function() &#123;</span><br><span class="line">    console.log(&apos;parent name:&apos;, this.name);</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.doSomething = function() &#123;</span><br><span class="line">    console.log(&apos;parent do something!&apos;);</span><br><span class="line">&#125;</span><br><span class="line">function Child(name, parentName) &#123;</span><br><span class="line">    Parent.call(this, parentName);</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Child.prototype = new Parent();      </span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line">Child.prototype.sayName = function() &#123;</span><br><span class="line">    console.log(&apos;child name:&apos;, this.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var child = new Child(&apos;son&apos;);</span><br><span class="line">child.sayName();       // child name: son</span><br><span class="line">child.doSomething();   // parent do something!</span><br></pre></td></tr></table></figure>
 
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CSS/面试//" class="article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<p>组合式继承是比较常用的一种继承方法，其背后的思路是使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。</p>
+<p>这样，既通过在原型上定义方法实现了函数复用，又保证每个实例都有它自己的属性。</p>
+<h6 id="组合式继承是-JS-最常用的继承模式，但组合继承使用过程中会被调用两次：一次是创建子类型的时候，另一次是在子类型构造函数的内部。"><a href="#组合式继承是-JS-最常用的继承模式，但组合继承使用过程中会被调用两次：一次是创建子类型的时候，另一次是在子类型构造函数的内部。" class="headerlink" title="组合式继承是 JS 最常用的继承模式，但组合继承使用过程中会被调用两次：一次是创建子类型的时候，另一次是在子类型构造函数的内部。"></a>组合式继承是 JS 最常用的继承模式，但组合继承使用过程中会被调用两次：一次是创建子类型的时候，另一次是在子类型构造函数的内部。</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function Parent(name) &#123; </span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.sayName = function() &#123;</span><br><span class="line">    console.log(&apos;parent name:&apos;, this.name);</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.doSomething = function() &#123;</span><br><span class="line">    console.log(&apos;parent do something!&apos;);</span><br><span class="line">&#125;</span><br><span class="line">function Child(name, parentName) &#123;</span><br><span class="line">    Parent.call(this, parentName);      // 第二次调用</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Child.prototype = new Parent();         // 第一次调用</span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line">Child.prototype.sayName = function() &#123;</span><br><span class="line">    console.log(&apos;child name:&apos;, this.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var child = new Child(&apos;son&apos;);</span><br><span class="line">child.sayName();      </span><br><span class="line">child.doSomething();</span><br></pre></td></tr></table></figure>
 
+<p>显然从上述的代码中可以看出，第一次调用构造函数显然是没有必要的，因为第一次调用构造函数时候不需要函数内部的那些实例属性，这么写只是想获得其原型上的方法罢了，所以这时候你可能会这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Child.prototype = Parent.prototype;</span><br></pre></td></tr></table></figure>
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/02/CSS面试/">展开全文 >></a>
-        </p>
-      
+<p>这样写显然是不对的：<br>1、首先，你这样写的话相当于是子类和父类都指向同一个对象，这时候如果你添加了新的方法给 Child 但实际上 Parent 并不需要，相当于强行给 Parent 添加了一个未知的方法。<br>2、其次，仔细想想，这样体现不出继承的多态性，比如此时子类想要重写父类的 getName 的方法，那么父类的方法也就会随之修改，这显然违背了多态性。</p>
+<p>也就是说我们第一次调用构造函数的时候，其实是不管构造函数里面的内容，所以我们何不 new 一个空函数，将其 prototype 指向 Parent.prototype，代码如下：</p>
+<h2 id="四、继承组合式继承"><a href="#四、继承组合式继承" class="headerlink" title="四、继承组合式继承"></a>四、继承组合式继承</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">function Parent(name) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.sayName = function() &#123;</span><br><span class="line">    console.log(&apos;parent name:&apos;, this.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Child(name, parentName) &#123;</span><br><span class="line">    Parent.call(this, parentName);  </span><br><span class="line">    this.name = name;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function create(proto) &#123;</span><br><span class="line">    function F()&#123;&#125;</span><br><span class="line">    F.prototype = proto;</span><br><span class="line">    return new F();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Child.prototype = create(Parent.prototype);</span><br><span class="line">Child.prototype.sayName = function() &#123;</span><br><span class="line">    console.log(&apos;child name:&apos;, this.name);</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line">var parent = new Parent(&apos;father&apos;);</span><br><span class="line">parent.sayName();    // parent name: father</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var child = new Child(&apos;son&apos;, &apos;father&apos;);</span><br><span class="line">child.sayName();     // child name: son</span><br></pre></td></tr></table></figure>
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
+<p>这就是所谓的寄生组合式继承方式，跟组合式继承的区别在于，他不需要在一次实例中调用两次父类的构造函数，假如说父类的构造器代码很多，还需要调用两次的话对系统肯定会有影响，寄生组合式继承的思想在于：用一个 F 空的构造函数去取代执行了 Parent 这个构造函数。</p>
+<p>在上面的代码中，我们手动创建了一个 create 函数，但是其实是存在于 Object 对象中，不需要我们手动去创建，所以上面的代码可以改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">function Parent(name) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.sayName = function() &#123;</span><br><span class="line">    console.log(&apos;parent name:&apos;, this.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Child(name, parentName) &#123;</span><br><span class="line">    Parent.call(this, parentName);  </span><br><span class="line">    this.name = name;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function inheritPrototype(Parent, Child) &#123;</span><br><span class="line">    Child.prototype = Object.create(Parent.prototype);   //修改</span><br><span class="line">    Child.prototype.constructor = Child;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inheritPrototype(Parent, Child);</span><br><span class="line"></span><br><span class="line">Child.prototype.sayName = function() &#123;</span><br><span class="line">    console.log(&apos;child name:&apos;, this.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var parent = new Parent(&apos;father&apos;);</span><br><span class="line">parent.sayName();      // parent name: father</span><br><span class="line"></span><br><span class="line">var child = new Child(&apos;son&apos;, &apos;father&apos;);</span><br><span class="line">child.sayName();       // child name: son</span><br></pre></td></tr></table></figure>
 
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
+<h2 id="五、ES6继承："><a href="#五、ES6继承：" class="headerlink" title="五、ES6继承："></a>五、ES6继承：</h2><p>将上面代码改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Parent &#123;</span><br><span class="line">    constructor(name) &#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    doSomething() &#123;</span><br><span class="line">	console.log(&apos;parent do something!&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    sayName() &#123;</span><br><span class="line">	console.log(&apos;parent name:&apos;, this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Child extends Parent &#123;</span><br><span class="line">    constructor(name, parentName) &#123;</span><br><span class="line">	super(parentName);</span><br><span class="line">	this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    sayName() &#123;</span><br><span class="line"> 	console.log(&apos;child name:&apos;, this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const child = new Child(&apos;son&apos;, &apos;father&apos;);</span><br><span class="line">child.sayName();            // child name: son</span><br><span class="line">child.doSomething();        // parent do something!</span><br><span class="line"></span><br><span class="line">const parent = new Parent(&apos;father&apos;);</span><br><span class="line">parent.sayName();           // parent name: father</span><br></pre></td></tr></table></figure>
 
 
-
-
-  
-    <article id="post-JS面试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/31/JS面试/">JS面试</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/31/JS面试/" class="archive-article-date">
-  	<time datetime="2019-08-31T07:34:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-new-Boolean-false-是真还是假？"><a href="#1-new-Boolean-false-是真还是假？" class="headerlink" title="1. new Boolean(false)是真还是假？"></a>1. new Boolean(false)是真还是假？</h2><p>JavaScript的其他数据类型都可以转化成Boolean类型，但是注意<br>
-        
-          <a class="article-more-a" href="/2019/08/31/JS面试/#more">more >></a>
-        
       
 
       
@@ -589,16 +261,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/31/JS面试/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/10/js继承/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/09/Promise/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Promise</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -613,477 +344,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/29/js数组/">js数组</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/29/js数组/" class="archive-article-date">
-  	<time datetime="2019-08-29T02:22:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="foreach无法终止遍历："><a href="#foreach无法终止遍历：" class="headerlink" title="foreach无法终止遍历："></a>foreach无法终止遍历：</h2><p>foreach 正常不可以终端遍历过程。可以抛除一个异常终止循环。用some 和 every 可以轻松实现。<br>
-        
-          <a class="article-more-a" href="/2019/08/29/js数组/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/数组//" class="article-tag-list-link color3">数组</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/29/js数组/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、原型链继承"><span class="toc-number">1.</span> <span class="toc-text">一、原型链继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类式继承（借用构造函数继承）"><span class="toc-number">2.</span> <span class="toc-text">类式继承（借用构造函数继承）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组合式继承：-前两种方式的结合"><span class="toc-number">3.</span> <span class="toc-text">组合式继承： 前两种方式的结合</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#组合式继承是-JS-最常用的继承模式，但组合继承使用过程中会被调用两次：一次是创建子类型的时候，另一次是在子类型构造函数的内部。"><span class="toc-number">3.0.0.0.1.</span> <span class="toc-text">组合式继承是 JS 最常用的继承模式，但组合继承使用过程中会被调用两次：一次是创建子类型的时候，另一次是在子类型构造函数的内部。</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、继承组合式继承"><span class="toc-number">4.</span> <span class="toc-text">四、继承组合式继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、ES6继承："><span class="toc-number">5.</span> <span class="toc-text">五、ES6继承：</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-上传文件或图片时选择相同文件无法触发change事件的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/28/上传文件或图片时选择相同文件无法触发change事件的问题/">上传文件或图片时选择相同文件无法触发change事件的问题</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/28/上传文件或图片时选择相同文件无法触发change事件的问题/" class="archive-article-date">
-  	<time datetime="2019-08-28T07:45:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h4><p>最近在项目中，遇到做一个上传文件的模块时：打开文件上传，上传成功之后，再次上传，再次选之前的那个文件，change事件不会被触发。<br>
-        
-          <a class="article-more-a" href="/2019/08/28/上传文件或图片时选择相同文件无法触发change事件的问题/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">work</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/work//" class="article-tag-list-link color5">work</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/28/上传文件或图片时选择相同文件无法触发change事件的问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-微信扫一扫，扫条码去掉code-128" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/28/微信扫一扫，扫条码去掉code-128/">微信扫一扫，扫条码去掉code_128 </a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/28/微信扫一扫，扫条码去掉code-128/" class="archive-article-date">
-  	<time datetime="2019-08-28T03:29:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>在微信里面调用js扫一扫，但是扫条形码的时候，扫出来的结果都会带上CODE_128,<br>
-        
-          <a class="article-more-a" href="/2019/08/28/微信扫一扫，扫条码去掉code-128/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">work</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">微信</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信//" class="article-tag-list-link color3">微信</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信/work//" class="article-tag-list-link color5">work</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/28/微信扫一扫，扫条码去掉code-128/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js深拷贝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/26/js深拷贝/">js深拷贝&amp;浅拷贝</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/26/js深拷贝/" class="archive-article-date">
-  	<time datetime="2019-08-26T08:05:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h4><p>今天在公司写代码的时候，有个场景：需要在一个页面添加证书信息，但是所有添加的信息暂时只能存在前端，在提交表单之后才会提交到后端保存。所以用了vux来存数据代码如下：</p>
-        
-          <a class="article-more-a" href="/2019/08/26/js深拷贝/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">work</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/work//" class="article-tag-list-link color5">work</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/26/js深拷贝/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nuxt学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/25/nuxt学习/">nuxt学习</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/25/nuxt学习/" class="archive-article-date">
-  	<time datetime="2019-08-25T07:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h4><p>Nuxt.js是一个基于Vus.js的通用应用框架，是一个基于Vue.js的服务端渲染应用框架。</p>
-<p>官方说明：目标是创建一个灵活的应用框架，你可以基于它初始化新项目的基础结构代码，或者在已有Node.js项目中使用nuxt.js。<br>
-        
-          <a class="article-more-a" href="/2019/08/25/nuxt学习/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">nuxt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/nuxt//" class="article-tag-list-link color5">nuxt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/25/nuxt学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1107,8 +393,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

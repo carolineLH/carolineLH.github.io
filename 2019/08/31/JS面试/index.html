@@ -9,14 +9,14 @@
   <title>JS面试 | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1. new Boolean(false)是真还是假？JavaScript的其他数据类型都可以转化成Boolean类型，但是注意">
-<meta name="keywords" content="面试,js">
+<meta name="keywords" content="js,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS面试">
 <meta property="og:url" content="http://yoursite.com/2019/08/31/JS面试/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
 <meta property="og:description" content="1. new Boolean(false)是真还是假？JavaScript的其他数据类型都可以转化成Boolean类型，但是注意">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-10T02:02:52.870Z">
+<meta property="og:updated_time" content="2019-09-19T10:29:33.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS面试">
 <meta name="twitter:description" content="1. new Boolean(false)是真还是假？JavaScript的其他数据类型都可以转化成Boolean类型，但是注意">
@@ -257,7 +257,19 @@
 <li>arguments.caller 为调用当前函数的函数（已被遗弃）</li>
 <li>转换为数组：var args = Array.prototype.slice.call(arguments, 0);</li>
 </ul>
-<h2 id="js继承"><a href="#js继承" class="headerlink" title="js继承"></a>js继承</h2>
+<h2 id="12、offsetWidth-offsetHeight-clientWidth-clientHeight与scrollWidth-scrollHeight的区别"><a href="#12、offsetWidth-offsetHeight-clientWidth-clientHeight与scrollWidth-scrollHeight的区别" class="headerlink" title="12、offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别"></a>12、offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别</h2><ul>
+<li>offsetWidth/offsetHeight返回值包含content + padding + border，效果与e.getBoundingClientRect()相同。</li>
+<li>clientWidth/clientHeight返回值只包含content + padding，如果有滚动条，也不包含滚动条。</li>
+<li>scrollWidth/scrollHeight返回值包含content + padding + 溢出内容的尺寸。</li>
+</ul>
+<h2 id="13、focus-blur与focusin-focusout的区别与联系"><a href="#13、focus-blur与focusin-focusout的区别与联系" class="headerlink" title="13、focus/blur与focusin/focusout的区别与联系"></a>13、focus/blur与focusin/focusout的区别与联系</h2><p>1.focus/blur不冒泡，focusin/focusout冒泡；<br>2.focus/blur兼容性好，focusin/focusout在除FireFox外的浏览器下都保持良好兼容性，如需使用事件托管，可考虑在FireFox下使用事件捕获elem.addEventListener(‘focus’, handler, true)；<br>3.可获得焦点的元素：</p>
+<ul>
+<li>window</li>
+<li>链接被点击或键盘操作</li>
+<li>表单空间被点击或键盘操作</li>
+<li>设置tabindex属性的元素被点击或键盘操作</li>
+</ul>
+
       
 
       
@@ -270,11 +282,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
         		</li>
       		
 		</ul>
@@ -397,7 +409,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-new-Boolean-false-是真还是假？"><span class="toc-number">1.</span> <span class="toc-text">1. new Boolean(false)是真还是假？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#只有这几种类型会转化成false："><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">只有这几种类型会转化成false：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#其他的都会转化成true。空对象-，空数组-，负数，false的对象包装（值为-false-的-Boolean-对象）等等。"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">其他的都会转化成true。空对象{}，空数组[]，负数，false的对象包装（值为 false 的 Boolean 对象）等等。</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-if语句中条件的判断"><span class="toc-number">2.</span> <span class="toc-text">2. if语句中条件的判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-javaScript有哪几种方法定义函数："><span class="toc-number">3.</span> <span class="toc-text">3. javaScript有哪几种方法定义函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-javascript-有哪些方法定义对象"><span class="toc-number">4.</span> <span class="toc-text">4. javascript 有哪些方法定义对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-运算符判断相等的流程是怎样的"><span class="toc-number">5.</span> <span class="toc-text">5. ===运算符判断相等的流程是怎样的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-运算符判断相等的流程是怎样的"><span class="toc-number">6.</span> <span class="toc-text">6. ==运算符判断相等的流程是怎样的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-对象到字符串的转换步骤"><span class="toc-number">7.</span> <span class="toc-text">7. 对象到字符串的转换步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-对象到数字的转换步骤"><span class="toc-number">8.</span> <span class="toc-text">8. 对象到数字的转换步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-lt-gt-lt-gt-的比较规则"><span class="toc-number">9.</span> <span class="toc-text">9. &lt;,&gt;,&lt;=,&gt;=的比较规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-运算符工作流程"><span class="toc-number">10.</span> <span class="toc-text">10. +运算符工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组"><span class="toc-number">11.</span> <span class="toc-text">11. 函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js继承"><span class="toc-number">12.</span> <span class="toc-text">js继承</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-new-Boolean-false-是真还是假？"><span class="toc-number">1.</span> <span class="toc-text">1. new Boolean(false)是真还是假？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#只有这几种类型会转化成false："><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">只有这几种类型会转化成false：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#其他的都会转化成true。空对象-，空数组-，负数，false的对象包装（值为-false-的-Boolean-对象）等等。"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">其他的都会转化成true。空对象{}，空数组[]，负数，false的对象包装（值为 false 的 Boolean 对象）等等。</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-if语句中条件的判断"><span class="toc-number">2.</span> <span class="toc-text">2. if语句中条件的判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-javaScript有哪几种方法定义函数："><span class="toc-number">3.</span> <span class="toc-text">3. javaScript有哪几种方法定义函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-javascript-有哪些方法定义对象"><span class="toc-number">4.</span> <span class="toc-text">4. javascript 有哪些方法定义对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-运算符判断相等的流程是怎样的"><span class="toc-number">5.</span> <span class="toc-text">5. ===运算符判断相等的流程是怎样的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-运算符判断相等的流程是怎样的"><span class="toc-number">6.</span> <span class="toc-text">6. ==运算符判断相等的流程是怎样的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-对象到字符串的转换步骤"><span class="toc-number">7.</span> <span class="toc-text">7. 对象到字符串的转换步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-对象到数字的转换步骤"><span class="toc-number">8.</span> <span class="toc-text">8. 对象到数字的转换步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-lt-gt-lt-gt-的比较规则"><span class="toc-number">9.</span> <span class="toc-text">9. &lt;,&gt;,&lt;=,&gt;=的比较规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-运算符工作流程"><span class="toc-number">10.</span> <span class="toc-text">10. +运算符工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组"><span class="toc-number">11.</span> <span class="toc-text">11. 函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12、offsetWidth-offsetHeight-clientWidth-clientHeight与scrollWidth-scrollHeight的区别"><span class="toc-number">12.</span> <span class="toc-text">12、offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13、focus-blur与focusin-focusout的区别与联系"><span class="toc-number">13.</span> <span class="toc-text">13、focus/blur与focusin/focusout的区别与联系</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -511,7 +523,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,7 +531,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,7 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color5">nuxt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,7 +551,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">nuxt</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,10 +560,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
