@@ -1,7 +1,6 @@
 ---
 title: '第一题：[''1'', ''2'', ''3''].map(parseInt) what & why ?'
 date: 2019-09-22 23:36:59
-date: 2019-08-28 15:45:20
 categories: 
   - 面试
   - js
