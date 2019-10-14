@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JS面试 | caroline&#39;s blog</title>
+  <title>html面试 | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. new Boolean(false)是真还是假？JavaScript的其他数据类型都可以转化成Boolean类型，但是注意">
-<meta name="keywords" content="面试,js">
+  <meta name="description" content="DOCTYPE有什么用?DOCTYPE是’document type’的缩写。它是HTML中用来区分标准模式和怪异模式的声明，用来告知浏览器使用标准模式渲染页面。 从中获得的启发：在页面开始处添加即可。 标准模式和怪异模式：在实现html和css标准化之前，各个浏览器对html和css的解析各有不同，甚至是同一个浏览器的不同版本渲染方式也不同（比如IE6和IE7）。在W3C制定标准之后，浏览器既要">
+<meta name="keywords" content="面试,html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS面试">
-<meta property="og:url" content="http://yoursite.com/2019/08/31/JS面试/index.html">
+<meta property="og:title" content="html面试">
+<meta property="og:url" content="http://yoursite.com/2019/10/14/html面试/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="1. new Boolean(false)是真还是假？JavaScript的其他数据类型都可以转化成Boolean类型，但是注意">
+<meta property="og:description" content="DOCTYPE有什么用?DOCTYPE是’document type’的缩写。它是HTML中用来区分标准模式和怪异模式的声明，用来告知浏览器使用标准模式渲染页面。 从中获得的启发：在页面开始处添加即可。 标准模式和怪异模式：在实现html和css标准化之前，各个浏览器对html和css的解析各有不同，甚至是同一个浏览器的不同版本渲染方式也不同（比如IE6和IE7）。在W3C制定标准之后，浏览器既要">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-14T10:18:09.933Z">
+<meta property="og:updated_time" content="2019-10-14T11:27:54.133Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS面试">
-<meta name="twitter:description" content="1. new Boolean(false)是真还是假？JavaScript的其他数据类型都可以转化成Boolean类型，但是注意">
+<meta name="twitter:title" content="html面试">
+<meta name="twitter:description" content="DOCTYPE有什么用?DOCTYPE是’document type’的缩写。它是HTML中用来区分标准模式和怪异模式的声明，用来告知浏览器使用标准模式渲染页面。 从中获得的启发：在页面开始处添加即可。 标准模式和怪异模式：在实现html和css标准化之前，各个浏览器对html和css的解析各有不同，甚至是同一个浏览器的不同版本渲染方式也不同（比如IE6和IE7）。在W3C制定标准之后，浏览器既要">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -149,126 +149,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS面试" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-html面试" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JS面试
+      html面试
     </h1>
   
 
         
-        <a href="/2019/08/31/JS面试/" class="archive-article-date">
-  	<time datetime="2019-08-31T07:34:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-31</time>
+        <a href="/2019/10/14/html面试/" class="archive-article-date">
+  	<time datetime="2019-10-14T10:26:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-new-Boolean-false-是真还是假？"><a href="#1-new-Boolean-false-是真还是假？" class="headerlink" title="1. new Boolean(false)是真还是假？"></a>1. new Boolean(false)是真还是假？</h2><p>JavaScript的其他数据类型都可以转化成Boolean类型，但是注意<br> <a id="more"></a></p>
-<h6 id="只有这几种类型会转化成false："><a href="#只有这几种类型会转化成false：" class="headerlink" title="只有这几种类型会转化成false："></a>只有这几种类型会转化成false：</h6><ul>
-<li>undefined</li>
-<li>null</li>
-<li>0</li>
-<li>-0</li>
-<li>NaN</li>
-<li>‘’(空字符串)</li>
-</ul>
-<h6 id="其他的都会转化成true。空对象-，空数组-，负数，false的对象包装（值为-false-的-Boolean-对象）等等。"><a href="#其他的都会转化成true。空对象-，空数组-，负数，false的对象包装（值为-false-的-Boolean-对象）等等。" class="headerlink" title="其他的都会转化成true。空对象{}，空数组[]，负数，false的对象包装（值为 false 的 Boolean 对象）等等。"></a>其他的都会转化成true。空对象{}，空数组[]，负数，false的对象包装（值为 false 的 Boolean 对象）等等。</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if(-1)&#123;</span><br><span class="line">  console.log(&apos;-1转换为true&apos;);</span><br><span class="line">&#125;</span><br><span class="line">if(&#123;&#125;)&#123;</span><br><span class="line">  console.log(&apos;&#123;&#125;转换为true&apos;);</span><br><span class="line">&#125;</span><br><span class="line">if([])&#123;</span><br><span class="line">  console.log(&apos;[]转换为true&apos;);</span><br><span class="line">&#125;</span><br><span class="line">if(new Boolean(false))&#123;</span><br><span class="line">  console.log(&apos;new Boolean(false)转换为true&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>new Boolean(false)是布尔值的包装对象    typeof (new Boolean(false))  // ‘object’  ,所以 转换为boolean是true，而不是false</p>
-<p>new Boolean()出来的一定是个对象，但是Boolean(value)的值是要看所传递的参数value是不是0,-0,null,undefined,’’,NaN这六个，只要不是这六个就是true。</p>
-<h2 id="2-if语句中条件的判断"><a href="#2-if语句中条件的判断" class="headerlink" title="2. if语句中条件的判断"></a>2. if语句中条件的判断</h2><ol>
-<li><p>对于非布尔类型的数据，会先转换成布尔类型在判断</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if(null)&#123;</span><br><span class="line">  if(1)&#123;</span><br><span class="line">      console.log(&quot;语句A&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(&quot;语句B&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在JavaScript中分号(;)也是一条语句(空语句)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(false);</span><br><span class="line">  &#123;</span><br><span class="line">      console.log(&quot;语句A&quot;);</span><br><span class="line">      console.log(&quot;语句B&quot;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>总之if条件中语句最终就是要得到true或者是false两个值的。</p>
-<h2 id="3-javaScript有哪几种方法定义函数："><a href="#3-javaScript有哪几种方法定义函数：" class="headerlink" title="3. javaScript有哪几种方法定义函数："></a>3. javaScript有哪几种方法定义函数：</h2><ol>
-<li><p>函数声明表达式；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function calcRectArea(width, height) &#123;</span><br><span class="line">  return width * height;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(calcRectArea(5, 6));</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>function操作符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var getRectArea = function(width, height) &#123;</span><br><span class="line">    return width * height;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(getRectArea(3,4));</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Function构造函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var sum = new Function(&apos;a&apos;, &apos;b&apos;, &apos;return a + b&apos;);</span><br><span class="line"></span><br><span class="line">console.log(sum(2, 6));</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ES6: arrow function:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var materials = [</span><br><span class="line">  &apos;Hydrogen&apos;,</span><br><span class="line">  &apos;Helium&apos;,</span><br><span class="line">  &apos;Lithium&apos;,</span><br><span class="line">  &apos;Beryllium&apos;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">console.log(materials.map(material =&gt; material.length));</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="4-javascript-有哪些方法定义对象"><a href="#4-javascript-有哪些方法定义对象" class="headerlink" title="4. javascript 有哪些方法定义对象"></a>4. javascript 有哪些方法定义对象</h2><ol>
-<li>对象字面量： var obj = {};</li>
-<li>构造函数： var obj = new Object();</li>
-<li>Object.create(): var obj = Object.create(Object.prototype);</li>
-</ol>
-<h2 id="5-运算符判断相等的流程是怎样的"><a href="#5-运算符判断相等的流程是怎样的" class="headerlink" title="5. ===运算符判断相等的流程是怎样的"></a>5. ===运算符判断相等的流程是怎样的</h2><p>(1)不同类型值<br>如果两个值的类型不同，直接返回false。</p>
-<p>(2)同一类的原始类型值<br>同一类型的原始类型的值（数值、字符串、布尔值）比较时，值相同就返回true，值不同就返回false。-0 等于 0</p>
-<p>(3)同一类的复合类型值<br>两个复合类型（对象、数组、函数）的数据比较时，不是比较它们的值是否相等，而是比较它们是否指向同一个对象。</p>
-<p>(4)undefined和null<br>undefined 和 null 与自身严格相等。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">null === null  //true</span><br><span class="line">undefined === undefined  //true</span><br></pre></td></tr></table></figure>
-
-<p>(5) 如果其中有一个是NaN，它们不相等</p>
-<h2 id="6-运算符判断相等的流程是怎样的"><a href="#6-运算符判断相等的流程是怎样的" class="headerlink" title="6. ==运算符判断相等的流程是怎样的"></a>6. ==运算符判断相等的流程是怎样的</h2><ol>
-<li>如果两个值类型相同，按照===比较方法进行比较</li>
-<li>如果类型不同，使用如下规则进行比较</li>
-<li>如果其中一个值是 null，另一个是 undefined，它们相等</li>
-<li>如果一个值是数字另一个是字符串，将字符串转换为数字进行比较</li>
-<li>如果有布尔类型，将true 转换为 1，false 转换为 0，然后用==规则继续比较</li>
-<li>如果一个值是对象，另一个是数字或字符串，将对象转换为原始值然后用==规则继续比较</li>
-<li>其他所有情况都认为不相等</li>
-</ol>
-<h2 id="7-对象到字符串的转换步骤"><a href="#7-对象到字符串的转换步骤" class="headerlink" title="7. 对象到字符串的转换步骤"></a>7. 对象到字符串的转换步骤</h2><ol>
-<li>如果对象有toString()方法，javaScript调用它。如果它返回一个原始值（primitive value 如：string number boolean），将这个值转换为字符串作为结果。</li>
-<li>如果对象没有toString()方法或者返回值不是原始值，javaScript寻找对象的valueOf()方法，如果存在就调用它,返回结果是原始值则转为字符串作为结果。</li>
-<li>否则，javaScript不能从toString()或者valueOf()获得一个原始值，此时throws a TypeError。</li>
-</ol>
-<h2 id="8-对象到数字的转换步骤"><a href="#8-对象到数字的转换步骤" class="headerlink" title="8. 对象到数字的转换步骤"></a>8. 对象到数字的转换步骤</h2><ol>
-<li>如果对象有valueOf()方法并且返回元素值，javascript将返回值转换为数字作为结果。</li>
-<li>否则，如果对象有toString()并且返回原始值，javascript将返回结果转换为数字作为结果。</li>
-<li>否则，throws a TypeError。</li>
-</ol>
-<h2 id="9-lt-gt-lt-gt-的比较规则"><a href="#9-lt-gt-lt-gt-的比较规则" class="headerlink" title="9. &lt;,&gt;,&lt;=,&gt;=的比较规则"></a>9. &lt;,&gt;,&lt;=,&gt;=的比较规则</h2><p>所有比较运算符都支持任意类型，但是比较只支持数字和字符串，所以需要执行必要的转换然后进行比较，转换规则如下：</p>
-<ol>
-<li>如果操作数是对象，转换为原始值，如果valueOf()方法返回原始值，则使用这个值。否则使用toString方法的结果，如果转换失败则报错。</li>
-<li>经过必要的对象到原始值的转换后，如果两个操作数都是字符串，按照字母顺序进行比较（他们的 16 位 unicode 值的大小）。</li>
-<li>否则，如果有一个操作数不是字符串，将两个操作数转换为数字进行比较。</li>
-</ol>
-<h2 id="10-运算符工作流程"><a href="#10-运算符工作流程" class="headerlink" title="10. +运算符工作流程"></a>10. +运算符工作流程</h2><ol>
-<li>如果有操作数是对象，转换为原始值</li>
-<li>此时如果有一个操作数是字符串，其他的操作数都转换为字符串并执行连接</li>
-<li>否则：所有操作数都转换为数字并执行加法</li>
-</ol>
-<h2 id="11-函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组"><a href="#11-函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组" class="headerlink" title="11. 函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组"></a>11. 函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组</h2><ul>
-<li>arguments所有函数中都包含的一个局部变量，是一个类数组对象，对应函数调用时的实参。如果函数定义同名参数会在调用时覆盖默认对象。</li>
-<li>arguments[index]分别对应函数调用时的实参，并且通过arguments修改实参会同时修改实参。</li>
-<li>arguments.length 为实参的个数（Function.length 表示形参长度）。</li>
-<li>arguments.callee 为当前正在执行的函数本身，使用这个属性进行递归调用时需注意 this 的变化。</li>
-<li>arguments.caller 为调用当前函数的函数（已被遗弃）</li>
-<li>转换为数组：var args = Array.prototype.slice.call(arguments, 0);</li>
-</ul>
-<h2 id="12、offsetWidth-offsetHeight-clientWidth-clientHeight与scrollWidth-scrollHeight的区别"><a href="#12、offsetWidth-offsetHeight-clientWidth-clientHeight与scrollWidth-scrollHeight的区别" class="headerlink" title="12、offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别"></a>12、offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别</h2><ul>
-<li>offsetWidth/offsetHeight返回值包含content + padding + border，效果与e.getBoundingClientRect()相同。</li>
-<li>clientWidth/clientHeight返回值只包含content + padding，如果有滚动条，也不包含滚动条。</li>
-<li>scrollWidth/scrollHeight返回值包含content + padding + 溢出内容的尺寸。</li>
-</ul>
-<h2 id="13、focus-blur与focusin-focusout的区别与联系"><a href="#13、focus-blur与focusin-focusout的区别与联系" class="headerlink" title="13、focus/blur与focusin/focusout的区别与联系"></a>13、focus/blur与focusin/focusout的区别与联系</h2><p>1.focus/blur不冒泡，focusin/focusout冒泡；<br>2.focus/blur兼容性好，focusin/focusout在除FireFox外的浏览器下都保持良好兼容性，如需使用事件托管，可考虑在FireFox下使用事件捕获elem.addEventListener(‘focus’, handler, true)；<br>3.可获得焦点的元素：</p>
-<ul>
-<li>window</li>
-<li>链接被点击或键盘操作</li>
-<li>表单空间被点击或键盘操作</li>
-<li>设置tabindex属性的元素被点击或键盘操作</li>
-</ul>
+        <h2 id="DOCTYPE有什么用"><a href="#DOCTYPE有什么用" class="headerlink" title="DOCTYPE有什么用?"></a>DOCTYPE有什么用?</h2><p>DOCTYPE是’document type’的缩写。它是HTML中用来区分标准模式和怪异模式的声明，用来告知浏览器使用标准模式渲染页面。</p>
+<p>从中获得的启发：在页面开始处添加<!DOCTYPE html>即可。</p>
+<h4 id="标准模式和怪异模式："><a href="#标准模式和怪异模式：" class="headerlink" title="标准模式和怪异模式："></a>标准模式和怪异模式：</h4><p>在实现html和css标准化之前，各个浏览器对html和css的解析各有不同，甚至是同一个浏览器的不同版本渲染方式也不同（比如IE6和IE7）。在W3C制定标准之后，浏览器既要按照标准去实现HTML和CSS的支持，又要保证能够兼容以前的非标准的旧网页，于是就有了现在所说的标准模式（严格模式）和兼容模式（怪异模式）。</p>
+<h2 id="什么是data-属性？"><a href="#什么是data-属性？" class="headerlink" title="什么是data-属性？"></a>什么是data-属性？</h2><p>在javascript框架变得流行之前，前端开发者经常使用data-属性，把额外数据存储在DOM自身中。当时没有其他Hack手段（比如使用非标准属性或 DOM 上额外属性）。这样做是为了将自定义数据存储到页面或应用中，对此没有其他更适当的属性或元素。</p>
+<h2 id="请描述cookie、sessionStorage和localStorage的区别。"><a href="#请描述cookie、sessionStorage和localStorage的区别。" class="headerlink" title="请描述cookie、sessionStorage和localStorage的区别。"></a>请描述cookie、sessionStorage和localStorage的区别。</h2><p>上面提到的技术名词，都是在客户端以键值对存储的存储机制，并且只能将值存储为字符串。</p>
+<table>
+<thead>
+<tr>
+<th>对比</th>
+<th>cookie</th>
+<th>localStorage</th>
+<th>sessionStorage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>由谁初始化</td>
+<td>服务器，服务器可以使用Set-Cookie请求头。</td>
+<td>客户端</td>
+<td>客户端</td>
+</tr>
+<tr>
+<td>过期时间</td>
+<td>手动设置</td>
+<td>永不过期</td>
+<td>当前页面关闭时</td>
+</tr>
+<tr>
+<td>在当前浏览器会话（browser sessions）中是否保持不变</td>
+<td>取决于是否设置了过期时间</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>是否随着每个 HTTP 请求发送给服务器</td>
+<td>是，Cookies 会通过Cookie请求头，自动发送给服务器</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>容量（每个域名）</td>
+<td>4kb</td>
+<td>5MB</td>
+<td>5MB</td>
+</tr>
+<tr>
+<td>访问权限</td>
+<td>任意窗口</td>
+<td>任意窗口</td>
+<td>当前页面窗口</td>
+</tr>
+</tbody></table>
 
       
 
@@ -286,7 +237,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
         		</li>
       		
 		</ul>
@@ -298,11 +249,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        			<a href="/categories/html//" class="article-tag-list-link color5">html</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/js/面试//" class="article-tag-list-link color3">面试</a>
+        			<a href="/categories/html/面试//" class="article-tag-list-link color3">面试</a>
         		</li>
       		
 		</ul>
@@ -357,7 +308,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/31/JS面试/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/14/html面试/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -371,18 +322,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/02/CSS面试/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CSS面试
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/29/js数组/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js数组</div>
+    <a href="/2019/09/22/第一题：-1-2-3-map-parseInt-what-why/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第一题：[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;].map(parseInt) what &amp; why ?</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -409,7 +351,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-new-Boolean-false-是真还是假？"><span class="toc-number">1.</span> <span class="toc-text">1. new Boolean(false)是真还是假？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#只有这几种类型会转化成false："><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">只有这几种类型会转化成false：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#其他的都会转化成true。空对象-，空数组-，负数，false的对象包装（值为-false-的-Boolean-对象）等等。"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">其他的都会转化成true。空对象{}，空数组[]，负数，false的对象包装（值为 false 的 Boolean 对象）等等。</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-if语句中条件的判断"><span class="toc-number">2.</span> <span class="toc-text">2. if语句中条件的判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-javaScript有哪几种方法定义函数："><span class="toc-number">3.</span> <span class="toc-text">3. javaScript有哪几种方法定义函数：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-javascript-有哪些方法定义对象"><span class="toc-number">4.</span> <span class="toc-text">4. javascript 有哪些方法定义对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-运算符判断相等的流程是怎样的"><span class="toc-number">5.</span> <span class="toc-text">5. ===运算符判断相等的流程是怎样的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-运算符判断相等的流程是怎样的"><span class="toc-number">6.</span> <span class="toc-text">6. ==运算符判断相等的流程是怎样的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-对象到字符串的转换步骤"><span class="toc-number">7.</span> <span class="toc-text">7. 对象到字符串的转换步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-对象到数字的转换步骤"><span class="toc-number">8.</span> <span class="toc-text">8. 对象到数字的转换步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-lt-gt-lt-gt-的比较规则"><span class="toc-number">9.</span> <span class="toc-text">9. &lt;,&gt;,&lt;=,&gt;=的比较规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-运算符工作流程"><span class="toc-number">10.</span> <span class="toc-text">10. +运算符工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组"><span class="toc-number">11.</span> <span class="toc-text">11. 函数内部arguments变量有哪些特性，有哪些属性，如何将它转换为数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12、offsetWidth-offsetHeight-clientWidth-clientHeight与scrollWidth-scrollHeight的区别"><span class="toc-number">12.</span> <span class="toc-text">12、offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13、focus-blur与focusin-focusout的区别与联系"><span class="toc-number">13.</span> <span class="toc-text">13、focus/blur与focusin/focusout的区别与联系</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOCTYPE有什么用"><span class="toc-number">1.</span> <span class="toc-text">DOCTYPE有什么用?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准模式和怪异模式："><span class="toc-number">1.0.1.</span> <span class="toc-text">标准模式和怪异模式：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是data-属性？"><span class="toc-number">2.</span> <span class="toc-text">什么是data-属性？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#请描述cookie、sessionStorage和localStorage的区别。"><span class="toc-number">3.</span> <span class="toc-text">请描述cookie、sessionStorage和localStorage的区别。</span></a></li></ol>
                     </div>
                 </span>
             </div>
