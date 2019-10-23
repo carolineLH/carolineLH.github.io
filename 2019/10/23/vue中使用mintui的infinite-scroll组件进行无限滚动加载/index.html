@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: html | caroline&#39;s blog</title>
+  <title>vue中使用mintui的infinite-scroll组件进行无限滚动加载 | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我爱学习，学习爱我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="caroline&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/categories/html/index.html">
+  <meta name="description" content="背景  最近在工作中，在移动端开发中，有个数据列表，数据很多。如果不做分页加载的话，用户体验会很不好。因为请求的数据过多，请求会比较慢。所以，就需要做分页加载。   想实现的分页效果是：随着我们在移动端往下滚动的时候，加载更多的数据，每次加载限制加载数据的条数。于是就想到了用mint-ui的infinite scroll组件。">
+<meta name="keywords" content="vue,work">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue中使用mintui的infinite-scroll组件进行无限滚动加载">
+<meta property="og:url" content="http://yoursite.com/2019/10/23/vue中使用mintui的infinite-scroll组件进行无限滚动加载/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="我爱学习，学习爱我">
+<meta property="og:description" content="背景  最近在工作中，在移动端开发中，有个数据列表，数据很多。如果不做分页加载的话，用户体验会很不好。因为请求的数据过多，请求会比较慢。所以，就需要做分页加载。   想实现的分页效果是：随着我们在移动端往下滚动的时候，加载更多的数据，每次加载限制加载数据的条数。于是就想到了用mint-ui的infinite scroll组件。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-23T03:33:12.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="caroline&#39;s blog">
-<meta name="twitter:description" content="我爱学习，学习爱我">
+<meta name="twitter:title" content="vue中使用mintui的infinite-scroll组件进行无限滚动加载">
+<meta name="twitter:description" content="背景  最近在工作中，在移动端开发中，有个数据列表，数据很多。如果不做分页加载的话，用户体验会很不好。因为请求的数据过多，请求会比较慢。所以，就需要做分页加载。   想实现的分页效果是：随着我们在移动端往下滚动的时候，加载更多的数据，每次加载限制加载数据的条数。于是就想到了用mint-ui的infinite scroll组件。">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -147,79 +149,204 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vue中使用mintui的infinite-scroll组件进行无限滚动加载" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/14/html面试/" class="archive-article-date">
-  	<time datetime="2019-10-14T10:26:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/14/html面试/">html面试</a>
+    <h1 class="article-title" itemprop="name">
+      vue中使用mintui的infinite-scroll组件进行无限滚动加载
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/10/23/vue中使用mintui的infinite-scroll组件进行无限滚动加载/" class="archive-article-date">
+  	<time datetime="2019-10-23T02:45:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>  最近在工作中，在移动端开发中，有个数据列表，数据很多。如果不做分页加载的话，用户体验会很不好。因为请求的数据过多，请求会比较慢。所以，就需要做分页加载。</p>
+<p>  想实现的分页效果是：随着我们在移动端往下滚动的时候，加载更多的数据，每次加载限制加载数据的条数。于是就想到了用mint-ui的infinite scroll组件。<br> <a id="more"></a></p>
+<h2 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h2><h4 id="1-保证你的项目中安装了min-ui"><a href="#1-保证你的项目中安装了min-ui" class="headerlink" title="1. 保证你的项目中安装了min-ui"></a>1. 保证你的项目中安装了min-ui</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i mint-ui -S</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-在vue中引入mint-ui"><a href="#2-在vue中引入mint-ui" class="headerlink" title="2. 在vue中引入mint-ui"></a>2. 在vue中引入mint-ui</h4><p>针对vue-cli3+，引用组件到vue中。在babel.config.js文件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  presets: [</span><br><span class="line">    &apos;@vue/app&apos;</span><br><span class="line">  ],</span><br><span class="line">  plugins: [</span><br><span class="line">    [</span><br><span class="line">      &apos;component&apos;,</span><br><span class="line">      &#123;</span><br><span class="line">        &apos;libraryName&apos;: &apos;mint-ui&apos;,</span><br><span class="line">        &apos;style&apos;: true</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-按需引入InfiniteScroll组件："><a href="#3-按需引入InfiniteScroll组件：" class="headerlink" title="3. 按需引入InfiniteScroll组件："></a>3. 按需引入InfiniteScroll组件：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; InfiniteScroll &#125; from &apos;mint-ui&apos;;</span><br><span class="line">Vue.use(InfiniteScroll);</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-在代码中使用："><a href="#4-在代码中使用：" class="headerlink" title="4.在代码中使用："></a>4.在代码中使用：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"state-list"</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">v-infinite-scroll</span>=<span class="string">"loadMore"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">infinite-scroll-disabled</span>=<span class="string">"loading"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">infinite-scroll-immediate-check</span>=<span class="string">false</span></span></span><br><span class="line"><span class="tag">  <span class="attr">infinite-scroll-distance</span>=<span class="string">"10"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"state-item"</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in popularList"</span> <span class="attr">:key</span>=<span class="string">"index"</span> @<span class="attr">click</span>=<span class="string">"toLogistics(item.postcode)"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"avatar"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"../../assets/img/delivery.png"</span> <span class="attr">alt</span>=<span class="string">""</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"state-info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"name"</span>&gt;</span>&#123;&#123;item.postcode&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"turn-over"</span>&gt;</span>&#123;&#123;item.orderPrice&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"binding-time"</span>&gt;</span>&#123;&#123;item.orderName&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">loadMore () &#123;</span><br><span class="line">  <span class="keyword">this</span>.loading = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">this</span>.getOrder(<span class="string">'2'</span>) </span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 请求加载数据</span></span><br><span class="line"><span class="keyword">async</span> getOrder (type) &#123;</span><br><span class="line">  <span class="keyword">this</span>.loading = <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">let</span> params = &#123;</span><br><span class="line">    channelType: <span class="string">'WECHAT'</span>,</span><br><span class="line">    personType: <span class="keyword">this</span>.code,</span><br><span class="line">    queryType: type,</span><br><span class="line">    year: <span class="keyword">this</span>.year,</span><br><span class="line">    month: <span class="keyword">this</span>.month,</span><br><span class="line">    orderType: <span class="keyword">this</span>.checkType</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (type === <span class="string">'2'</span> &amp;&amp; <span class="keyword">this</span>.page &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    params.totalNum = <span class="number">10</span>*<span class="keyword">this</span>.page</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.$indicator.open()</span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">this</span>.$fetch.post(<span class="string">'api/getPopularizationOrder'</span>, params)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.$indicator.close()</span><br><span class="line">      <span class="keyword">if</span> (res.data.result === <span class="string">'SUCCESS'</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> data = res.data.data</span><br><span class="line">        <span class="keyword">if</span> (type === <span class="string">'2'</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (res.data.data.popularList.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            self.popularList = self.popularList.concat(res.data.data.popularList)</span><br><span class="line">            self.page++</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            self.loading = <span class="literal">true</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-选项解释"><a href="#5-选项解释" class="headerlink" title="5.选项解释"></a>5.选项解释</h4><p>v-infinite-scroll=”loadMore”表示回调函数是loadMore</p>
+<p>infinite-scroll-disabled=”loading”表示由变量loading决定是否执行loadMore，false则执行loadMore，true则不执行，看清楚，loading表示繁忙，繁忙的时候是不执行的。</p>
+<p>infinite-scroll-distance=”10”这里10决定了页面滚动到离页尾多少像素的时候触发回调函数，10是像素值。通常我们会在页尾做一个几十像素高的“正在加载中…”，这样的话，可以把这个div的高度设为infinite-scroll-distance的值即可。</p>
+<p>其他选项：</p>
+<p>infinite-scroll-immediate-check 默认值为true，该指令意思是，应该在绑定后立即检查loading的值和是否滚动到底。如果你的初始内容高度不够高、不足以填满可滚动的容器的话，你应设为true，这样会立即执行一次loadMore，会帮你填充一些初始内容。</p>
+<p>infinite-scroll-listen-for-event 当事件在Vue实例中发出时，无限滚动将再次检查。</p>
+<p>infinite-scroll-throttle-delay 检查busy的值的时间间隔，默认值是200，因为vue-infinite-scroll的基础原理就是，vue-infinite-scroll会循环检查busy的值，以及是否滚动到底，只有当：busy为false且滚动到底，回调函数才会执行。</p>
+<h4 id="6-遇到的坑："><a href="#6-遇到的坑：" class="headerlink" title="6.遇到的坑："></a>6.遇到的坑：</h4><h6 id="一、就是当loadmore触发之后，getOrder方法无限触发，也就是无限调用获取数据函数。"><a href="#一、就是当loadmore触发之后，getOrder方法无限触发，也就是无限调用获取数据函数。" class="headerlink" title="一、就是当loadmore触发之后，getOrder方法无限触发，也就是无限调用获取数据函数。"></a>一、就是当loadmore触发之后，getOrder方法无限触发，也就是无限调用获取数据函数。</h6><p>原因： 没有理解loadmore是什么时候执行，loading为true的时候是不执行的，为false的时候执行。</p>
+<h6 id="二、滚动不加载："><a href="#二、滚动不加载：" class="headerlink" title="二、滚动不加载："></a>二、滚动不加载：</h6><p>原因：这种情况，就是在loadMore方法里没有写this.loading = true，同时，第一次加载的数据也没有撑满容器。</p>
+<p>解决：所以我们要给最外层容器添加如下样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">height: 100%;</span><br><span class="line">overflow-y: auto;</span><br></pre></td></tr></table></figure>
+
+<h6 id="三、页面初始化的时候会自动调用一次loadmore"><a href="#三、页面初始化的时候会自动调用一次loadmore" class="headerlink" title="三、页面初始化的时候会自动调用一次loadmore:"></a>三、页面初始化的时候会自动调用一次loadmore:</h6><p>解决办法：infinite-scroll-immediate-check 设置为false。因为infinite-scroll-immediate-check 指令是在绑定后立即检查loading的值和是否滚动到底。如果你的初始内容高度不够高、不足以填满可滚动的容器的话，你应设为true，这样会立即执行一次loadMore，会帮你填充一些初始内容。如果不需要调用loadmore来填充数据则设置为false。</p>
+<h6 id="四、页面中有类似tabbar，在切换tabbar页面的时候，loadmore会自动调用。"><a href="#四、页面中有类似tabbar，在切换tabbar页面的时候，loadmore会自动调用。" class="headerlink" title="四、页面中有类似tabbar，在切换tabbar页面的时候，loadmore会自动调用。"></a>四、页面中有类似tabbar，在切换tabbar页面的时候，loadmore会自动调用。</h6><p>原因：其实这种情况跟页面初始化的时候会自动调用一次loadmore是一样的。解决办法也是一样的，将infinite-scroll-immediate-check 设置为false。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">work</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/html//" class="article-tag-list-link color5">html</a>
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/html/面试//" class="article-tag-list-link color3">面试</a>
+        			<a href="/categories/vue/work//" class="article-tag-list-link color5">work</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/23/vue中使用mintui的infinite-scroll组件进行无限滚动加载/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/10/14/html面试/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">html面试</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用："><span class="toc-number">2.</span> <span class="toc-text">使用：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-保证你的项目中安装了min-ui"><span class="toc-number">2.0.1.</span> <span class="toc-text">1. 保证你的项目中安装了min-ui</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-在vue中引入mint-ui"><span class="toc-number">2.0.2.</span> <span class="toc-text">2. 在vue中引入mint-ui</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-按需引入InfiniteScroll组件："><span class="toc-number">2.0.3.</span> <span class="toc-text">3. 按需引入InfiniteScroll组件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-在代码中使用："><span class="toc-number">2.0.4.</span> <span class="toc-text">4.在代码中使用：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-选项解释"><span class="toc-number">2.0.5.</span> <span class="toc-text">5.选项解释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-遇到的坑："><span class="toc-number">2.0.6.</span> <span class="toc-text">6.遇到的坑：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#一、就是当loadmore触发之后，getOrder方法无限触发，也就是无限调用获取数据函数。"><span class="toc-number">2.0.6.0.1.</span> <span class="toc-text">一、就是当loadmore触发之后，getOrder方法无限触发，也就是无限调用获取数据函数。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#二、滚动不加载："><span class="toc-number">2.0.6.0.2.</span> <span class="toc-text">二、滚动不加载：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#三、页面初始化的时候会自动调用一次loadmore"><span class="toc-number">2.0.6.0.3.</span> <span class="toc-text">三、页面初始化的时候会自动调用一次loadmore:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#四、页面中有类似tabbar，在切换tabbar页面的时候，loadmore会自动调用。"><span class="toc-number">2.0.6.0.4.</span> <span class="toc-text">四、页面中有类似tabbar，在切换tabbar页面的时候，loadmore会自动调用。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -243,10 +370,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
