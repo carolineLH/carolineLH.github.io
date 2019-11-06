@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>从promise、process.nextTick、setTimeout出发，谈谈Event Loop中的Job queue  | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景之前有写过一篇文章来总结事件循环，最近重新学习了下，感觉需要重新总结一下。  之前文章中也说过，event loop就是指主线程从“任务队列”中循环读取任务，例如： 1234setTimeout(function()&amp;#123;console.log(&amp;apos;a&amp;apos;)&amp;#125;,0);console.log(&amp;apos;b&amp;apos;)// 输出 b a  在这个例子中，我们">
-<meta name="keywords" content="js,面试">
+  <meta name="description" content="背景之前有写过一篇文章来总结事件循环，最近重新学习了下，感觉需要重新总结一下。">
+<meta name="keywords" content="面试,js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从promise、process.nextTick、setTimeout出发，谈谈Event Loop中的Job queue ">
 <meta property="og:url" content="http://yoursite.com/2019/11/06/从promise、process-nextTick、setTimeout出发，谈谈Event-Loop中的Job-queue/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="背景之前有写过一篇文章来总结事件循环，最近重新学习了下，感觉需要重新总结一下。  之前文章中也说过，event loop就是指主线程从“任务队列”中循环读取任务，例如： 1234setTimeout(function()&amp;#123;console.log(&amp;apos;a&amp;apos;)&amp;#125;,0);console.log(&amp;apos;b&amp;apos;)// 输出 b a  在这个例子中，我们">
+<meta property="og:description" content="背景之前有写过一篇文章来总结事件循环，最近重新学习了下，感觉需要重新总结一下。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-06T02:52:59.947Z">
+<meta property="og:updated_time" content="2019-11-06T02:55:45.044Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从promise、process.nextTick、setTimeout出发，谈谈Event Loop中的Job queue ">
-<meta name="twitter:description" content="背景之前有写过一篇文章来总结事件循环，最近重新学习了下，感觉需要重新总结一下。  之前文章中也说过，event loop就是指主线程从“任务队列”中循环读取任务，例如： 1234setTimeout(function()&amp;#123;console.log(&amp;apos;a&amp;apos;)&amp;#125;,0);console.log(&amp;apos;b&amp;apos;)// 输出 b a  在这个例子中，我们">
+<meta name="twitter:description" content="背景之前有写过一篇文章来总结事件循环，最近重新学习了下，感觉需要重新总结一下。">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -169,10 +169,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-         <a id="more"></a>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>之前有写过一篇文章来总结<a href="https://juejin.im/post/5aacd1766fb9a028cb2d6766" target="_blank" rel="noopener">事件循环</a>，最近重新学习了下，感觉需要重新总结一下。</p>
-<!--more-->
-<p>之前文章中也说过，event loop就是指主线程从“任务队列”中循环读取任务，例如：</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>之前有写过一篇文章来总结<a href="https://juejin.im/post/5aacd1766fb9a028cb2d6766" target="_blank" rel="noopener">事件循环</a>，最近重新学习了下，感觉需要重新总结一下。<br> <a id="more"></a><br>之前文章中也说过，event loop就是指主线程从“任务队列”中循环读取任务，例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;console.log(&apos;a&apos;)&#125;,0);</span><br><span class="line"></span><br><span class="line">console.log(&apos;b&apos;)</span><br><span class="line">// 输出 b a</span><br></pre></td></tr></table></figure>
 
 <p>在这个例子中，我们明白首先执行主线程中的同步任务，档主线程任务执行完毕之后，再从event loop中读取任务，因此先输出b再输出a</p>
@@ -216,11 +213,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -448,14 +445,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
@@ -464,23 +453,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">work</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">nuxt</a>
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,11 +469,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">微信</a>
+                <a href="javascript:void(0)" class="js-tag color5">work</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">nuxt</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">微信</a>
               </li>
             
             <div class="clearfix"></div>
