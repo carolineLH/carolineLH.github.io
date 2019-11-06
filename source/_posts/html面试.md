@@ -9,6 +9,7 @@ tags:
   - 面试
 ---
 ## DOCTYPE有什么用?
+ <!--more-->
 DOCTYPE是'document type'的缩写。它是HTML中用来区分标准模式和怪异模式的声明，用来告知浏览器使用标准模式渲染页面。
 
 从中获得的启发：在页面开始处添加<!DOCTYPE html>即可。
