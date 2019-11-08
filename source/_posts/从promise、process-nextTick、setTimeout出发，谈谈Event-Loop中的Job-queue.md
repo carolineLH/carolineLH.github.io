@@ -8,10 +8,9 @@ tags:
   - js
   - 面试
 ---
- <!--more-->
 ## 背景
 之前有写过一篇文章来总结[事件循环](https://juejin.im/post/5aacd1766fb9a028cb2d6766)，最近重新学习了下，感觉需要重新总结一下。
-<!--more-->
+ <!--more-->
 之前文章中也说过，event loop就是指主线程从“任务队列”中循环读取任务，例如：
 ```
 setTimeout(function(){console.log('a')},0);
