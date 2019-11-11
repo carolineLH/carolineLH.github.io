@@ -273,4 +273,73 @@ git fetch是将远程主机的最新内容拉到本地，用户在检查了以�
 而git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
 
 
+### **git push**
+Updates remote refs using local refs,将本地提交推送到远程仓库
+
+* 完整使用
+```
+git push [<repository> [<refspec>...]]
+```
+git push <远程主机名> <本地分支名>  <远程分支名>
+
+* 其他
+```
+// -u是--set-upstream的简写，表示origin/master分支和local/master分支建立追踪关系，此后使用git push就是采用这种默/// 认方式推送到origin/master分支上
+git push -u origin master
+
+// 省略了远程分支名，表示将本地分支推送到与之存在追踪关系的远程分支，通常是一个同名的分支，如果远程没有该分支就会被创/// 建
+git push origin master
+
+// 删除origin/dev分支
+git push origin :dev
+
+// 这个也是删除origin/dev分支
+git push origin -d dev
+
+// 在多人协作开发下，如果其中一个小伙伴删除了远程的某个分支，但是没有主动告诉其他伙伴他删除了分支，所以其他伙伴就可以使用这个命令来手动检查更新远程分支的情况
+git remote prune origin
+
+// 这条命令也是检查远程分支的情况
+git fetch --prune
+```
+
+### **git status**
+查看工作区的状态，这个命令可以看作是一种智能提示，因为这个命令不仅会显示working tree当前状态，同时还会提示你下一步的操作。
+
+### **git merge**
+
+* `git merge`是通过合并其他分支的histories来达到当前分支往前走的目的
+* `git merge`有`fast-forward`和`no-fast-forward`两种默认方式进行合并，git会根据不同的情况采取不同的默认方式进行合并。
+
+例一：这种情况下master分支相对于dev分支，只是简单的落后于dev分支，在dev分支前进的时间里，master分支没有产生其他的mommit，此时执行`git merge dev`是采用`fast-forward`，直接快进，不会产生一个新的commit节点。
+![](/img/merge1.png)
+
+快速合并的结果：
+![](/img/merge4.png)
+
+例二：此时在master分支相对于dev分支，不仅仅是简单的落后于dev分支，在dev分支前进的同时master分支也在前进，此时执行git merge dev就会产生一个新的commit节点来记录这一次的merge。
+![](/img/merge2.png)
+
+合并后产生一条新的commit
+![](/img/merge3.png)
+
+值得注意的是，在fast-forword默认模式下，你可以使用—no-ff(no fast forward)来阻止快速合并，强制生成一条合并commit记录此次合并，但是在no-fast-forward默认模式下，不能强制更改为fast-forward合并。只能使用别的当时去合并，这便是下面要说的，rebase,变基。
+
+### **git rebase**
+第二种合并分支的方法是`git rebase`。Rebase实际上就是取出一些列的提交记录，“复制”他们，然后在另外一个地方逐个的放下去。也就是改变当前分支的初始commit，然后在新的base上一个个地运行这个分支上所有的commits。
+
+Rebase的优势就是可以创造更线性的提交历史。如果只允许使用Rebase的话，代码库的提交历史将会变得异常清晰。
+
+![](/img/rebase1.png)
+
+例一： 像上面这种情况：可能因为你的同事在master上改了bug，或者开发了新的功能上传到了master，你开发的功能依赖你同事开发的部分，所以这时候你需要合并代码。如果此时使用merge的话，一定会产生一条merge树，这样非常丑，所以你可以是使用这样的操作：
+```
+git checkout bugFix
+git rebase master
+
+```
+
+![](/img/rebase2.png)
+
+
 
