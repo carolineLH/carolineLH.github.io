@@ -33,7 +33,7 @@ tags:
 
 
 下面就是.git的目录
-![.git的目录](/img/git.png)
+![.git的目录](https://github.com/carolineLH/carolineLH.github.io/blob/hexo/img/git.png)
 
 * index就是暂存区，是Git中的重要概念，当对工作区修改、新增文件执行git add命令之后，就会产生一个新纪录存入暂存区中。
 * HEAD是一个游标，当我们创建版本库的时候，git会主动为我们创建一个分支master。此时HEAD指向master最近的一个提交，如果你切换到dev分支了，那么HEAD指向的就是dev分支最近的一个提交。
@@ -162,9 +162,9 @@ a11bef0 - Scott Chacon, 11 months ago : first commit
 可以用来恢复本地错误操作很重要的一个命令。
 
 git log和git reflog的区别：git log 命令可以显示所有提交过的版本信息，如图所示：
-![git log演示](/img/log.png)
+![git log演示](https://github.com/carolineLH/carolineLH.github.io/blob/hexo/img/log.png)
 git reflog 可以查看所有分支的所有操作记录（包括已经被删除的 commit 记录和 reset 的操作。有commit记录，checkout记录）如图：
-![git reflog演示](/img/reflog.png)
+![git reflog演示](https://github.com/carolineLH/carolineLH.github.io/blob/hexo/img/reslog.png)
 
 ### **git remote**
 远程仓库：托管在因特网或其他网络中的你的项目的版本库。你的项目可以只有一个远程仓库，也可以有多个远程仓库。
@@ -312,16 +312,16 @@ git fetch --prune
 * `git merge`有`fast-forward`和`no-fast-forward`两种默认方式进行合并，git会根据不同的情况采取不同的默认方式进行合并。
 
 例一：这种情况下master分支相对于dev分支，只是简单的落后于dev分支，在dev分支前进的时间里，master分支没有产生其他的mommit，此时执行`git merge dev`是采用`fast-forward`，直接快进，不会产生一个新的commit节点。
-![merge1](/img/merge1.png)
+![merge1](https://github.com/carolineLH/carolineLH.github.io/blob/hexo/img/merge1.png)
 
 快速合并的结果：
-![merge4](/img/merge4.png)
+![merge4](https://github.com/carolineLH/carolineLH.github.io/blob/hexo/img/merge4.png)
 
 例二：此时在master分支相对于dev分支，不仅仅是简单的落后于dev分支，在dev分支前进的同时master分支也在前进，此时执行git merge dev就会产生一个新的commit节点来记录这一次的merge。
-![merge2](/img/merge2.png)
+![merge2](https://github.com/carolineLH/carolineLH.github.io/blob/hexo/img/merge2.png)
 
 合并后产生一条新的commit
-![merge3](/img/merge3.png)
+![merge3](https://github.com/carolineLH/carolineLH.github.io/blob/hexo/img/merge3.png)
 
 值得注意的是，在fast-forword默认模式下，你可以使用—no-ff(no fast forward)来阻止快速合并，强制生成一条合并commit记录此次合并，但是在no-fast-forward默认模式下，不能强制更改为fast-forward合并。只能使用别的当时去合并，这便是下面要说的，rebase,变基。
 
@@ -330,7 +330,7 @@ git fetch --prune
 
 Rebase的优势就是可以创造更线性的提交历史。如果只允许使用Rebase的话，代码库的提交历史将会变得异常清晰。
 
-![rebase1](/img/rebase1.png)
+![rebase1](https://github.com/carolineLH/carolineLH.github.io/blob/hexo/img/rebase1.png)
 
 例一： 像上面这种情况：可能因为你的同事在master上改了bug，或者开发了新的功能上传到了master，你开发的功能依赖你同事开发的部分，所以这时候你需要合并代码。如果此时使用merge的话，一定会产生一条merge树，这样非常丑，所以你可以是使用这样的操作：
 ```
@@ -339,7 +339,7 @@ git rebase master
 
 ```
 
-![rebase2](/img/rebase2.png)
+![rebase2](https://github.com/carolineLH/carolineLH.github.io/blob/hexo/img/rebase2.png)
 
 
 
