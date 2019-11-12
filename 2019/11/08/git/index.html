@@ -16,14 +16,20 @@
 <meta property="og:site_name" content="caroline&#39;s blog">
 <meta property="og:description" content="什么是Git？">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/img/.git.png">
+<meta property="og:image" content="http://yoursite.com/img/git.png">
 <meta property="og:image" content="http://yoursite.com/img/log.png">
 <meta property="og:image" content="http://yoursite.com/img/reflog.png">
-<meta property="og:updated_time" content="2019-11-08T10:16:27.216Z">
+<meta property="og:image" content="http://yoursite.com/img/merge1.png">
+<meta property="og:image" content="http://yoursite.com/img/merge4.png">
+<meta property="og:image" content="http://yoursite.com/img/merge2.png">
+<meta property="og:image" content="http://yoursite.com/img/merge3.png">
+<meta property="og:image" content="http://yoursite.com/img/rebase1.png">
+<meta property="og:image" content="http://yoursite.com/img/rebase2.png">
+<meta property="og:updated_time" content="2019-11-12T01:53:12.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git">
 <meta name="twitter:description" content="什么是Git？">
-<meta name="twitter:image" content="http://yoursite.com/img/.git.png">
+<meta name="twitter:image" content="http://yoursite.com/img/git.png">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -193,7 +199,7 @@
 <li>本地仓库（简称：本地）：输入命令：git commit此次修改的描述，此次改动就放到了本地仓库，每个commit，我们叫他为一个版本。</li>
 <li>远程仓库（简称：远程）输入命令git push 远程仓库,此次改动就放到了远程仓库(Github等)。</li>
 </ul>
-<p>下面就是.git的目录<br><img src="/img/.git.png" alt></p>
+<p>下面就是.git的目录<br><img src="/img/git.png" alt=".git的目录"></p>
 <ul>
 <li>index就是暂存区，是Git中的重要概念，当对工作区修改、新增文件执行git add命令之后，就会产生一个新纪录存入暂存区中。</li>
 <li>HEAD是一个游标，当我们创建版本库的时候，git会主动为我们创建一个分支master。此时HEAD指向master最近的一个提交，如果你切换到dev分支了，那么HEAD指向的就是dev分支最近的一个提交。</li>
@@ -244,7 +250,7 @@
 
 <p>更多关于<code>git log</code>的使用可以看<a href="https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2" target="_blank" rel="noopener">这里</a></p>
 <h3 id="git-reflog"><a href="#git-reflog" class="headerlink" title="git-reflog"></a><strong>git-reflog</strong></h3><p>可以用来恢复本地错误操作很重要的一个命令。</p>
-<p>git log和git reflog的区别：git log 命令可以显示所有提交过的版本信息，如图所示：<br><img src="/img/log.png" alt><br>git reflog 可以查看所有分支的所有操作记录（包括已经被删除的 commit 记录和 reset 的操作。有commit记录，checkout记录）如图：<br><img src="/img/reflog.png" alt></p>
+<p>git log和git reflog的区别：git log 命令可以显示所有提交过的版本信息，如图所示：<br><img src="/img/log.png" alt="git log演示"><br>git reflog 可以查看所有分支的所有操作记录（包括已经被删除的 commit 记录和 reset 的操作。有commit记录，checkout记录）如图：<br><img src="/img/reflog.png" alt="git reflog演示"></p>
 <h3 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a><strong>git remote</strong></h3><p>远程仓库：托管在因特网或其他网络中的你的项目的版本库。你的项目可以只有一个远程仓库，也可以有多个远程仓库。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 查看远程仓库。选项 -v，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL。 如果你的远程仓库不止一个，该命令会将它们全部列出</span><br><span class="line">git remote -v </span><br><span class="line"></span><br><span class="line">// 添加远程库</span><br><span class="line">git remote add &lt;shortname&gt; &lt;url&gt;</span><br><span class="line"></span><br><span class="line">// 删除远程仓库</span><br><span class="line">git remote rm name</span><br></pre></td></tr></table></figure>
 
@@ -278,6 +284,35 @@
 
 <h4 id="git-pull-和-git-fetch的区别"><a href="#git-pull-和-git-fetch的区别" class="headerlink" title="git pull 和 git fetch的区别"></a>git pull 和 git fetch的区别</h4><p>git fetch是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。</p>
 <p>而git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。</p>
+<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a><strong>git push</strong></h3><p>Updates remote refs using local refs,将本地提交推送到远程仓库</p>
+<ul>
+<li>完整使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push [&lt;repository&gt; [&lt;refspec&gt;...]]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>git push &lt;远程主机名&gt; &lt;本地分支名&gt;  &lt;远程分支名&gt;</p>
+<ul>
+<li>其他<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// -u是--set-upstream的简写，表示origin/master分支和local/master分支建立追踪关系，此后使用git push就是采用这种默/// 认方式推送到origin/master分支上</span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line">// 省略了远程分支名，表示将本地分支推送到与之存在追踪关系的远程分支，通常是一个同名的分支，如果远程没有该分支就会被创/// 建</span><br><span class="line">git push origin master</span><br><span class="line"></span><br><span class="line">// 删除origin/dev分支</span><br><span class="line">git push origin :dev</span><br><span class="line"></span><br><span class="line">// 这个也是删除origin/dev分支</span><br><span class="line">git push origin -d dev</span><br><span class="line"></span><br><span class="line">// 在多人协作开发下，如果其中一个小伙伴删除了远程的某个分支，但是没有主动告诉其他伙伴他删除了分支，所以其他伙伴就可以使用这个命令来手动检查更新远程分支的情况</span><br><span class="line">git remote prune origin</span><br><span class="line"></span><br><span class="line">// 这条命令也是检查远程分支的情况</span><br><span class="line">git fetch --prune</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a><strong>git status</strong></h3><p>查看工作区的状态，这个命令可以看作是一种智能提示，因为这个命令不仅会显示working tree当前状态，同时还会提示你下一步的操作。</p>
+<h3 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a><strong>git merge</strong></h3><ul>
+<li><code>git merge</code>是通过合并其他分支的histories来达到当前分支往前走的目的</li>
+<li><code>git merge</code>有<code>fast-forward</code>和<code>no-fast-forward</code>两种默认方式进行合并，git会根据不同的情况采取不同的默认方式进行合并。</li>
+</ul>
+<p>例一：这种情况下master分支相对于dev分支，只是简单的落后于dev分支，在dev分支前进的时间里，master分支没有产生其他的mommit，此时执行<code>git merge dev</code>是采用<code>fast-forward</code>，直接快进，不会产生一个新的commit节点。<br><img src="/img/merge1.png" alt="merge1"></p>
+<p>快速合并的结果：<br><img src="/img/merge4.png" alt="merge4"></p>
+<p>例二：此时在master分支相对于dev分支，不仅仅是简单的落后于dev分支，在dev分支前进的同时master分支也在前进，此时执行git merge dev就会产生一个新的commit节点来记录这一次的merge。<br><img src="/img/merge2.png" alt="merge2"></p>
+<p>合并后产生一条新的commit<br><img src="/img/merge3.png" alt="merge3"></p>
+<p>值得注意的是，在fast-forword默认模式下，你可以使用—no-ff(no fast forward)来阻止快速合并，强制生成一条合并commit记录此次合并，但是在no-fast-forward默认模式下，不能强制更改为fast-forward合并。只能使用别的当时去合并，这便是下面要说的，rebase,变基。</p>
+<h3 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a><strong>git rebase</strong></h3><p>第二种合并分支的方法是<code>git rebase</code>。Rebase实际上就是取出一些列的提交记录，“复制”他们，然后在另外一个地方逐个的放下去。也就是改变当前分支的初始commit，然后在新的base上一个个地运行这个分支上所有的commits。</p>
+<p>Rebase的优势就是可以创造更线性的提交历史。如果只允许使用Rebase的话，代码库的提交历史将会变得异常清晰。</p>
+<p><img src="/img/rebase1.png" alt="rebase1"></p>
+<p>例一： 像上面这种情况：可能因为你的同事在master上改了bug，或者开发了新的功能上传到了master，你开发的功能依赖你同事开发的部分，所以这时候你需要合并代码。如果此时使用merge的话，一定会产生一条merge树，这样非常丑，所以你可以是使用这样的操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout bugFix</span><br><span class="line">git rebase master</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/rebase2.png" alt="rebase2"></p>
 
       
 
@@ -409,7 +444,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Git？"><span class="toc-number">1.</span> <span class="toc-text">什么是Git？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对分布式架构的理解"><span class="toc-number">1.1.</span> <span class="toc-text">对分布式架构的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git相关的基本概念"><span class="toc-number">1.2.</span> <span class="toc-text">git相关的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git配置"><span class="toc-number">1.3.</span> <span class="toc-text">git配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git常用命令"><span class="toc-number">2.</span> <span class="toc-text">git常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-init"><span class="toc-number">2.1.</span> <span class="toc-text">git init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-clone"><span class="toc-number">2.2.</span> <span class="toc-text">git clone</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-add"><span class="toc-number">2.3.</span> <span class="toc-text">git add</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-commit"><span class="toc-number">2.4.</span> <span class="toc-text">git commit</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#在git中，任何已提交的东西几乎都是可以恢复的，但是那些未提交丢失之后就无法恢复了。"><span class="toc-number">2.4.0.1.</span> <span class="toc-text">在git中，任何已提交的东西几乎都是可以恢复的，但是那些未提交丢失之后就无法恢复了。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-log"><span class="toc-number">2.5.</span> <span class="toc-text">** git log**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reflog"><span class="toc-number">2.6.</span> <span class="toc-text">git-reflog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-remote"><span class="toc-number">2.7.</span> <span class="toc-text">git remote</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-pull"><span class="toc-number">2.8.</span> <span class="toc-text">** git pull **</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#options-选项"><span class="toc-number">2.8.1.</span> <span class="toc-text">options(选项)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-fetch"><span class="toc-number">2.9.</span> <span class="toc-text">git fetch</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-pull-和-git-fetch的区别"><span class="toc-number">2.9.1.</span> <span class="toc-text">git pull 和 git fetch的区别</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Git？"><span class="toc-number">1.</span> <span class="toc-text">什么是Git？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对分布式架构的理解"><span class="toc-number">1.1.</span> <span class="toc-text">对分布式架构的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git相关的基本概念"><span class="toc-number">1.2.</span> <span class="toc-text">git相关的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git配置"><span class="toc-number">1.3.</span> <span class="toc-text">git配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git常用命令"><span class="toc-number">2.</span> <span class="toc-text">git常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-init"><span class="toc-number">2.1.</span> <span class="toc-text">git init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-clone"><span class="toc-number">2.2.</span> <span class="toc-text">git clone</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-add"><span class="toc-number">2.3.</span> <span class="toc-text">git add</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-commit"><span class="toc-number">2.4.</span> <span class="toc-text">git commit</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#在git中，任何已提交的东西几乎都是可以恢复的，但是那些未提交丢失之后就无法恢复了。"><span class="toc-number">2.4.0.1.</span> <span class="toc-text">在git中，任何已提交的东西几乎都是可以恢复的，但是那些未提交丢失之后就无法恢复了。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-log"><span class="toc-number">2.5.</span> <span class="toc-text">** git log**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reflog"><span class="toc-number">2.6.</span> <span class="toc-text">git-reflog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-remote"><span class="toc-number">2.7.</span> <span class="toc-text">git remote</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-pull"><span class="toc-number">2.8.</span> <span class="toc-text">** git pull **</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#options-选项"><span class="toc-number">2.8.1.</span> <span class="toc-text">options(选项)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-fetch"><span class="toc-number">2.9.</span> <span class="toc-text">git fetch</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-pull-和-git-fetch的区别"><span class="toc-number">2.9.1.</span> <span class="toc-text">git pull 和 git fetch的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-push"><span class="toc-number">2.10.</span> <span class="toc-text">git push</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-status"><span class="toc-number">2.11.</span> <span class="toc-text">git status</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-merge"><span class="toc-number">2.12.</span> <span class="toc-text">git merge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-rebase"><span class="toc-number">2.13.</span> <span class="toc-text">git rebase</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -535,19 +570,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">work</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,6 +591,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">work</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,10 +607,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
