@@ -341,5 +341,121 @@ git rebase master
 
 ![rebase2](https://github.com/carolineLH/carolineLH.github.io/blob/hexo/img/rebase2.png)
 
+#### 那到底什么时候用git merge，什么时候用git rebase呢？
+
+* 使用merge合并分支，希望在git中留下当前local分支存在过的记录，即使以后那个分支删除了，还是能在git提交记录中找到那个分支开始和结束时间。
+* 使用rebase整理分支，是不希望当前的local分支出现在提交树中，他并不具备有特殊的意义，自然也不需要留下痕迹，更不应该把提交树的提交搞得混乱不堪。
+
+#### rebase黄金定律
+
+```
+永远不要rebase一个远程已经存在的分支（比如，rebase到master、develop、release分支上），只能rebase自己使用的私有的分支。
+
+```
+* 当前local分支存在具有特殊意义，比如说是需要展现一个功能开发过程的feature分支，或者是体现一个bug修复过程的bugFix分支，这些分支都应该体现在提交树中，因为它能完整的体现一段业务实现的过程，所以这些情况下，应该使用`git merge localBranchName --no-ff` .使用`--no-ff`来确保一定会生成一个`merge commit`，因为如果你要合并的分支在localBranch之后没有更改，那么git在merge的时候会采用`fast-forward`模式，这种模式下合并的时候不会产生一个`merge commit`，这样就达不到目的了，所以必须加上`--no-ff`这个参数去确保`merge commit`的产生。
+
+* `local branch`的存在仅仅是为了开发的同时保持master分支（这里举例为master，实际上可能是其他你将要合并的分支）的稳定，不存在其他特殊的意义，那么此时就应该用`git rebase+merge`来达到`fast-forward `合并。具体操作如下：
+```
+// 如果此时master分支从local branch创建之后没有新的提交，那可以直接merge
+git checkout master
+git merge localBranchName
+// 如果master分支从local branch创建之后有产生了新的提交，那么local branch 需要先使用rebase来确保merge的时候采用fast-forward模式
+git rebase master
+git checkout master
+git merge localBranchName
+// 这里为什么不直接在master分支上rebase，因为master分支上的提交已经在中央仓库中已经存在了，rebase会重写历史记录，这对于已经push完成的记录是不合理的。这样做也不符合之前说的rebase黄金定律
+```
+
+* 在使用`git pull`命令的时候，应该使用`git pull --rebase`来代替。pull命令是fetch和merge两条命令的合并，使用`--rebase`是使用`git rebase`来代替`git merge`。例如，在dev分支，你commit了一些提交，这时候你的同时在dev分支上push了一些commit，这是经常出现的场景，此时如果你直接push的话git会禁止你的push操作，它会提示你先pull在进行push操作。所以这时候需要执行`git pull`。那么和普通的mmerge操作一样，当origin/dev和你本地的dev分支进行merge的时候肯定会产生一条merge commit，并且留下一条不必要的树在git记录中。但是这条merge记录是毫无意义的，甚至是多余的，只会让提交树变得很乱的感觉。而使用rebase的话，将会重写整个histories，不会残留不必要的记录，污染历史图谱，而且这个过程并不会和之前我们说的rebase黄金定律相矛盾。
+
+
+#### rebase的其他作用
+有这么一种场景：
+
+```
+我们在开发一个功能的过程中，可能有很多不必要的提交，可是我们想要一些比较完整的、直观的提交，所以我们想要整理commit
+因为如果不整理，直接push到远程的话，会导致一个混乱的History，长期如此，hostory tree将会混乱不堪。
+```
+这时候，在push commit之前，先使用rebase来将我们本地分支的commit记录整理一下。
+
+```
+// -i/--interactive 列出将要生成新的提交的commit lists
+// 474ac4f9612a1c830f41ab6d8514ca38381a066f是最后一个需要被整理的commit前一个commit的sha1
+git rebase -i 474ac4f9612a1c830f41ab6d8514ca38381a066f
+// 后面不带commit sha1的话表示将当前index中所有commit列举出来
+git rebase -i
+
+```
+执行完这个命令之后，会出现一个提交页面：这是一个可编辑的界面，在这个界面你可以修改commit提交信息，整合commit等等。值得注意的是这里的commit排序是倒叙，最下面那个commit才是最后一条提交；如果要使用squash将提交整合，squash的commit前面必须保留至少一个commit。
+
+### ** git reset**
+* `git reset`将HEAD重置到某个特定的状态；
+* `git reset`主要使用的有soft,mixed,hard三个模式，这三个模式区别之处在于影响的范围不一样。
+```
+// 索引和工作区都不会被改变
+git reset --sort commit/HEAD~4(表示当前HEAD前4个commit)
+// 索引改变，工作区回到暂存之前的状态，这种也是git的默认方式
+git reset --mixed commit/HEAD~4
+// 索引和工作区都会回到给定提交的状态，新增的文件会被删除，被删除的文件还原
+git reset --hard commit/HEAD~4
+```
+当你想要回到哪个状态，就用`git reset --hard 想要回到的那个sha1`
+
+* `git reset`是相对危险的命令，尤其是hard模式，当然这些更新都将只是针对`local branch`。如果这些还原要同步到origin， 在没有改动到origin commit的前提下，直接push，但是在reset了origin commit的情况下，需要使用`git push -f(--force)`来执行推送。 `git reset --hard`和g`it push -f`是极其危险的操作，一旦重置，原来的记录就找不回，所以不推荐在开发过程中使用。
+
+
+### ** git revert**
+使用 git revert 撤销某次操作，这次操作之前的和之后的commit 和 history 都会保留，并且将这次的撤销作为一次最新的提交。
+
+* `git revert commit`
+* `git reset`是让HEAD往后退，它改写了history, `git revert`是让HEAD往前走，生成一个新的commit来记录这一次的反转，相对而言，reset更加危险。
+
+适用场景： 如果我们想撤销之前的某一版本，但是又想保留该目标版本后面的版本，记录下这整个版本变动流程，就可以用这种方法
+
+### ** git cherry-pick**
+如果你想将一些提交复制到当前所在的位置（HEAD）下面的话， Cherry-pick 是最直接的方式了.从其他分支的挑选出你需要的commits， 移植到当前分支，产生一个新的commit来进行提交.
+
+```
+// 将你需要的commit的sha1写在命令后面，这样你所选择的那些commit就会出现在当前的分支上.
+git cherry-pick [commidSha1, [commidSha1...]]
+// 你也可以选择一个commit区间，它的范围就是 startCommidSha1 到 endCommidSha1 之间所有的commit，但是它这是一个 (左开，右闭] 的区间，也就是说，它将不会包含 startCommidSha1 的 commit。
+git cherry_pick <startCommidSha1>…<endCommidSha1>
+// 如果想要包含 startCommidSha1 的话，就需要使用 ^ 标记一下，就会变成一个 [左闭，右闭] 的区间
+git cherry-pick <startCommidSha1>^...<endCommidSha1>
+
+```
+
+### ** git stash**
+
+常用git stash命令：
+
+（1）git stash save "save message"  : 执行存储时，添加备注，方便查找，只有git stash 也要可以的，但查找时不方便识别。
+
+（2）git stash list  ：查看stash了哪些存储
+
+（3）git stash show ：显示做了哪些改动，默认show第一个存储,如果要显示其他存贮，后面加stash@{$num}，比如第二个 git stash show stash@{1}
+
+（4）git stash show -p : 显示第一个存储的改动，如果想显示其他存存储，命令：git stash show  stash@{$num}  -p ，比如第二个：git stash show  stash@{1}  -p
+
+（5）git stash apply :应用某个存储,但不会把存储从存储列表中删除，默认使用第一个存储,即stash@{0}，如果要使用其他个，git stash apply stash@{$num} ， 比如第二个：git stash apply stash@{1} 
+
+（6）git stash pop ：命令恢复之前缓存的工作目录，将缓存堆栈中的对应stash删除，并将对应修改应用到当前的工作目录下,默认为第一个stash,即stash@{0}，如果要应用并删除其他stash，命令：git stash pop stash@{$num} ，比如应用并删除第二个：git stash pop stash@{1}
+
+（7）git stash drop stash@{$num} ：丢弃stash@{$num}存储，从列表中删除这个存储
+
+（8）git stash clear ：删除所有缓存的stash
+
+#### 没有在git 版本控制中的文件，是不能被git stash 存起来的.如果没有被版本控制的文件想要被stash起来，可以使用`git add`将他加入到版本控制里面，再stash。
+
+### ** git checkout**
+常用命令：
+```
+$ git checkout <branchname> # → 切换分支到branchname
+
+$ git checkout -b <branchname> # → 等同于执行上两步，即创建新的分支并切换到该分支
+
+$ git checkout -- xx/xx # → 回滚单个文件
+
+```
 
 
