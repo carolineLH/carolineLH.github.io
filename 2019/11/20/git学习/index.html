@@ -203,7 +203,7 @@
 <li>本地仓库（简称：本地）：输入命令：git commit 此次修改的描述，此次改动就放到了本地仓库，每个 commit，我们叫他为一个版本。</li>
 <li>远程仓库（简称：远程）输入命令 git push 远程仓库,此次改动就放到了远程仓库(Github 等)。</li>
 </ul>
-<p>下面就是.git 的目录<br><img src="//yoursite.com/2019/11/20/git学习/git.png" alt=".git的目录"></p>
+<p>下面就是.git 的目录<br><img src="https://carolinelh.github.io/2019/11/20/git学习/git.png" alt=".git的目录"></p>
 <ul>
 <li>index 就是暂存区，是 Git 中的重要概念，当对工作区修改、新增文件执行 git add 命令之后，就会产生一个新纪录存入暂存区中。</li>
 <li>HEAD 是一个游标，当我们创建版本库的时候，git 会主动为我们创建一个分支 master。此时 HEAD 指向 master 最近的一个提交，如果你切换到 dev 分支了，那么 HEAD 指向的就是 dev 分支最近的一个提交。</li>
@@ -254,7 +254,7 @@
 
 <p>更多关于<code>git log</code>的使用可以看<a href="https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2" target="_blank" rel="noopener">这里</a></p>
 <h3 id="git-reflog"><a href="#git-reflog" class="headerlink" title="git-reflog"></a><strong>git-reflog</strong></h3><p>可以用来恢复本地错误操作很重要的一个命令。</p>
-<p>git log 和 git reflog 的区别：git log 命令可以显示所有提交过的版本信息，如图所示：<br><img src="//yoursite.com/2019/11/20/git学习/log.png" alt="git log演示"><br>git reflog 可以查看所有分支的所有操作记录（包括已经被删除的 commit 记录和 reset 的操作。有 commit 记录，checkout 记录）如图：<br><img src="//yoursite.com/2019/11/20/git学习/reslog.png" alt="git reflog演示"></p>
+<p>git log 和 git reflog 的区别：git log 命令可以显示所有提交过的版本信息，如图所示：<br><img src="https://carolinelh.github.io/2019/11/20/git学习/log.png" alt="git log演示"><br>git reflog 可以查看所有分支的所有操作记录（包括已经被删除的 commit 记录和 reset 的操作。有 commit 记录，checkout 记录）如图：<br><img src="https://carolinelh.github.io/2019/11/20/git学习/reslog.png" alt="git reflog演示"></p>
 <h3 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a><strong>git remote</strong></h3><p>远程仓库：托管在因特网或其他网络中的你的项目的版本库。你的项目可以只有一个远程仓库，也可以有多个远程仓库。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 查看远程仓库。选项 -v，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL。 如果你的远程仓库不止一个，该命令会将它们全部列出</span><br><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line">// 添加远程库</span><br><span class="line">git remote add &lt;shortname&gt; &lt;url&gt;</span><br><span class="line"></span><br><span class="line">// 删除远程仓库</span><br><span class="line">git remote rm name</span><br></pre></td></tr></table></figure>
 
@@ -305,18 +305,18 @@
 <li><code>git merge</code>是通过合并其他分支的 histories 来达到当前分支往前走的目的</li>
 <li><code>git merge</code>有<code>fast-forward</code>和<code>no-fast-forward</code>两种默认方式进行合并，git 会根据不同的情况采取不同的默认方式进行合并。</li>
 </ul>
-<p>例一：这种情况下 master 分支相对于 dev 分支，只是简单的落后于 dev 分支，在 dev 分支前进的时间里，master 分支没有产生其他的 mommit，此时执行<code>git merge dev</code>是采用<code>fast-forward</code>，直接快进，不会产生一个新的 commit 节点。<br><img src="//yoursite.com/2019/11/20/git学习/merge1.png" alt="merge1"></p>
-<p>快速合并的结果：<br><img src="//yoursite.com/2019/11/20/git学习/merge4.png" alt="merge4"></p>
-<p>例二：此时在 master 分支相对于 dev 分支，不仅仅是简单的落后于 dev 分支，在 dev 分支前进的同时 master 分支也在前进，此时执行 git merge dev 就会产生一个新的 commit 节点来记录这一次的 merge。<br><img src="//yoursite.com/2019/11/20/git学习/merge2.png" alt="merge2"></p>
-<p>合并后产生一条新的 commit<br><img src="//yoursite.com/2019/11/20/git学习/merge3.png" alt="merge3"></p>
+<p>例一：这种情况下 master 分支相对于 dev 分支，只是简单的落后于 dev 分支，在 dev 分支前进的时间里，master 分支没有产生其他的 mommit，此时执行<code>git merge dev</code>是采用<code>fast-forward</code>，直接快进，不会产生一个新的 commit 节点。<br><img src="https://carolinelh.github.io/2019/11/20/git学习/merge1.png" alt="merge1"></p>
+<p>快速合并的结果：<br><img src="https://carolinelh.github.io/2019/11/20/git学习/merge4.png" alt="merge4"></p>
+<p>例二：此时在 master 分支相对于 dev 分支，不仅仅是简单的落后于 dev 分支，在 dev 分支前进的同时 master 分支也在前进，此时执行 git merge dev 就会产生一个新的 commit 节点来记录这一次的 merge。<br><img src="https://carolinelh.github.io/2019/11/20/git学习/merge2.png" alt="merge2"></p>
+<p>合并后产生一条新的 commit<br><img src="https://carolinelh.github.io/2019/11/20/git学习/merge3.png" alt="merge3"></p>
 <p>值得注意的是，在 fast-forword 默认模式下，你可以使用—no-ff(no fast forward)来阻止快速合并，强制生成一条合并 commit 记录此次合并，但是在 no-fast-forward 默认模式下，不能强制更改为 fast-forward 合并。只能使用别的当时去合并，这便是下面要说的，rebase,变基。</p>
 <h3 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a><strong>git rebase</strong></h3><p>第二种合并分支的方法是<code>git rebase</code>。Rebase 实际上就是取出一些列的提交记录，“复制”他们，然后在另外一个地方逐个的放下去。也就是改变当前分支的初始 commit，然后在新的 base 上一个个地运行这个分支上所有的 commits。</p>
 <p>Rebase 的优势就是可以创造更线性的提交历史。如果只允许使用 Rebase 的话，代码库的提交历史将会变得异常清晰。</p>
-<p><img src="//yoursite.com/2019/11/20/git学习/rebase1.png" alt="rebase1"></p>
+<p><img src="https://carolinelh.github.io/2019/11/20/git学习/rebase1.png" alt="rebase1"></p>
 <p>例一： 像上面这种情况：可能因为你的同事在 master 上改了 bug，或者开发了新的功能上传到了 master，你开发的功能依赖你同事开发的部分，所以这时候你需要合并代码。如果此时使用 merge 的话，一定会产生一条 merge 树，这样非常丑，所以你可以是使用这样的操作：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout bugFix</span><br><span class="line">git rebase master</span><br></pre></td></tr></table></figure>
 
-<p><img src="//yoursite.com/2019/11/20/git学习/rebase2.png" alt="rebase2"></p>
+<p><img src="https://carolinelh.github.io/2019/11/20/git学习/rebase2.png" alt="rebase2"></p>
 <h4 id="那到底什么时候用-git-merge，什么时候用-git-rebase-呢？"><a href="#那到底什么时候用-git-merge，什么时候用-git-rebase-呢？" class="headerlink" title="那到底什么时候用 git merge，什么时候用 git rebase 呢？"></a>那到底什么时候用 git merge，什么时候用 git rebase 呢？</h4><ul>
 <li>使用 merge 合并分支，希望在 git 中留下当前 local 分支存在过的记录，即使以后那个分支删除了，还是能在 git 提交记录中找到那个分支开始和结束时间。</li>
 <li>使用 rebase 整理分支，是不希望当前的 local 分支出现在提交树中，他并不具备有特殊的意义，自然也不需要留下痕迹，更不应该把提交树的提交搞得混乱不堪。</li>
@@ -405,14 +405,14 @@
 <li>Gitflow 工作流是管理功能开发、发布准备和维护的常用模式。相对于其他两种模型，Gitflow 相对复杂和繁琐，但是对于大型复杂项目，这种模式往往是最合理的。</li>
 <li>Gitflow 模型是 master-develop-release， master 仍然作为主分支，develop 作为开发分支，release 承担着预发布的责任。这种模型下，master 和 dev 都是需要长期维护的分支，release、hotfix、featrue 这三种分支都是短期分支，发布结束，bug 修复结束，功能开发结束便会删除。</li>
 </ul>
-<h4 id="功能开发"><a href="#功能开发" class="headerlink" title="功能开发"></a>功能开发</h4><p>功能开发过程类似功能分支工作流模型，每一个新功能都用一个新的 featrue 分支开发，但是不同的是，featrue 不是从 master 上创建的，而是从 dev 分支上创建。feature 从来不会和 master 分支交互。功能分支上的功能开发完成之后合并到 dev 分支<br><img src="//yoursite.com/2019/11/20/git学习/dev.png" alt=".git的目录"></p>
+<h4 id="功能开发"><a href="#功能开发" class="headerlink" title="功能开发"></a>功能开发</h4><p>功能开发过程类似功能分支工作流模型，每一个新功能都用一个新的 featrue 分支开发，但是不同的是，featrue 不是从 master 上创建的，而是从 dev 分支上创建。feature 从来不会和 master 分支交互。功能分支上的功能开发完成之后合并到 dev 分支<br><img src="https://carolinelh.github.io/2019/11/20/git学习/dev.png" alt=".git的目录"></p>
 <h4 id="发布测试"><a href="#发布测试" class="headerlink" title="发布测试"></a>发布测试</h4><ul>
 <li>一旦 dev 分支上拥有了一次发布所需要的所有功能，就从 dev 分支上创建一个 release 发布分支，来完成之后的发布流程。这个 release 不会再合并新的功能，它只做 bug 修复，文档生成以及其他面向发布任务的事情。直到测试完成，发布工作全部完成之后，打好 tag， 合并到 master 分支，完成上线。</li>
 <li>完成发布之后，release 分支自创建依赖产生了一些 commit，需要合并回 dev 分支。</li>
-<li>这个发布分支的存在让发布流程和其他新功能开发流程可以同时进行，相互不受影响。<br><img src="//yoursite.com/2019/11/20/git学习/release.png" alt=".git的目录"></li>
+<li>这个发布分支的存在让发布流程和其他新功能开发流程可以同时进行，相互不受影响。<br><img src="https://carolinelh.github.io/2019/11/20/git学习/release.png" alt=".git的目录"></li>
 </ul>
 <h4 id="维护分支"><a href="#维护分支" class="headerlink" title="维护分支"></a>维护分支</h4><ul>
-<li>维护分支，hotfix 分支就是上线之后用于上线后给产品快速打补丁，hotfix 也是唯一从 master 主分支创建出来的分支,它测试完成之后需要合并到 master 和 dev 分支， master 分支上要打好 tag 重新发布。<br><img src="//yoursite.com/2019/11/20/git学习/hotFix.png" alt=".git的目录"></li>
+<li>维护分支，hotfix 分支就是上线之后用于上线后给产品快速打补丁，hotfix 也是唯一从 master 主分支创建出来的分支,它测试完成之后需要合并到 master 和 dev 分支， master 分支上要打好 tag 重新发布。<br><img src="https://carolinelh.github.io/2019/11/20/git学习/hotFix.png" alt=".git的目录"></li>
 </ul>
 <h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="http://cristo.top/git/" target="_blank" rel="noopener">git</a></p>
 
@@ -503,7 +503,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/20/git学习/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http:https://carolinelh.github.io/2019/11/20/git学习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -660,15 +660,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,10 +688,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
@@ -701,6 +697,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
