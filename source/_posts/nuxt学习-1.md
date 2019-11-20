@@ -1,6 +1,6 @@
 ---
 title: nuxt学习
-date: 2019-08-25 15:19:48
+date: 2019-11-20 11:22:19
 tags: 
   - nuxt
 categories: 
@@ -26,7 +26,7 @@ Nuxt.js是一个基于Vus.js的通用应用框架，是一个基于Vue.js的服�
 * 支持HTTP/2推送
 #### 流程图：
 下图阐述了Nuxt.js应用一个完整的服务器请求到渲染（或用户通过<nuxt-link>切换路由渲染页面）的流程：
-![nuxtFlow](/img/nuxtFlow.png)
+![nuxtFlow](nuxt学习-1/nuxtFlow.png)
 
 #### 开始使用：
 为了快速入门，Nuxt.js团队创建了脚手架工具create-nuxt-app
@@ -52,7 +52,7 @@ npm run dev
 Nuxt.js会根据pages目录中所有的*.vue文件生成应用的路由配置。
 * 更多关于nuxt.js路由的配置以及实现还是可以看看文档。
 Nuxt.js为页面提供的特殊的配置项：
-![nuxtFlow](/img/pages.png)
+![nuxtFlow](nuxt学习-1/pages.png)
 ###### HTML头部
 Nuxt.js 使用了 vue-meta 更新应用的 头部标签(Head) and html 属性。
 #### 资源文件：
