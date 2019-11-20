@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://carolinelh.github.io">
-  <title>从promise、process.nextTick、setTimeout出发，谈谈Event Loop中的Job queue  | caroline&#39;s blog</title>
+  <title>nuxt学习 | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景之前有写过一篇文章来总结事件循环，最近重新学习了下，感觉需要重新总结一下。">
-<meta name="keywords" content="js,面试">
+  <meta name="description" content="介绍：Nuxt.js是一个基于Vus.js的通用应用框架，是一个基于Vue.js的服务端渲染应用框架。 官方说明：目标是创建一个灵活的应用框架，你可以基于它初始化新项目的基础结构代码，或者在已有Node.js项目中使用nuxt.js。">
+<meta name="keywords" content="nuxt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从promise、process.nextTick、setTimeout出发，谈谈Event Loop中的Job queue ">
-<meta property="og:url" content="https://carolinelh.github.io/2019/11/06/从promise、process-nextTick、setTimeout出发，谈谈Event-Loop中的Job-queue/index.html">
+<meta property="og:title" content="nuxt学习">
+<meta property="og:url" content="https://carolinelh.github.io/2019/11/20/nuxt学习-1/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="背景之前有写过一篇文章来总结事件循环，最近重新学习了下，感觉需要重新总结一下。">
+<meta property="og:description" content="介绍：Nuxt.js是一个基于Vus.js的通用应用框架，是一个基于Vue.js的服务端渲染应用框架。 官方说明：目标是创建一个灵活的应用框架，你可以基于它初始化新项目的基础结构代码，或者在已有Node.js项目中使用nuxt.js。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-06T02:55:45.044Z">
+<meta property="og:image" content="https://carolinelh.github.io/2019/11/20/nuxt学习-1/nuxtFlow.png">
+<meta property="og:image" content="https://carolinelh.github.io/2019/11/20/nuxt学习-1/pages.png">
+<meta property="og:updated_time" content="2019-11-20T03:23:21.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从promise、process.nextTick、setTimeout出发，谈谈Event Loop中的Job queue ">
-<meta name="twitter:description" content="背景之前有写过一篇文章来总结事件循环，最近重新学习了下，感觉需要重新总结一下。">
+<meta name="twitter:title" content="nuxt学习">
+<meta name="twitter:description" content="介绍：Nuxt.js是一个基于Vus.js的通用应用框架，是一个基于Vue.js的服务端渲染应用框架。 官方说明：目标是创建一个灵活的应用框架，你可以基于它初始化新项目的基础结构代码，或者在已有Node.js项目中使用nuxt.js。">
+<meta name="twitter:image" content="https://carolinelh.github.io/2019/11/20/nuxt学习-1/nuxtFlow.png">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -149,57 +152,111 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-从promise、process-nextTick、setTimeout出发，谈谈Event-Loop中的Job-queue" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-nuxt学习-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      从promise、process.nextTick、setTimeout出发，谈谈Event Loop中的Job queue 
+      nuxt学习
     </h1>
   
 
         
-        <a href="/2019/11/06/从promise、process-nextTick、setTimeout出发，谈谈Event-Loop中的Job-queue/" class="archive-article-date">
-  	<time datetime="2019-11-06T02:25:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
+        <a href="/2019/11/20/nuxt学习-1/" class="archive-article-date">
+  	<time datetime="2019-11-20T03:22:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>之前有写过一篇文章来总结<a href="https://juejin.im/post/5aacd1766fb9a028cb2d6766" target="_blank" rel="noopener">事件循环</a>，最近重新学习了下，感觉需要重新总结一下。<br> <a id="more"></a><br>之前文章中也说过，event loop就是指主线程从“任务队列”中循环读取任务，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;console.log(&apos;a&apos;)&#125;,0);</span><br><span class="line"></span><br><span class="line">console.log(&apos;b&apos;)</span><br><span class="line">// 输出 b a</span><br></pre></td></tr></table></figure>
+        <h4 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h4><p>Nuxt.js是一个基于Vus.js的通用应用框架，是一个基于Vue.js的服务端渲染应用框架。</p>
+<p>官方说明：目标是创建一个灵活的应用框架，你可以基于它初始化新项目的基础结构代码，或者在已有Node.js项目中使用nuxt.js。<br> <a id="more"></a></p>
+<h4 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h4><ul>
+<li>基于Vue.js</li>
+<li>自动代码分层</li>
+<li>服务端渲染</li>
+<li>强大的路由功能，支持异步数据</li>
+<li>静态文件服务</li>
+<li>ES2015+语法支持</li>
+<li>打包和压缩JS和CSS</li>
+<li>HTML头部标签管理</li>
+<li>本地开发支持热加载</li>
+<li>集成ESlint</li>
+<li>支持各种样式预处理器：SASS、LESS、Stylus等</li>
+<li>支持HTTP/2推送<h4 id="流程图："><a href="#流程图：" class="headerlink" title="流程图："></a>流程图：</h4>下图阐述了Nuxt.js应用一个完整的服务器请求到渲染（或用户通过<nuxt-link>切换路由渲染页面）的流程：<br><img src="//carolinelh.github.io/2019/11/20/nuxt学习-1/nuxtFlow.png" alt="nuxtFlow"></nuxt-link></li>
+</ul>
+<h4 id="开始使用："><a href="#开始使用：" class="headerlink" title="开始使用："></a>开始使用：</h4><p>为了快速入门，Nuxt.js团队创建了脚手架工具create-nuxt-app</p>
+<p>确保安装了npx（npx在NPM版本5.2.0默认安装了）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-nuxt-app &lt;项目名&gt;</span><br></pre></td></tr></table></figure>
 
-<p>在这个例子中，我们明白首先执行主线程中的同步任务，档主线程任务执行完毕之后，再从event loop中读取任务，因此先输出b再输出a</p>
-<p>event loop读取任务的先后顺序，取决于任务队列（Job queue）中对于不同任务读取规则的限定</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function () &#123;</span><br><span class="line">  console.log(3);</span><br><span class="line">&#125;, 0);</span><br><span class="line"></span><br><span class="line">Promise.resolve().then(function () &#123;</span><br><span class="line">  console.log(2);</span><br><span class="line">&#125;);</span><br><span class="line">console.log(1);</span><br><span class="line">//输出为  1  2 3</span><br></pre></td></tr></table></figure>
+<p>或者用yarn：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn create nuxt-app &lt;项目名&gt;</span><br></pre></td></tr></table></figure>
 
-<p>先输出1，没有问题，因为是同步任务在主线程中优先执行，这里的问题是setTimeout和Promise.then任务的执行优先级是如何定义的。</p>
-<h2 id="Job-queue中的执行顺序"><a href="#Job-queue中的执行顺序" class="headerlink" title="Job queue中的执行顺序"></a>Job queue中的执行顺序</h2><p>在Job queue中的队列分为两种类型：macro-task和microTask。我们举例来看执行顺序的规定,我们设</p>
-<p>macro-task队列包含任务: a1, a2 , a3<br>micro-task队列包含任务: b1, b2 , b3</p>
-<p>执行顺序为，首先执行marco-task队列开头的任务，也就是 a1 任务，执行完毕后，在执行micro-task队列里的所有任务，也就是依次执行b1, b2 , b3，执行完后清空micro-task中的任务，接着执行marco-task中的第二个任务，依次循环。</p>
-<p>了解完了macro-task和micro-task两种队列的执行顺序之后，我们接着来看，真实场景下这两种类型的队列里真正包含的任务（我们以node V8引擎为例），在node V8中，这两种类型的真实任务顺序如下所示：</p>
-<p>macro-task队列真实包含任务：</p>
-<p><strong>script(主程序代码),setTimeout, setInterval, setImmediate, I/O, UI rendering</strong></p>
-<p>micro-task队列真实包含任务:</p>
-<p><strong>process.nextTick, Promises, Object.observe, MutationObserver</strong></p>
-<p>由此我们得到的执行顺序应该为：</p>
-<p><strong>script(主程序代码)—&gt;process.nextTick—&gt;Promises…——&gt;setTimeout——&gt;setInterval——&gt;setImmediate——&gt; I/O——&gt;UI rendering</strong></p>
-<p>在ES6中macro-task队列又称为ScriptJobs，而micro-task又称PromiseJobs</p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h4 id="1-setTimeout和promise"><a href="#1-setTimeout和promise" class="headerlink" title="1.setTimeout和promise"></a>1.setTimeout和promise</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function () &#123;</span><br><span class="line">  console.log(3);</span><br><span class="line">&#125;, 0);</span><br><span class="line"></span><br><span class="line">Promise.resolve().then(function () &#123;</span><br><span class="line">  console.log(2);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(1);</span><br></pre></td></tr></table></figure>
+<p>之后有一些选择，可以根据自己项目的需要进行选择。<br>安装完成之后，就是启动项目：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;project-name&gt;</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
 
-<p>这里遵循的顺序为：</p>
-<p><strong>script(主程序代码)——&gt;promise——&gt;setTimeout</strong><br>对应的输出依次为：1 ——&gt;2————&gt;3</p>
-<h4 id="2-process-nextTick和promise、setTimeout"><a href="#2-process-nextTick和promise、setTimeout" class="headerlink" title="2.process.nextTick和promise、setTimeout"></a>2.process.nextTick和promise、setTimeout</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;console.log(1)&#125;,0);</span><br><span class="line"></span><br><span class="line">new Promise(function(resolve,reject)&#123;</span><br><span class="line">   console.log(2);</span><br><span class="line">   resolve();</span><br><span class="line">&#125;).then(function()&#123;console.log(3)</span><br><span class="line">&#125;).then(function()&#123;console.log(4)&#125;);</span><br><span class="line"></span><br><span class="line">process.nextTick(function()&#123;console.log(5)&#125;);</span><br><span class="line"></span><br><span class="line">console.log(6);</span><br><span class="line">//输出2,6,5,3,4,1</span><br></pre></td></tr></table></figure>
+<p>应用在<a href="http://localhost:3000上运行：" target="_blank" rel="noopener">http://localhost:3000上运行：</a></p>
+<h6 id="注意：Nuxt-js-会监听-pages-目录中的文件更改，因此在添加新页面时无需重新启动应用程序。"><a href="#注意：Nuxt-js-会监听-pages-目录中的文件更改，因此在添加新页面时无需重新启动应用程序。" class="headerlink" title="注意：Nuxt.js 会监听 pages 目录中的文件更改，因此在添加新页面时无需重新启动应用程序。"></a>注意：Nuxt.js 会监听 pages 目录中的文件更改，因此在添加新页面时无需重新启动应用程序。</h6><h4 id="pages目录："><a href="#pages目录：" class="headerlink" title="pages目录："></a>pages目录：</h4><p>Nuxt.js会根据pages目录中所有的*.vue文件生成应用的路由配置。</p>
+<ul>
+<li>更多关于nuxt.js路由的配置以及实现还是可以看看文档。<br>Nuxt.js为页面提供的特殊的配置项：<br><img src="//carolinelh.github.io/2019/11/20/nuxt学习-1/pages.png" alt="nuxtFlow"><h6 id="HTML头部"><a href="#HTML头部" class="headerlink" title="HTML头部"></a>HTML头部</h6>Nuxt.js 使用了 vue-meta 更新应用的 头部标签(Head) and html 属性。<h4 id="资源文件："><a href="#资源文件：" class="headerlink" title="资源文件："></a>资源文件：</h4>资源目录 assets 用于组织未编译的静态资源如 LESS、SASS 或 JavaScript。</li>
+</ul>
+<p>默认情况下 Nuxt 使用 vue-loader、file-loader 以及 url-loader 这几个 Webpack 加载器来处理文件的加载和引用。对于不需要通过 Webpack 处理的静态资源文件，可以放置在 static 目录中。<br>如果你的静态资源文件需要 Webpack 做构建编译处理，可以放到 assets 目录，否则可以放到 static 目录中去。</p>
+<h4 id="组件目录："><a href="#组件目录：" class="headerlink" title="组件目录："></a>组件目录：</h4><p>组件目录components用于组织应用的Vue.js组件。Nuxt.js不会扩展增强该目录下Vue.js组件，即这些组件不会像页面组件那样有asyncData方法的特性。</p>
+<h4 id="布局目录："><a href="#布局目录：" class="headerlink" title="布局目录："></a>布局目录：</h4><p>布局目录layouts用于组织应用的布局组件。若无额外配置，该目录不能被重命名。</p>
+<ul>
+<li>Nuxt.js 允许你扩展默认的布局，或在 layout 目录下创建自定义的布局。</li>
+<li>可通过添加 layouts/default.vue 文件来扩展应用的默认布局。<h6 id="提示-别忘了在布局文件中添加-组件用于显示页面的主体内容。"><a href="#提示-别忘了在布局文件中添加-组件用于显示页面的主体内容。" class="headerlink" title="提示: 别忘了在布局文件中添加  组件用于显示页面的主体内容。"></a>提示: 别忘了在布局文件中添加 <nuxt> 组件用于显示页面的主体内容。</nuxt></h6></li>
+<li>layouts 目录中的每个文件 (顶级) 都将创建一个可通过页面组件中的 layout 属性访问的自定义布局。<br>假设我们要创建一个 博客布局 并将其保存到layouts/blog.vue:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;div&gt;我的博客导航栏在这里&lt;/div&gt;</span><br><span class="line">    &lt;nuxt/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
 
-<p><strong>这里要注意的一点在定义promise的时候，promise构造部分是同步执行的</strong></p>
-<p>首先分析Job queue的执行顺序：</p>
-<p><strong>script(主程序代码)——&gt;process.nextTick——&gt;promise——&gt;setTimeout</strong></p>
-<h4 id="3-更复杂的例子"><a href="#3-更复杂的例子" class="headerlink" title="3.更复杂的例子"></a>3.更复杂的例子</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;console.log(1)&#125;,0);</span><br><span class="line"></span><br><span class="line">new Promise(function(resolve,reject)&#123;</span><br><span class="line">   console.log(2);</span><br><span class="line">   setTimeout(function()&#123;resolve()&#125;,0)</span><br><span class="line">&#125;).then(function()&#123;console.log(3)</span><br><span class="line">&#125;).then(function()&#123;console.log(4)&#125;);</span><br><span class="line"></span><br><span class="line">process.nextTick(function()&#123;console.log(5)&#125;);</span><br><span class="line"></span><br><span class="line">console.log(6);</span><br><span class="line"></span><br><span class="line">//输出的是  2 6 5 1 3 4</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>然后我们必须告诉页面 (即pages/posts.vue) 使用您的自定义布局：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;!-- Your template --&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  layout: &apos;blog&apos;</span><br><span class="line">  // page component definitions</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<p>这种情况跟我们（2）中的例子，区别在于promise的构造中，没有同步的resolve，因此promise.then在当前的执行队列中是不存在的，只有promise从pending转移到resolve，才会有then方法，而这个resolve是在一个setTimout时间中完成的，因此3,4最后输出。</p>
+<h4 id="中间件目录："><a href="#中间件目录：" class="headerlink" title="中间件目录："></a>中间件目录：</h4><p>middleware 目录用于存放应用的中间件。</p>
+<ul>
+<li>中间件允许您定义一个自定义函数运行在一个页面或一组页面渲染之前。(中间件可以使您自定义的函数在渲染页面之前运行。)</li>
+<li>每一个中间件应放置在 middleware/ 目录。文件名的名称将成为中间件名称(middleware/auth.js将成为 auth 中间件)。<br>一个中间件接收 context 作为第一个参数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export default function (context) &#123;</span><br><span class="line">  context.userAgent = process.server ? context.req.headers[&apos;user-agent&apos;] : navigator.userAgent</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>中间件可以异步执行,只需要返回一个 Promise 或使用第2个 callback 作为第一个参数：<br>middleware/stats.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import axios from &apos;axios&apos;</span><br><span class="line"></span><br><span class="line">export default function (&#123; route &#125;) &#123;</span><br><span class="line">  return axios.post(&apos;http://my-stats-api.com&apos;, &#123;</span><br><span class="line">    url: route.fullPath</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在你的 nuxt.config.js 、 layouts 或者 pages 中使用中间件:<br>nuxt.config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  router: &#123;</span><br><span class="line">    middleware: &apos;stats&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>您也可以将 middleware 添加到指定的布局或者页面:</p>
+<p>pages/index.vue 或者 layouts/default.vue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  middleware: &apos;stats&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="静态文件目录"><a href="#静态文件目录" class="headerlink" title="静态文件目录:"></a>静态文件目录:</h4><p>静态文件目录 static 用于存放应用的静态文件，此类文件不会被 Nuxt.js 调用 Webpack 进行构建编译处理。 服务器启动的时候，该目录下的文件会映射至应用的根路径 / 下。<br>举个例子: /static/robots.txt 映射至 /robots.txt</p>
+<p>若无额外配置，该目录不能被重命名。</p>
+<h4 id="Store-目录"><a href="#Store-目录" class="headerlink" title="Store 目录:"></a>Store 目录:</h4><p>store 目录用于组织应用的 Vuex 状态树 文件。 Nuxt.js 框架集成了 Vuex 状态树 的相关功能配置，在 store 目录下创建一个 index.js 文件可激活这些配置。<br>若无额外配置，该目录不能被重命名。</p>
+<h6 id="nuxtServerInit-方法-如果你使用-状态树模块化-的模式，只有主模块（即-store-index-js）适用设置该方法（其他模块设置了也不会被调用）。"><a href="#nuxtServerInit-方法-如果你使用-状态树模块化-的模式，只有主模块（即-store-index-js）适用设置该方法（其他模块设置了也不会被调用）。" class="headerlink" title="nuxtServerInit 方法,如果你使用_状态树模块化_的模式，只有主模块（即 store/index.js）适用设置该方法（其他模块设置了也不会被调用）。"></a>nuxtServerInit 方法,如果你使用_状态树模块化_的模式，只有主模块（即 store/index.js）适用设置该方法（其他模块设置了也不会被调用）。</h6><h4 id="nuxt-config-js-文件"><a href="#nuxt-config-js-文件" class="headerlink" title="nuxt.config.js 文件:"></a>nuxt.config.js 文件:</h4><p>nuxt.config.js 文件用于组织Nuxt.js 应用的个性化配置，以便覆盖默认配置。</p>
+<p>若无额外配置，该文件不能被重命名。</p>
+<h4 id="asyncData-方法"><a href="#asyncData-方法" class="headerlink" title="asyncData 方法:"></a>asyncData 方法:</h4><p>asyncData方法会在组件（限于页面组件）每次加载之前被调用。它可以在服务端或路由更新之前被调用。 在这个方法被调用的时候，第一个参数被设定为当前页面的上下文对象，你可以利用 asyncData方法来获取数据，Nuxt.js 会将 asyncData 返回的数据融合组件 data 方法返回的数据一并返回给当前组件。</p>
+<h6 id="注意：由于asyncData方法是在组件-初始化-前被调用的，所以在方法内是没有办法通过-this-来引用组件的实例对象。"><a href="#注意：由于asyncData方法是在组件-初始化-前被调用的，所以在方法内是没有办法通过-this-来引用组件的实例对象。" class="headerlink" title="注意：由于asyncData方法是在组件 初始化 前被调用的，所以在方法内是没有办法通过 this 来引用组件的实例对象。"></a>注意：由于asyncData方法是在组件 初始化 前被调用的，所以在方法内是没有办法通过 this 来引用组件的实例对象。</h6><h4 id="关于nuxt中的vuex："><a href="#关于nuxt中的vuex：" class="headerlink" title="关于nuxt中的vuex："></a>关于nuxt中的vuex：</h4><p>nuxt中的vuex是客户端和服务端共享的，里面的资源都是在客户端和服务端共享的。</p>
+<h4 id="重要理解的点："><a href="#重要理解的点：" class="headerlink" title="重要理解的点："></a>重要理解的点：</h4><ul>
+<li>nuxt里面创建即配置：<br>例如，我们再nuxt-link中我们使用了to跳转到注册页面”/register”，只需要创建一个register页面就可以，也不用配置路由。</li>
+<li>rout-link、a标签、nuxt-link实现的其实都是a标签。</li>
+<li>package-lock.json的作用：<br>其实用一句话来概括很简单，就是锁定安装时的包的版本号，并且需要上传到git，以保证其他人在npm install时大家的依赖能保证一致。</li>
+</ul>
+<p>根据官方文档，这个package-lock.json 是在 <code>npm install</code>时候生成一份文件，用以记录当前状态下实际安装的各个npm package的具体来源和版本号。</p>
+<h4 id="什么叫ssr？ssr意义是什么？"><a href="#什么叫ssr？ssr意义是什么？" class="headerlink" title="什么叫ssr？ssr意义是什么？"></a>什么叫ssr？ssr意义是什么？</h4><p>ssr意为Server Side Rendering（服务端渲染），目的是为了解决单页面应用的SEO的问题，对于一般网站影响不大，但对于论坛类，内容类网站来说是致命的。搜索引擎无法抓取页面相关内容，也就是用户搜不到此网站的相关信息。</p>
+<p>抓取页面的前提是html含有被抓取内容，我们不妨看看基于vue的线上SPA页面请求时返回了什么:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=utf-8&gt;</span><br><span class="line">    &lt;title&gt;iDareX敢玩&lt;/title&gt;</span><br><span class="line">    &lt;meta name=keywords content=&quot;敢玩, iDareX, 敢玩TV, 敢玩活动, 敢玩自频道, 敢玩主题, 户外, 极限运动, 周边游, 探险, 时尚, 新潮, 运动视频, 体育, 新奇, 生活方式, 刺激, 惊险, 户外装备, 达人, 90后&quot;&gt;</span><br><span class="line">    &lt;meta name=description content=自2014年10月创办以来，敢玩专注于极限户外和娱乐体育。从顽童、玩具、玩法三个方面，产出更专注于‘玩’的内容，已打造了一系列深受喜爱的娱乐体育真人秀和引爆网络的运动视频。!&gt;</span><br><span class="line">    &lt;meta name=renderer content=webkit&gt;</span><br><span class="line">    &lt;meta name=force-rendering content=webkit&gt;</span><br><span class="line">    &lt;meta name=viewport content=&quot;width=1140&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=X-UA-Compatible content=&quot;IE=edge,chrome=1&quot;&gt;</span><br><span class="line">    &lt;link rel=&quot;shortcut icon&quot; href=static/favicon.ico type=image/x-icon&gt;</span><br><span class="line">    &lt;link href=/static/css/app.eef5b81a3d1bee5054a791f452a34147.css rel=stylesheet&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id=app&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script type=text/javascript src=/static/js/manifest.6d0adb8f2d8884be1c03.js&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=text/javascript src=/static/js/vendor.ec1cc90c9847c434ba7d.js&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=text/javascript src=/static/js/app.d7fd10ae7e4a68598037.js&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们的组件都是这个 html 文件返回后再渲染到 <div id="app"></div> 里的。这就合理的解释了 SEO 缺陷的原因。(网页是通过服务端渲染生成后输出给客户端。 )</p>
+<h6 id="另外-SSR-还适用以下场景"><a href="#另外-SSR-还适用以下场景" class="headerlink" title="另外 SSR 还适用以下场景"></a>另外 SSR 还适用以下场景</h6><ul>
+<li><p>客户端的网络比较慢</p>
+</li>
+<li><p>客户端运行在老的或者直接没有 JavaScript 引擎上</p>
+</li>
+</ul>
 
       
 
@@ -213,11 +270,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">nuxt</a>
         		</li>
       		
 		</ul>
@@ -229,11 +282,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/面试//" class="article-tag-list-link color3">面试</a>
+        			<a href="/categories/nuxt//" class="article-tag-list-link color5">nuxt</a>
         		</li>
       		
 		</ul>
@@ -288,7 +337,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://carolinelh.github.io/2019/11/06/从promise、process-nextTick、setTimeout出发，谈谈Event-Loop中的Job-queue/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://carolinelh.github.io/2019/11/20/nuxt学习-1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,18 +351,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/20/npm包-rimraf/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/11/20/hexo文章图片不显示的坑/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          npm包 rimraf
+          hexo文章图片不显示的坑
         
       </div>
     </a>
   
   
-    <a href="/2019/10/23/vue中使用mintui的infinite-scroll组件进行无限滚动加载/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vue中使用mintui的infinite-scroll组件进行无限滚动加载</div>
+    <a href="/2019/11/20/git学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -340,7 +389,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Job-queue中的执行顺序"><span class="toc-number">2.</span> <span class="toc-text">Job queue中的执行顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例"><span class="toc-number">3.</span> <span class="toc-text">实例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-setTimeout和promise"><span class="toc-number">3.0.1.</span> <span class="toc-text">1.setTimeout和promise</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-process-nextTick和promise、setTimeout"><span class="toc-number">3.0.2.</span> <span class="toc-text">2.process.nextTick和promise、setTimeout</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-更复杂的例子"><span class="toc-number">3.0.3.</span> <span class="toc-text">3.更复杂的例子</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#介绍："><span class="toc-number">1.</span> <span class="toc-text">介绍：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特性："><span class="toc-number">2.</span> <span class="toc-text">特性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#流程图："><span class="toc-number">3.</span> <span class="toc-text">流程图：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开始使用："><span class="toc-number">4.</span> <span class="toc-text">开始使用：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：Nuxt-js-会监听-pages-目录中的文件更改，因此在添加新页面时无需重新启动应用程序。"><span class="toc-number">4.0.1.</span> <span class="toc-text">注意：Nuxt.js 会监听 pages 目录中的文件更改，因此在添加新页面时无需重新启动应用程序。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pages目录："><span class="toc-number">5.</span> <span class="toc-text">pages目录：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#HTML头部"><span class="toc-number">5.0.1.</span> <span class="toc-text">HTML头部</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#资源文件："><span class="toc-number">6.</span> <span class="toc-text">资源文件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组件目录："><span class="toc-number">7.</span> <span class="toc-text">组件目录：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布局目录："><span class="toc-number">8.</span> <span class="toc-text">布局目录：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#提示-别忘了在布局文件中添加-组件用于显示页面的主体内容。"><span class="toc-number">8.0.1.</span> <span class="toc-text">提示: 别忘了在布局文件中添加  组件用于显示页面的主体内容。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中间件目录："><span class="toc-number">9.</span> <span class="toc-text">中间件目录：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#静态文件目录"><span class="toc-number">10.</span> <span class="toc-text">静态文件目录:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Store-目录"><span class="toc-number">11.</span> <span class="toc-text">Store 目录:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#nuxtServerInit-方法-如果你使用-状态树模块化-的模式，只有主模块（即-store-index-js）适用设置该方法（其他模块设置了也不会被调用）。"><span class="toc-number">11.0.1.</span> <span class="toc-text">nuxtServerInit 方法,如果你使用_状态树模块化_的模式，只有主模块（即 store/index.js）适用设置该方法（其他模块设置了也不会被调用）。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nuxt-config-js-文件"><span class="toc-number">12.</span> <span class="toc-text">nuxt.config.js 文件:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#asyncData-方法"><span class="toc-number">13.</span> <span class="toc-text">asyncData 方法:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：由于asyncData方法是在组件-初始化-前被调用的，所以在方法内是没有办法通过-this-来引用组件的实例对象。"><span class="toc-number">13.0.1.</span> <span class="toc-text">注意：由于asyncData方法是在组件 初始化 前被调用的，所以在方法内是没有办法通过 this 来引用组件的实例对象。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于nuxt中的vuex："><span class="toc-number">14.</span> <span class="toc-text">关于nuxt中的vuex：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重要理解的点："><span class="toc-number">15.</span> <span class="toc-text">重要理解的点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么叫ssr？ssr意义是什么？"><span class="toc-number">16.</span> <span class="toc-text">什么叫ssr？ssr意义是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#另外-SSR-还适用以下场景"><span class="toc-number">16.0.1.</span> <span class="toc-text">另外 SSR 还适用以下场景</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
