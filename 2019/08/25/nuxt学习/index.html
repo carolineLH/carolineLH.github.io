@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="caroline&#39;s blog">
 <meta property="og:description" content="介绍：Nuxt.js是一个基于Vus.js的通用应用框架，是一个基于Vue.js的服务端渲染应用框架。 官方说明：目标是创建一个灵活的应用框架，你可以基于它初始化新项目的基础结构代码，或者在已有Node.js项目中使用nuxt.js。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/.com//nuxtFlow.png">
-<meta property="og:image" content="http://yoursite.com/.com//pages.png">
+<meta property="og:image" content="http://yoursite.com/img/nuxtFlow.png">
+<meta property="og:image" content="http://yoursite.com/img/pages.png">
 <meta property="og:updated_time" content="2019-09-02T03:46:43.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nuxt学习">
 <meta name="twitter:description" content="介绍：Nuxt.js是一个基于Vus.js的通用应用框架，是一个基于Vue.js的服务端渲染应用框架。 官方说明：目标是创建一个灵活的应用框架，你可以基于它初始化新项目的基础结构代码，或者在已有Node.js项目中使用nuxt.js。">
-<meta name="twitter:image" content="http://yoursite.com/.com//nuxtFlow.png">
+<meta name="twitter:image" content="http://yoursite.com/img/nuxtFlow.png">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -186,7 +186,7 @@
 <li>本地开发支持热加载</li>
 <li>集成ESlint</li>
 <li>支持各种样式预处理器：SASS、LESS、Stylus等</li>
-<li>支持HTTP/2推送<h4 id="流程图："><a href="#流程图：" class="headerlink" title="流程图："></a>流程图：</h4>下图阐述了Nuxt.js应用一个完整的服务器请求到渲染（或用户通过<nuxt-link>切换路由渲染页面）的流程：<br><img src="/.com//nuxtFlow.png" alt="nuxtFlow"></nuxt-link></li>
+<li>支持HTTP/2推送<h4 id="流程图："><a href="#流程图：" class="headerlink" title="流程图："></a>流程图：</h4>下图阐述了Nuxt.js应用一个完整的服务器请求到渲染（或用户通过<nuxt-link>切换路由渲染页面）的流程：<br><img src="/img/nuxtFlow.png" alt="nuxtFlow"></nuxt-link></li>
 </ul>
 <h4 id="开始使用："><a href="#开始使用：" class="headerlink" title="开始使用："></a>开始使用：</h4><p>为了快速入门，Nuxt.js团队创建了脚手架工具create-nuxt-app</p>
 <p>确保安装了npx（npx在NPM版本5.2.0默认安装了）：</p>
@@ -201,7 +201,7 @@
 <p>应用在<a href="http://localhost:3000上运行：" target="_blank" rel="noopener">http://localhost:3000上运行：</a></p>
 <h6 id="注意：Nuxt-js-会监听-pages-目录中的文件更改，因此在添加新页面时无需重新启动应用程序。"><a href="#注意：Nuxt-js-会监听-pages-目录中的文件更改，因此在添加新页面时无需重新启动应用程序。" class="headerlink" title="注意：Nuxt.js 会监听 pages 目录中的文件更改，因此在添加新页面时无需重新启动应用程序。"></a>注意：Nuxt.js 会监听 pages 目录中的文件更改，因此在添加新页面时无需重新启动应用程序。</h6><h4 id="pages目录："><a href="#pages目录：" class="headerlink" title="pages目录："></a>pages目录：</h4><p>Nuxt.js会根据pages目录中所有的*.vue文件生成应用的路由配置。</p>
 <ul>
-<li>更多关于nuxt.js路由的配置以及实现还是可以看看文档。<br>Nuxt.js为页面提供的特殊的配置项：<br><img src="/.com//pages.png" alt="nuxtFlow"><h6 id="HTML头部"><a href="#HTML头部" class="headerlink" title="HTML头部"></a>HTML头部</h6>Nuxt.js 使用了 vue-meta 更新应用的 头部标签(Head) and html 属性。<h4 id="资源文件："><a href="#资源文件：" class="headerlink" title="资源文件："></a>资源文件：</h4>资源目录 assets 用于组织未编译的静态资源如 LESS、SASS 或 JavaScript。</li>
+<li>更多关于nuxt.js路由的配置以及实现还是可以看看文档。<br>Nuxt.js为页面提供的特殊的配置项：<br><img src="/img/pages.png" alt="nuxtFlow"><h6 id="HTML头部"><a href="#HTML头部" class="headerlink" title="HTML头部"></a>HTML头部</h6>Nuxt.js 使用了 vue-meta 更新应用的 头部标签(Head) and html 属性。<h4 id="资源文件："><a href="#资源文件：" class="headerlink" title="资源文件："></a>资源文件：</h4>资源目录 assets 用于组织未编译的静态资源如 LESS、SASS 或 JavaScript。</li>
 </ul>
 <p>默认情况下 Nuxt 使用 vue-loader、file-loader 以及 url-loader 这几个 Webpack 加载器来处理文件的加载和引用。对于不需要通过 Webpack 处理的静态资源文件，可以放置在 static 目录中。<br>如果你的静态资源文件需要 Webpack 做构建编译处理，可以放到 assets 目录，否则可以放到 static 目录中去。</p>
 <h4 id="组件目录："><a href="#组件目录：" class="headerlink" title="组件目录："></a>组件目录：</h4><p>组件目录components用于组织应用的Vue.js组件。Nuxt.js不会扩展增强该目录下Vue.js组件，即这些组件不会像页面组件那样有asyncData方法的特性。</p>
@@ -515,19 +515,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,7 +531,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,11 +547,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">nuxt</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color5">nuxt</a>
               </li>
              
               <li class="article-tag-list-item">
