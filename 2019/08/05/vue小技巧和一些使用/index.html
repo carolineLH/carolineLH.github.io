@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="caroline&#39;s blog">
 <meta property="og:description" content="vue中的小技巧：1. 组件style的scoped:当style标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada. 问题：在组件中用js动态创建的dom，css中添加的样式不生效？答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-02T03:46:43.328Z">
+<meta property="og:updated_time" content="2019-11-26T06:34:25.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue小技巧和一些使用">
 <meta name="twitter:description" content="vue中的小技巧：1. 组件style的scoped:当style标签有scoped属性时，它的CSS只作用于当前组件中的元素。它会为组建中所有的标签和class样式添加一个scoped标识，就像这样子的:data-v-1b971ada. 问题：在组件中用js动态创建的dom，css中添加的样式不生效？答：因为动态添加的dom没有添加上标识，而css中的样式因为scoped的原因添加上了标识，标识">
@@ -209,6 +209,12 @@
 <li>vue组件中只能有一个根元素，就是说第一个<template></template>下面必须只有一个根元素,不包括template本身。</li>
 <li>vue中可以使用template来循环模块。</li>
 </ul>
+<h4 id="7-sync修饰符"><a href="#7-sync修饰符" class="headerlink" title="7. .sync修饰符"></a>7. <code>.sync</code>修饰符</h4><p>在有些情况下，我们可能需要对一个prop进行“双向绑定”。不幸的是，真正的双向绑定会带来维护上的问题，因为子组件可以修改父组件，且在父组件和子组件都没有明显的改动来源。</p>
+<p>使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 子组件中</span><br><span class="line">this.$emit(&apos;update:title&apos;, newTitle)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;text-document v-bind:title.sync=&quot;doc.title&quot;&gt;&lt;/text-document&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意带有 .sync 修饰符的 v-bind 不能和表达式一起使用 (例如 v-bind:title.sync=”doc.title + ‘!’” 是无效的)。取而代之的是，你只能提供你想要绑定的属性名，类似 v-model。</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -341,7 +347,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue中的小技巧："><span class="toc-number">1.</span> <span class="toc-text">vue中的小技巧：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-组件style的scoped"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 组件style的scoped:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Vue-数组-对象更新-视图不更新："><span class="toc-number">1.0.2.</span> <span class="toc-text">2. Vue 数组/对象更新 视图不更新：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-vue-filters过滤器的使用："><span class="toc-number">1.0.3.</span> <span class="toc-text">3. vue filters过滤器的使用：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-列表渲染相关："><span class="toc-number">1.0.4.</span> <span class="toc-text">4. 列表渲染相关：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#v-if尽量不要与v-for在同一节点使用"><span class="toc-number">1.0.4.0.1.</span> <span class="toc-text">v-if尽量不要与v-for在同一节点使用:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#如果你想要根据某些条件跳过循环，而又跟将要渲染的每一项数据没有关系的话，你可以将v-if放在v-for的父节点："><span class="toc-number">1.0.4.0.2.</span> <span class="toc-text">如果你想要根据某些条件跳过循环，而又跟将要渲染的每一项数据没有关系的话，你可以将v-if放在v-for的父节点：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-这些情况下不要使用箭头函数："><span class="toc-number">1.0.5.</span> <span class="toc-text">5. 这些情况下不要使用箭头函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-vue中template？"><span class="toc-number">1.0.6.</span> <span class="toc-text">6. vue中template？</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue中的小技巧："><span class="toc-number">1.</span> <span class="toc-text">vue中的小技巧：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-组件style的scoped"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 组件style的scoped:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Vue-数组-对象更新-视图不更新："><span class="toc-number">1.0.2.</span> <span class="toc-text">2. Vue 数组/对象更新 视图不更新：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-vue-filters过滤器的使用："><span class="toc-number">1.0.3.</span> <span class="toc-text">3. vue filters过滤器的使用：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-列表渲染相关："><span class="toc-number">1.0.4.</span> <span class="toc-text">4. 列表渲染相关：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#v-if尽量不要与v-for在同一节点使用"><span class="toc-number">1.0.4.0.1.</span> <span class="toc-text">v-if尽量不要与v-for在同一节点使用:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#如果你想要根据某些条件跳过循环，而又跟将要渲染的每一项数据没有关系的话，你可以将v-if放在v-for的父节点："><span class="toc-number">1.0.4.0.2.</span> <span class="toc-text">如果你想要根据某些条件跳过循环，而又跟将要渲染的每一项数据没有关系的话，你可以将v-if放在v-for的父节点：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-这些情况下不要使用箭头函数："><span class="toc-number">1.0.5.</span> <span class="toc-text">5. 这些情况下不要使用箭头函数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-vue中template？"><span class="toc-number">1.0.6.</span> <span class="toc-text">6. vue中template？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-sync修饰符"><span class="toc-number">1.0.7.</span> <span class="toc-text">7. .sync修饰符</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -455,11 +461,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,11 +469,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,15 +501,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">

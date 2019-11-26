@@ -169,16 +169,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>我发现我的文章的图片都出不来</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ul>
-<li>首先需要配置_config.yml里面的post_asset_folder:false这个选项设置为true</li>
-<li>安装<a href="https://github.com/7ym0n/hexo-asset-image" target="_blank" rel="noopener">hexo-asset-image</a>这个插件。安装了这个插件之后，在使用命令hexo new “xxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹，可以把图片放入该文件夹。</li>
-<li>使用markdown语法<img src="//carolinelh.github.io/2019/11/20/hexo文章图片不显示的坑/xxx.png" alt="xxx">直接插入图片即可。</li>
-</ul>
-<p>正常来说，这样就可以解决问题了，但是我发现图片仍然出不来。我看了下图片的路径:<code>&lt;img src=&quot;//yoursite.com/2019/11/20/git学习/git.png&quot; alt=&quot;.git的目录&quot;&gt;</code>,说明问题出在找不到我的文章所在域名。于是我找到了文章所对应的那个index.html，发现index.html中的所有的图片的域名就是//yoursite.com，于是我怀疑是我的配置有问题。。。。</p>
-<p>最终我发现是在根目录下的_config.yml中：<br><img src="//carolinelh.github.io/2019/11/20/hexo文章图片不显示的坑/config.png" alt><br>没有配置我的网站的域名！！！！！！</p>
-<p>最后我重新配置<br><img src="//carolinelh.github.io/2019/11/20/hexo文章图片不显示的坑/configed.png" alt><br>解决问题！！</p>
-
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>我发现我的文章的图片都出不来<br></p>
+        
+          <a class="article-more-a" href="/2019/11/20/hexo文章图片不显示的坑/#more">more >></a>
+        
       
 
       
@@ -556,11 +550,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -843,11 +837,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -938,11 +932,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -1192,11 +1186,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1204,11 +1194,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1228,15 +1226,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
