@@ -8,6 +8,7 @@ categories:
 ---
 ## 背景
 我发现我的文章的图片都出不来
+ <!--more-->
 ## 解决
 * 首先需要配置_config.yml里面的post_asset_folder:false这个选项设置为true
 * 安装[hexo-asset-image](https://github.com/7ym0n/hexo-asset-image)这个插件。安装了这个插件之后，在使用命令hexo new "xxx"来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹，可以把图片放入该文件夹。

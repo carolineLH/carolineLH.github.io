@@ -98,3 +98,19 @@ this将会指向undefined。
 * template本身没有很特别的意义。
 * vue组件中只能有一个根元素，就是说第一个<template></template>下面必须只有一个根元素,不包括template本身。
 * vue中可以使用template来循环模块。
+
+#### 7. `.sync`修饰符
+在有些情况下，我们可能需要对一个prop进行“双向绑定”。不幸的是，真正的双向绑定会带来维护上的问题，因为子组件可以修改父组件，且在父组件和子组件都没有明显的改动来源。
+
+使用方法：
+```
+// 子组件中
+this.$emit('update:title', newTitle)
+
+
+<text-document v-bind:title.sync="doc.title"></text-document>
+```
+
+```
+注意带有 .sync 修饰符的 v-bind 不能和表达式一起使用 (例如 v-bind:title.sync=”doc.title + ‘!’” 是无效的)。取而代之的是，你只能提供你想要绑定的属性名，类似 v-model。
+```
