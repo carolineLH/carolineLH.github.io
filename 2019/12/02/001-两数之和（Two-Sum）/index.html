@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://carolinelh.github.io">
   <title>001-两数之和（Two Sum） | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目描述难度：简单题目地址：https://leetcode.com/problems/two-sum/涉及知识：数组，哈希表题目描述：12345678910给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。示例:给定 nums = [2, 7,">
+  <meta name="description" content="题目描述难度：简单题目地址：https://leetcode.com/problems/two-sum/涉及知识：数组，哈希表">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="001-两数之和（Two Sum）">
 <meta property="og:url" content="https://carolinelh.github.io/2019/12/02/001-两数之和（Two-Sum）/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="题目描述难度：简单题目地址：https://leetcode.com/problems/two-sum/涉及知识：数组，哈希表题目描述：12345678910给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。示例:给定 nums = [2, 7,">
+<meta property="og:description" content="题目描述难度：简单题目地址：https://leetcode.com/problems/two-sum/涉及知识：数组，哈希表">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-02T03:35:19.179Z">
+<meta property="og:updated_time" content="2019-12-03T08:56:40.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="001-两数之和（Two Sum）">
-<meta name="twitter:description" content="题目描述难度：简单题目地址：https://leetcode.com/problems/two-sum/涉及知识：数组，哈希表题目描述：12345678910给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。示例:给定 nums = [2, 7,">
+<meta name="twitter:description" content="题目描述难度：简单题目地址：https://leetcode.com/problems/two-sum/涉及知识：数组，哈希表">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -169,9 +169,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h4 id="难度：简单"><a href="#难度：简单" class="headerlink" title="难度：简单"></a>难度：简单</h4><h4 id="题目地址：https-leetcode-com-problems-two-sum"><a href="#题目地址：https-leetcode-com-problems-two-sum" class="headerlink" title="题目地址：https://leetcode.com/problems/two-sum/"></a>题目地址：<a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">https://leetcode.com/problems/two-sum/</a></h4><h4 id="涉及知识：数组，哈希表"><a href="#涉及知识：数组，哈希表" class="headerlink" title="涉及知识：数组，哈希表"></a>涉及知识：数组，哈希表</h4><h4 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</span><br><span class="line"></span><br><span class="line">你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">给定 nums = [2, 7, 11, 15], target = 9</span><br><span class="line"></span><br><span class="line">因为 nums[0] + nums[1] = 2 + 7 = 9</span><br><span class="line">所以返回 [0, 1]</span><br></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h4 id="难度：简单"><a href="#难度：简单" class="headerlink" title="难度：简单"></a>难度：简单</h4><h4 id="题目地址：https-leetcode-com-problems-two-sum"><a href="#题目地址：https-leetcode-com-problems-two-sum" class="headerlink" title="题目地址：https://leetcode.com/problems/two-sum/"></a>题目地址：<a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">https://leetcode.com/problems/two-sum/</a></h4><h4 id="涉及知识：数组，哈希表"><a href="#涉及知识：数组，哈希表" class="headerlink" title="涉及知识：数组，哈希表"></a>涉及知识：数组，哈希表</h4> <a id="more"></a>
+<h4 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</span><br><span class="line"></span><br><span class="line">你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">给定 nums = [2, 7, 11, 15], target = 9</span><br><span class="line"></span><br><span class="line">因为 nums[0] + nums[1] = 2 + 7 = 9</span><br><span class="line">所以返回 [0, 1]</span><br></pre></td></tr></table></figure>
 
-<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><h4 id="解法一：for"><a href="#解法一：for" class="headerlink" title="解法一：for()"></a>解法一：for()</h4><ul>
+<li><p>解题代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; target</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; nums.length; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (nums[j] === target - nums[i]) &#123;</span><br><span class="line">        <span class="keyword">return</span> [i, j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nums = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>], target = <span class="number">8</span>;</span><br><span class="line">twoSum(nums, target)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1,3]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解题思路：双重for循环，找出两个和为target的数，再返回他们的下标。</p>
+</li>
+</ul>
+<h4 id="解法二：indexOf"><a href="#解法二：indexOf" class="headerlink" title="解法二：indexOf()"></a>解法二：indexOf()</h4><ul>
+<li><p>解题代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; target</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">   <span class="keyword">if</span> (nums.indexOf(target-nums[i]) !== <span class="number">-1</span> &amp;&amp; nums.indexOf(target-nums[i]) !== i) &#123;</span><br><span class="line">      <span class="keyword">return</span> [i, nums.indexOf(target-nums[i])]</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nums = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>], target = <span class="number">8</span>;</span><br><span class="line">twoSum(nums, target)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结果：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解题思路：遍历数组nums中的值，判断数组中是否存在判断条件中的值。如果存在，则返回第一次出现的索引；如果不存在，则返回 -1。</p>
+</li>
+</ul>
+<h4 id="解法三：Map"><a href="#解法三：Map" class="headerlink" title="解法三：Map"></a>解法三：Map</h4><p>用这种方法解题，需要你先了解<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" rel="noopener">Map</a>的知识点及用法。</p>
+<ul>
+<li><p>解题代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; target</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (map.has(nums[i])) &#123;</span><br><span class="line">      <span class="keyword">return</span> [map.get(nums[i]), i];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      map.set(target - nums[i], i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nums = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>], target = <span class="number">8</span>;</span><br><span class="line">twoSum(nums, target)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结果：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解题思路：我们遍历nums数组，判断nums[i]是否存在于Map对象中。没有的话就把target - nums[i]到Map中。</p>
+</li>
+</ul>
+
       
 
       
@@ -294,7 +335,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#难度：简单"><span class="toc-number">1.0.1.</span> <span class="toc-text">难度：简单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#题目地址：https-leetcode-com-problems-two-sum"><span class="toc-number">1.0.2.</span> <span class="toc-text">题目地址：https://leetcode.com/problems/two-sum/</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#涉及知识：数组，哈希表"><span class="toc-number">1.0.3.</span> <span class="toc-text">涉及知识：数组，哈希表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#题目描述："><span class="toc-number">1.0.4.</span> <span class="toc-text">题目描述：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题"><span class="toc-number">2.</span> <span class="toc-text">解题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#难度：简单"><span class="toc-number">1.0.1.</span> <span class="toc-text">难度：简单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#题目地址：https-leetcode-com-problems-two-sum"><span class="toc-number">1.0.2.</span> <span class="toc-text">题目地址：https://leetcode.com/problems/two-sum/</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#涉及知识：数组，哈希表"><span class="toc-number">1.0.3.</span> <span class="toc-text">涉及知识：数组，哈希表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#题目描述："><span class="toc-number">1.0.4.</span> <span class="toc-text">题目描述：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题"><span class="toc-number">2.</span> <span class="toc-text">解题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#解法一：for"><span class="toc-number">2.0.1.</span> <span class="toc-text">解法一：for()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解法二：indexOf"><span class="toc-number">2.0.2.</span> <span class="toc-text">解法二：indexOf()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解法三：Map"><span class="toc-number">2.0.3.</span> <span class="toc-text">解法三：Map</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -424,6 +465,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -433,10 +478,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
