@@ -33,3 +33,25 @@ tags:
 进阶:
 你能不将整数转为字符串来解决这个问题吗？
 ```
+
+## 解题：
+
+#### 解法一：数组
+* 解题代码：
+```js
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+    const arr = String(x).split('');
+    for (let i=0; i< arr.length / 2; i++) {
+        if (arr[i] !== arr[arr.length - (i + 1)]) {
+            return false
+        }
+    }
+    return true
+};
+```
+* 解题思路：首先就是把传入的参数先转化为字符串之后再转化为数组，然后数组的头跟数组尾部一一对应作比较。
+
