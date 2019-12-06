@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="caroline&#39;s blog">
 <meta property="og:description" content="题目描述难度：简单题目地址：https://leetcode-cn.com/problems/palindrome-number/">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-05T10:09:48.279Z">
+<meta property="og:updated_time" content="2019-12-06T07:10:23.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="009-回文数(palindrome-number)">
 <meta name="twitter:description" content="题目描述难度：简单题目地址：https://leetcode-cn.com/problems/palindrome-number/">
@@ -172,6 +172,13 @@
         <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h4 id="难度：简单"><a href="#难度：简单" class="headerlink" title="难度：简单"></a>难度：简单</h4><h4 id="题目地址：https-leetcode-cn-com-problems-palindrome-number"><a href="#题目地址：https-leetcode-cn-com-problems-palindrome-number" class="headerlink" title="题目地址：https://leetcode-cn.com/problems/palindrome-number/"></a>题目地址：<a href="https://leetcode-cn.com/problems/palindrome-number/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/palindrome-number/</a></h4> <a id="more"></a>
 <h4 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: 121</span><br><span class="line">输出: true</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: -121</span><br><span class="line">输出: false</span><br><span class="line">解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</span><br><span class="line">示例 3:</span><br><span class="line"></span><br><span class="line">输入: 10</span><br><span class="line">输出: false</span><br><span class="line">解释: 从右向左读, 为 01 。因此它不是一个回文数。</span><br><span class="line"></span><br><span class="line">进阶:</span><br><span class="line">你能不将整数转为字符串来解决这个问题吗？</span><br></pre></td></tr></table></figure>
 
+<h2 id="解题："><a href="#解题：" class="headerlink" title="解题："></a>解题：</h2><h4 id="解法一：数组"><a href="#解法一：数组" class="headerlink" title="解法一：数组"></a>解法一：数组</h4><ul>
+<li><p>解题代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; x</span></span><br><span class="line"><span class="comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isPalindrome = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> arr = <span class="built_in">String</span>(x).split(<span class="string">''</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt; arr.length / <span class="number">2</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] !== arr[arr.length - (i + <span class="number">1</span>)]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解题思路：首先就是把传入的参数先转化为字符串之后再转化为数组，然后数组的头跟数组尾部一一对应作比较。</p>
+</li>
+</ul>
 
       
 
@@ -266,6 +273,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/12/06/013-罗马数字转整数（roman-to-integer）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          013-罗马数字转整数（roman-to-integer）
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/12/05/007-整数反转-reverse-integer/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">007-整数反转(reverse-integer)</div>
@@ -295,7 +311,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#难度：简单"><span class="toc-number">1.0.1.</span> <span class="toc-text">难度：简单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#题目地址：https-leetcode-cn-com-problems-palindrome-number"><span class="toc-number">1.0.2.</span> <span class="toc-text">题目地址：https://leetcode-cn.com/problems/palindrome-number/</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#题目描述："><span class="toc-number">1.0.3.</span> <span class="toc-text">题目描述：</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#难度：简单"><span class="toc-number">1.0.1.</span> <span class="toc-text">难度：简单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#题目地址：https-leetcode-cn-com-problems-palindrome-number"><span class="toc-number">1.0.2.</span> <span class="toc-text">题目地址：https://leetcode-cn.com/problems/palindrome-number/</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#题目描述："><span class="toc-number">1.0.3.</span> <span class="toc-text">题目描述：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题："><span class="toc-number">2.</span> <span class="toc-text">解题：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#解法一：数组"><span class="toc-number">2.0.1.</span> <span class="toc-text">解法一：数组</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -417,7 +433,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -425,7 +441,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -437,6 +453,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
@@ -445,15 +465,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
