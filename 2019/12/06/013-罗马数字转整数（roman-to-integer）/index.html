@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="caroline&#39;s blog">
 <meta property="og:description" content="题目描述难度：简单题目地址：https://leetcode-cn.com/problems/roman-to-integer/">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-06T07:35:23.914Z">
+<meta property="og:updated_time" content="2019-12-09T03:22:01.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="013-罗马数字转整数（roman-to-integer）">
 <meta name="twitter:description" content="题目描述难度：简单题目地址：https://leetcode-cn.com/problems/roman-to-integer/">
@@ -207,8 +207,8 @@
 <li><p>解题代码：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> romanToInt = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">    map.set(<span class="string">'I'</span>, <span class="number">1</span>);</span><br><span class="line">    map.set(<span class="string">'V'</span>, <span class="number">5</span>);</span><br><span class="line">    map.set(<span class="string">'X'</span>, <span class="number">10</span>);</span><br><span class="line">    map.set(<span class="string">'L'</span>, <span class="number">50</span>);</span><br><span class="line">    map.set(<span class="string">'C'</span>, <span class="number">100</span>);</span><br><span class="line">    map.set(<span class="string">'D'</span>, <span class="number">500</span>);</span><br><span class="line">    map.set(<span class="string">'M'</span>, <span class="number">1000</span>)</span><br><span class="line">    <span class="comment">// js中，字符串也是可以遍历的</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] + s[i+<span class="number">1</span>] === <span class="string">'IV'</span>) &#123;</span><br><span class="line">            result += <span class="number">4</span>;</span><br><span class="line">            i = i + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(s[i] + s[i+<span class="number">1</span>] === <span class="string">'IX'</span>) &#123;</span><br><span class="line">            result += <span class="number">9</span>;</span><br><span class="line">            i = i + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(s[i] + s[i+<span class="number">1</span>] === <span class="string">'XL'</span>) &#123;</span><br><span class="line">            result += <span class="number">40</span>;</span><br><span class="line">            i = i + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(s[i] + s[i+<span class="number">1</span>] === <span class="string">'XC'</span>) &#123;</span><br><span class="line">            result += <span class="number">90</span>;</span><br><span class="line">            i = i + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(s[i] + s[i+<span class="number">1</span>] === <span class="string">'CD'</span>) &#123;</span><br><span class="line">            result += <span class="number">400</span></span><br><span class="line">            i = i + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(s[i] + s[i+<span class="number">1</span>] === <span class="string">'CM'</span>) &#123;</span><br><span class="line">            result += <span class="number">900</span>;</span><br><span class="line">            i = i + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            result += map.get(s[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>解题思路：先创建一个map对象，根据map对象的方法及属性，将正常情况存在map里面。</p>
-<pre><code>再遍历s参数，利用for循环判断出特殊情况和正常情况，针对不同的情况做处理。</code></pre></li>
+<li><p>解题思路：先创建一个map对象，根据map对象的方法及属性，将正常情况存在map里面。再遍历s参数，利用for循环判断出特殊情况和正常情况，针对不同的情况做处理。</p>
+</li>
 </ul>
 
       
@@ -303,6 +303,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/12/09/014-最长的公共前缀-longest-common-prefix/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          014-最长的公共前缀(longest-common-prefix)
+        
+      </div>
+    </a>
   
   
     <a href="/2019/12/05/009-回文数-palindrome-number/" id="article-nav-older" class="article-nav-link-wrap">
@@ -451,10 +460,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
@@ -463,15 +468,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">手机兼容</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,11 +496,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
