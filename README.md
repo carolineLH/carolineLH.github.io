@@ -39,7 +39,12 @@ issue中也有一些笔记。
 [['1','2','3'].map(parseInt)-what&why](https://carolinelh.github.io/2019/09/22/%E7%AC%AC%E4%B8%80%E9%A2%98%EF%BC%9A-1-2-3-map-parseInt-what-why/)
 
 ## leetcode<br>
-
+[001-两数之和（Two Sum）](https://carolinelh.github.io/2019/12/02/001-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%EF%BC%88Two-Sum%EF%BC%89/#more)
+[007-整数反转(reverse-integer)](https://carolinelh.github.io/2019/12/05/007-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC-reverse-integer/#more)
+[009-回文数(palindrome-number)](https://carolinelh.github.io/2019/12/05/009-%E5%9B%9E%E6%96%87%E6%95%B0-palindrome-number/#more)
+[013-罗马数字转整数（roman-to-integer)](https://carolinelh.github.io/2019/12/06/013-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0%EF%BC%88roman-to-integer%EF%BC%89/#more)
+[014-最长的公共前缀(longest-common-prefix)](https://carolinelh.github.io/2019/12/09/014-%E6%9C%80%E9%95%BF%E7%9A%84%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80-longest-common-prefix/#more)
+[020-有效的括号(valid-parentheses)](https://carolinelh.github.io/2019/12/10/020-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-valid-parentheses/#more)
 
 ## 其他 <br>
 [nuxt学习](https://carolinelh.github.io/2019/08/25/nuxt%E5%AD%A6%E4%B9%A0/)
