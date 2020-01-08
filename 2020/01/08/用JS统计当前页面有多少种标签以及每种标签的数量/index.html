@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://carolinelh.github.io">
-  <title>Tag: hexo | caroline&#39;s blog</title>
+  <title>用JS统计当前页面有多少种标签以及每种标签的数量 | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我爱学习，学习爱我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="caroline&#39;s blog">
-<meta property="og:url" content="https://carolinelh.github.io/tags/hexo/index.html">
+  <meta name="description" content="背景昨晚听了大圣老师的公开课，对于他提的这个问题，感觉自己不是很熟悉，所以就来认真的整理一下。">
+<meta name="keywords" content="面试,js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用JS统计当前页面有多少种标签以及每种标签的数量">
+<meta property="og:url" content="https://carolinelh.github.io/2020/01/08/用JS统计当前页面有多少种标签以及每种标签的数量/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="我爱学习，学习爱我">
+<meta property="og:description" content="背景昨晚听了大圣老师的公开课，对于他提的这个问题，感觉自己不是很熟悉，所以就来认真的整理一下。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://carolinelh.github.io/2020/01/08/用JS统计当前页面有多少种标签以及每种标签的数量/es6-result.png">
+<meta property="og:image" content="https://carolinelh.github.io/2020/01/08/用JS统计当前页面有多少种标签以及每种标签的数量/js-result.png">
+<meta property="og:updated_time" content="2020-01-08T03:38:31.061Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="caroline&#39;s blog">
-<meta name="twitter:description" content="我爱学习，学习爱我">
+<meta name="twitter:title" content="用JS统计当前页面有多少种标签以及每种标签的数量">
+<meta name="twitter:description" content="背景昨晚听了大圣老师的公开课，对于他提的这个问题，感觉自己不是很熟悉，所以就来认真的整理一下。">
+<meta name="twitter:image" content="https://carolinelh.github.io/2020/01/08/用JS统计当前页面有多少种标签以及每种标签的数量/es6-result.png">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -147,71 +152,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-用JS统计当前页面有多少种标签以及每种标签的数量" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/20/hexo文章图片不显示的坑/" class="archive-article-date">
-  	<time datetime="2019-11-20T03:24:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/20/hexo文章图片不显示的坑/">hexo文章图片不显示的坑</a>
+    <h1 class="article-title" itemprop="name">
+      用JS统计当前页面有多少种标签以及每种标签的数量
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/01/08/用JS统计当前页面有多少种标签以及每种标签的数量/" class="archive-article-date">
+  	<time datetime="2020-01-08T01:54:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>昨晚听了大圣老师的公开课，对于他提的这个问题，感觉自己不是很熟悉，所以就来认真的整理一下。<br> <a id="more"></a></p>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><h4 id="涉及知识：js基础"><a href="#涉及知识：js基础" class="headerlink" title="涉及知识：js基础"></a>涉及知识：js基础</h4><p>我们的所有解题代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">  &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">""</span>&gt;</span><br><span class="line">  &lt;title&gt;页面中有多少种标签以及标签的个数&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;测试啊&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">  &lt;div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;span&gt;1111&lt;/</span>span&gt;</span><br><span class="line">    &lt;p&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">    &lt;p&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">    &lt;p&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">    &lt;input type=<span class="string">"text"</span>&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;script&gt;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ ES6</span></span><br><span class="line"><span class="regexp">    let allTags = Array.from(document.querySelectorAll('*')).map(v =&gt; v.tagName)</span></span><br><span class="line"><span class="regexp">    let kinds = new Set(allTags).size</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    let newObj = &#123;&#125;</span></span><br><span class="line"><span class="regexp">    for(let i of allTags) &#123;</span></span><br><span class="line"><span class="regexp">      if (!newObj[i]) &#123;</span></span><br><span class="line"><span class="regexp">        newObj[i] = 1</span></span><br><span class="line"><span class="regexp">      &#125; else &#123;</span></span><br><span class="line"><span class="regexp">        newObj[i]++</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">    console.log(newObj)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ JS</span></span><br><span class="line"><span class="regexp">    let allTags = document.querySelectorAll('*')</span></span><br><span class="line"><span class="regexp">    let newTags = []</span></span><br><span class="line"><span class="regexp">    allTags.forEach(ele =&gt; newTags.push(ele.tagName))</span></span><br><span class="line"><span class="regexp">    let newObj = &#123;&#125;</span></span><br><span class="line"><span class="regexp">    newTags.forEach(element =&gt; &#123;</span></span><br><span class="line"><span class="regexp">      if(!newObj[element]) &#123;</span></span><br><span class="line"><span class="regexp">        newObj[element] = 1</span></span><br><span class="line"><span class="regexp">      &#125; else &#123;</span></span><br><span class="line"><span class="regexp">        newObj[element]++</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;)</span></span><br><span class="line"><span class="regexp">    console.log(newObj)</span></span><br><span class="line"><span class="regexp">    console.log(Reflect.ownKeys(newObj).length)</span></span><br><span class="line"><span class="regexp">    console.log(Object.keys(newObj).length)</span></span><br><span class="line"><span class="regexp">  &lt;/</span>script&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法一：ES6"><a href="#方法一：ES6" class="headerlink" title="方法一：ES6"></a>方法一：ES6</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> allTags = <span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectorAll(<span class="string">'*'</span>)).map(<span class="function"><span class="params">v</span> =&gt;</span> v.tagName)</span><br><span class="line">    <span class="keyword">let</span> kinds = <span class="keyword">new</span> <span class="built_in">Set</span>(allTags).size</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> newObj = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> allTags) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!newObj[i]) &#123;</span><br><span class="line">        newObj[i] = <span class="number">1</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        newObj[i]++</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(newObj)</span><br><span class="line">    <span class="built_in">console</span>.log(kinds)</span><br></pre></td></tr></table></figure>
+
+<p>执行结果如下：<img src="//carolinelh.github.io/2020/01/08/用JS统计当前页面有多少种标签以及每种标签的数量/es6-result.png" alt></p>
+<h5 id="知识点：Array-from用法、map-用法、Set用法"><a href="#知识点：Array-from用法、map-用法、Set用法" class="headerlink" title="知识点：Array.from用法、map()用法、Set用法"></a>知识点：Array.from用法、map()用法、Set用法</h5><h6 id="1-Array-from"><a href="#1-Array-from" class="headerlink" title="1. Array.from"></a>1. Array.from</h6><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener">MDN地址</a><br>Array.from() 方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。简单理解就是把可迭代对象转化成数组。</p>
+<p>Array.from() 方法有一个可选参数 mapFn，让你可以在最后生成的数组上再执行一次 map 方法后再返回。也就是说 Array.from(obj, mapFn, thisArg) 就相当于 Array.from(obj).map(mapFn, thisArg)</p>
+<h6 id="2-Set"><a href="#2-Set" class="headerlink" title="2.Set"></a>2.Set</h6><p>set对象允许存储任何类型的唯一值,无论是原始值或者是对象引用。set对象是值的集合,元素只会出现一次,即Set中的元素是唯一的.</p>
+<p>new Set([iterable])  返回一个新的Set对象</p>
+<h4 id="方法二：JS"><a href="#方法二：JS" class="headerlink" title="方法二：JS"></a>方法二：JS</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> allTags = <span class="built_in">document</span>.querySelectorAll(<span class="string">'*'</span>)</span><br><span class="line">    <span class="keyword">let</span> newTags = []</span><br><span class="line">    allTags.forEach(<span class="function"><span class="params">ele</span> =&gt;</span> newTags.push(ele.tagName))</span><br><span class="line">    <span class="keyword">let</span> newObj = &#123;&#125;</span><br><span class="line">    newTags.forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span>(!newObj[element]) &#123;</span><br><span class="line">        newObj[element] = <span class="number">1</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        newObj[element]++</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">console</span>.log(newObj)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Reflect</span>.ownKeys(newObj).length)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(newObj).length)</span><br></pre></td></tr></table></figure>
+
+<p>执行结果如下：<img src="//carolinelh.github.io/2020/01/08/用JS统计当前页面有多少种标签以及每种标签的数量/js-result.png" alt></p>
+<h5 id="涉及知识点：forEach-用法、Reflect-ownKeys-和Object-keys"><a href="#涉及知识点：forEach-用法、Reflect-ownKeys-和Object-keys" class="headerlink" title="涉及知识点：forEach()用法、Reflect.ownKeys()和Object.keys()"></a>涉及知识点：forEach()用法、Reflect.ownKeys()和Object.keys()</h5><h6 id="Reflect-ownKeys-和Object-keys-区别"><a href="#Reflect-ownKeys-和Object-keys-区别" class="headerlink" title="Reflect.ownKeys()和Object.keys()区别"></a>Reflect.ownKeys()和Object.keys()区别</h6><p>Object.keys()返回属性key，但不包括不可枚举的属性<br>Reflect.ownKeys()返回所有属性key</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js/面试//" class="article-tag-list-link color3">面试</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://carolinelh.github.io/2020/01/08/用JS统计当前页面有多少种标签以及每种标签的数量/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/12/12/026-删除排序数组中的重复项-remove-duplicates-from-sorted-array/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">026-删除排序数组中的重复项(remove-duplicates-from-sorted-array)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题"><span class="toc-number">2.</span> <span class="toc-text">解题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#涉及知识：js基础"><span class="toc-number">2.0.1.</span> <span class="toc-text">涉及知识：js基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法一：ES6"><span class="toc-number">2.0.2.</span> <span class="toc-text">方法一：ES6</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#知识点：Array-from用法、map-用法、Set用法"><span class="toc-number">2.0.2.1.</span> <span class="toc-text">知识点：Array.from用法、map()用法、Set用法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-Array-from"><span class="toc-number">2.0.2.1.1.</span> <span class="toc-text">1. Array.from</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-Set"><span class="toc-number">2.0.2.1.2.</span> <span class="toc-text">2.Set</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法二：JS"><span class="toc-number">2.0.3.</span> <span class="toc-text">方法二：JS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#涉及知识点：forEach-用法、Reflect-ownKeys-和Object-keys"><span class="toc-number">2.0.3.1.</span> <span class="toc-text">涉及知识点：forEach()用法、Reflect.ownKeys()和Object.keys()</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Reflect-ownKeys-和Object-keys-区别"><span class="toc-number">2.0.3.1.1.</span> <span class="toc-text">Reflect.ownKeys()和Object.keys()区别</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -235,9 +361,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
