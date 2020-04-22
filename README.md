@@ -45,6 +45,8 @@ issue中也有一些笔记。
 [013-罗马数字转整数（roman-to-integer)](https://carolinelh.github.io/2019/12/06/013-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0%EF%BC%88roman-to-integer%EF%BC%89/#more)<br>
 [014-最长的公共前缀(longest-common-prefix)](https://carolinelh.github.io/2019/12/09/014-%E6%9C%80%E9%95%BF%E7%9A%84%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80-longest-common-prefix/#more)<br>
 [020-有效的括号(valid-parentheses)](https://carolinelh.github.io/2019/12/10/020-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-valid-parentheses/#more)<br>
+[021-合并两个有序链表（merge-two-sorted-lists）](https://carolinelh.github.io/2019/12/11/021-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%EF%BC%88merge-two-sorted-lists%EF%BC%89/)<br>
+[026-删除排序数组中的重复项-remove-duplicates-from-sorted-array](https://carolinelh.github.io/2019/12/12/026-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9-remove-duplicates-from-sorted-array/)<br>
 
 ## 其他 <br>
 [nuxt学习](https://carolinelh.github.io/2019/08/25/nuxt%E5%AD%A6%E4%B9%A0/)<br>
