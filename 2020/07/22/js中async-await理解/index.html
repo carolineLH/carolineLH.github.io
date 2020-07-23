@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://carolinelh.github.io">
-  <title>vue中使用mintui的infinite-scroll组件进行无限滚动加载 | caroline&#39;s blog</title>
+  <title>js中async/await理解 | caroline&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景  最近在工作中，在移动端开发中，有个数据列表，数据很多。如果不做分页加载的话，用户体验会很不好。因为请求的数据过多，请求会比较慢。所以，就需要做分页加载。   想实现的分页效果是：随着我们在移动端往下滚动的时候，加载更多的数据，每次加载限制加载数据的条数。于是就想到了用mint-ui的infinite scroll组件。">
-<meta name="keywords" content="work,vue">
+  <meta name="description" content="背景最近开发过程中遇到一个问题，使用到async/await，发现对于async/await还不是很熟悉，所以现在来学习下。">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue中使用mintui的infinite-scroll组件进行无限滚动加载">
-<meta property="og:url" content="https://carolinelh.github.io/2019/10/23/vue中使用mintui的infinite-scroll组件进行无限滚动加载/index.html">
+<meta property="og:title" content="js中async&#x2F;await理解">
+<meta property="og:url" content="https://carolinelh.github.io/2020/07/22/js中async-await理解/index.html">
 <meta property="og:site_name" content="caroline&#39;s blog">
-<meta property="og:description" content="背景  最近在工作中，在移动端开发中，有个数据列表，数据很多。如果不做分页加载的话，用户体验会很不好。因为请求的数据过多，请求会比较慢。所以，就需要做分页加载。   想实现的分页效果是：随着我们在移动端往下滚动的时候，加载更多的数据，每次加载限制加载数据的条数。于是就想到了用mint-ui的infinite scroll组件。">
+<meta property="og:description" content="背景最近开发过程中遇到一个问题，使用到async/await，发现对于async/await还不是很熟悉，所以现在来学习下。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-23T03:33:12.470Z">
+<meta property="og:updated_time" content="2020-07-23T06:51:08.929Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue中使用mintui的infinite-scroll组件进行无限滚动加载">
-<meta name="twitter:description" content="背景  最近在工作中，在移动端开发中，有个数据列表，数据很多。如果不做分页加载的话，用户体验会很不好。因为请求的数据过多，请求会比较慢。所以，就需要做分页加载。   想实现的分页效果是：随着我们在移动端往下滚动的时候，加载更多的数据，每次加载限制加载数据的条数。于是就想到了用mint-ui的infinite scroll组件。">
+<meta name="twitter:title" content="js中async&#x2F;await理解">
+<meta name="twitter:description" content="背景最近开发过程中遇到一个问题，使用到async/await，发现对于async/await还不是很熟悉，所以现在来学习下。">
   
     <link rel="alternative" href="/atom.xml" title="caroline&#39;s blog" type="application/atom+xml">
   
@@ -149,53 +149,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue中使用mintui的infinite-scroll组件进行无限滚动加载" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-js中async-await理解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      vue中使用mintui的infinite-scroll组件进行无限滚动加载
+      js中async/await理解
     </h1>
   
 
         
-        <a href="/2019/10/23/vue中使用mintui的infinite-scroll组件进行无限滚动加载/" class="archive-article-date">
-  	<time datetime="2019-10-23T02:45:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
+        <a href="/2020/07/22/js中async-await理解/" class="archive-article-date">
+  	<time datetime="2020-07-22T02:23:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>  最近在工作中，在移动端开发中，有个数据列表，数据很多。如果不做分页加载的话，用户体验会很不好。因为请求的数据过多，请求会比较慢。所以，就需要做分页加载。</p>
-<p>  想实现的分页效果是：随着我们在移动端往下滚动的时候，加载更多的数据，每次加载限制加载数据的条数。于是就想到了用mint-ui的infinite scroll组件。<br> <a id="more"></a></p>
-<h2 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h2><h4 id="1-保证你的项目中安装了min-ui"><a href="#1-保证你的项目中安装了min-ui" class="headerlink" title="1. 保证你的项目中安装了min-ui"></a>1. 保证你的项目中安装了min-ui</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i mint-ui -S</span><br></pre></td></tr></table></figure>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近开发过程中遇到一个问题，使用到async/await，发现对于async/await还不是很熟悉，所以现在来学习下。</p>
+<a id="more"></a>
 
-<h4 id="2-在vue中引入mint-ui"><a href="#2-在vue中引入mint-ui" class="headerlink" title="2. 在vue中引入mint-ui"></a>2. 在vue中引入mint-ui</h4><p>针对vue-cli3+，引用组件到vue中。在babel.config.js文件中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  presets: [</span><br><span class="line">    &apos;@vue/app&apos;</span><br><span class="line">  ],</span><br><span class="line">  plugins: [</span><br><span class="line">    [</span><br><span class="line">      &apos;component&apos;,</span><br><span class="line">      &#123;</span><br><span class="line">        &apos;libraryName&apos;: &apos;mint-ui&apos;,</span><br><span class="line">        &apos;style&apos;: true</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="首先搞清楚，async和await分别做了什么？"><a href="#首先搞清楚，async和await分别做了什么？" class="headerlink" title="首先搞清楚，async和await分别做了什么？"></a>首先搞清楚，async和await分别做了什么？</h2><p>从字面意思来理解，async是“异步”的简写。async用于申明一个function是异步的，而await用于等待一个异步方法执行完成。</p>
+<h4 id="async起什么作用？"><a href="#async起什么作用？" class="headerlink" title="async起什么作用？"></a>async起什么作用？</h4><p>这个问题的关键在于，async函数是怎么处理它的返回值的？<br>来看个例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">testAsync</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello async"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = testAsync();</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-按需引入InfiniteScroll组件："><a href="#3-按需引入InfiniteScroll组件：" class="headerlink" title="3. 按需引入InfiniteScroll组件："></a>3. 按需引入InfiniteScroll组件：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; InfiniteScroll &#125; from &apos;mint-ui&apos;;</span><br><span class="line">Vue.use(InfiniteScroll);</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c:\<span class="keyword">var</span>\test&gt; node --harmony_async_await .</span><br><span class="line"><span class="built_in">Promise</span> &#123; <span class="string">'hello async'</span> &#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-在代码中使用："><a href="#4-在代码中使用：" class="headerlink" title="4.在代码中使用："></a>4.在代码中使用：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"state-list"</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">v-infinite-scroll</span>=<span class="string">"loadMore"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">infinite-scroll-disabled</span>=<span class="string">"loading"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">infinite-scroll-immediate-check</span>=<span class="string">false</span></span></span><br><span class="line"><span class="tag">  <span class="attr">infinite-scroll-distance</span>=<span class="string">"10"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"state-item"</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in popularList"</span> <span class="attr">:key</span>=<span class="string">"index"</span> @<span class="attr">click</span>=<span class="string">"toLogistics(item.postcode)"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"avatar"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"../../assets/img/delivery.png"</span> <span class="attr">alt</span>=<span class="string">""</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"state-info"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"name"</span>&gt;</span>&#123;&#123;item.postcode&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"turn-over"</span>&gt;</span>&#123;&#123;item.orderPrice&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"binding-time"</span>&gt;</span>&#123;&#123;item.orderName&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到，输出的是一个Promise对象。由此可知，async函数返回的是一个Promise对象。所以在最外层不能用await获取其返回值的情况下，我们应该使用原来的方式：<code>then()</code>链来处理这个Promise对象。像这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">testAsync().then(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(v);    <span class="comment">// 输出 hello async</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">loadMore () &#123;</span><br><span class="line">  <span class="keyword">this</span>.loading = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">this</span>.getOrder(<span class="string">'2'</span>) </span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 请求加载数据</span></span><br><span class="line"><span class="keyword">async</span> getOrder (type) &#123;</span><br><span class="line">  <span class="keyword">this</span>.loading = <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">let</span> params = &#123;</span><br><span class="line">    channelType: <span class="string">'WECHAT'</span>,</span><br><span class="line">    personType: <span class="keyword">this</span>.code,</span><br><span class="line">    queryType: type,</span><br><span class="line">    year: <span class="keyword">this</span>.year,</span><br><span class="line">    month: <span class="keyword">this</span>.month,</span><br><span class="line">    orderType: <span class="keyword">this</span>.checkType</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (type === <span class="string">'2'</span> &amp;&amp; <span class="keyword">this</span>.page &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    params.totalNum = <span class="number">10</span>*<span class="keyword">this</span>.page</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.$indicator.open()</span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">this</span>.$fetch.post(<span class="string">'api/getPopularizationOrder'</span>, params)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.$indicator.close()</span><br><span class="line">      <span class="keyword">if</span> (res.data.result === <span class="string">'SUCCESS'</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> data = res.data.data</span><br><span class="line">        <span class="keyword">if</span> (type === <span class="string">'2'</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (res.data.data.popularList.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            self.popularList = self.popularList.concat(res.data.data.popularList)</span><br><span class="line">            self.page++</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            self.loading = <span class="literal">true</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>那假如async函数没有返回值呢，会得到什么？这时候会返回：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve(<span class="literal">undefined</span>)。</span><br></pre></td></tr></table></figure>
 
-<h4 id="5-选项解释"><a href="#5-选项解释" class="headerlink" title="5.选项解释"></a>5.选项解释</h4><p>v-infinite-scroll=”loadMore”表示回调函数是loadMore</p>
-<p>infinite-scroll-disabled=”loading”表示由变量loading决定是否执行loadMore，false则执行loadMore，true则不执行，看清楚，loading表示繁忙，繁忙的时候是不执行的。</p>
-<p>infinite-scroll-distance=”10”这里10决定了页面滚动到离页尾多少像素的时候触发回调函数，10是像素值。通常我们会在页尾做一个几十像素高的“正在加载中…”，这样的话，可以把这个div的高度设为infinite-scroll-distance的值即可。</p>
-<p>其他选项：</p>
-<p>infinite-scroll-immediate-check 默认值为true，该指令意思是，应该在绑定后立即检查loading的值和是否滚动到底。如果你的初始内容高度不够高、不足以填满可滚动的容器的话，你应设为true，这样会立即执行一次loadMore，会帮你填充一些初始内容。</p>
-<p>infinite-scroll-listen-for-event 当事件在Vue实例中发出时，无限滚动将再次检查。</p>
-<p>infinite-scroll-throttle-delay 检查busy的值的时间间隔，默认值是200，因为vue-infinite-scroll的基础原理就是，vue-infinite-scroll会循环检查busy的值，以及是否滚动到底，只有当：busy为false且滚动到底，回调函数才会执行。</p>
-<h4 id="6-遇到的坑："><a href="#6-遇到的坑：" class="headerlink" title="6.遇到的坑："></a>6.遇到的坑：</h4><h6 id="一、就是当loadmore触发之后，getOrder方法无限触发，也就是无限调用获取数据函数。"><a href="#一、就是当loadmore触发之后，getOrder方法无限触发，也就是无限调用获取数据函数。" class="headerlink" title="一、就是当loadmore触发之后，getOrder方法无限触发，也就是无限调用获取数据函数。"></a>一、就是当loadmore触发之后，getOrder方法无限触发，也就是无限调用获取数据函数。</h6><p>原因： 没有理解loadmore是什么时候执行，loading为true的时候是不执行的，为false的时候执行。</p>
-<h6 id="二、滚动不加载："><a href="#二、滚动不加载：" class="headerlink" title="二、滚动不加载："></a>二、滚动不加载：</h6><p>原因：这种情况，就是在loadMore方法里没有写this.loading = true，同时，第一次加载的数据也没有撑满容器。</p>
-<p>解决：所以我们要给最外层容器添加如下样式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">height: 100%;</span><br><span class="line">overflow-y: auto;</span><br></pre></td></tr></table></figure>
+<p>联想一下 Promise 的特点——无等待，所以在没有 await 的情况下执行 async 函数，它会立即执行，返回一个 Promise 对象，并且，绝不会阻塞后面的语句。所以可知，<strong>async函数会返回一个Promise对象</strong>。</p>
+<h4 id="await到底在等啥？"><a href="#await到底在等啥？" class="headerlink" title="await到底在等啥？"></a>await到底在等啥？</h4><p>await 等待的是一个表达式，这个表达式的计算结果是 Promise 对象或者其它值（换句话说，就是没有特殊限定）</p>
+<p>因为 async 函数返回一个 Promise 对象，所以 await 可以用于等待一个 async 函数的返回值——这也可以说是 await 在等 async 函数，但要清楚，它等的实际是一个返回值。注意到 await 不仅仅用于等 Promise 对象，它可以等任意表达式的结果，所以，await 后面实际是可以接普通函数调用或者直接量的。所以下面这个示例完全可以正确运行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSomething</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"something"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">testAsync</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(<span class="string">"hello async"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> v1 = <span class="keyword">await</span> getSomething();</span><br><span class="line">    <span class="keyword">const</span> v2 = <span class="keyword">await</span> testAsync();</span><br><span class="line">    <span class="built_in">console</span>.log(v1, v2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
 
-<h6 id="三、页面初始化的时候会自动调用一次loadmore"><a href="#三、页面初始化的时候会自动调用一次loadmore" class="headerlink" title="三、页面初始化的时候会自动调用一次loadmore:"></a>三、页面初始化的时候会自动调用一次loadmore:</h6><p>解决办法：infinite-scroll-immediate-check 设置为false。因为infinite-scroll-immediate-check 指令是在绑定后立即检查loading的值和是否滚动到底。如果你的初始内容高度不够高、不足以填满可滚动的容器的话，你应设为true，这样会立即执行一次loadMore，会帮你填充一些初始内容。如果不需要调用loadmore来填充数据则设置为false。</p>
-<h6 id="四、页面中有类似tabbar，在切换tabbar页面的时候，loadmore会自动调用。"><a href="#四、页面中有类似tabbar，在切换tabbar页面的时候，loadmore会自动调用。" class="headerlink" title="四、页面中有类似tabbar，在切换tabbar页面的时候，loadmore会自动调用。"></a>四、页面中有类似tabbar，在切换tabbar页面的时候，loadmore会自动调用。</h6><p>原因：其实这种情况跟页面初始化的时候会自动调用一次loadmore是一样的。解决办法也是一样的，将infinite-scroll-immediate-check 设置为false。</p>
+<h4 id="await等到了要等的，之后呢？"><a href="#await等到了要等的，之后呢？" class="headerlink" title="await等到了要等的，之后呢？"></a>await等到了要等的，之后呢？</h4><p>await等到的表达式的值就是它要等的值，可能是promise可能不是。<br>如果它等到的是一个 Promise 对象，await 就忙起来了，它会阻塞后面的代码，等着 Promise 对象 resolve，然后得到 resolve 的值，作为 await 表达式的运算结果。</p>
+<h2 id="async-await优势？"><a href="#async-await优势？" class="headerlink" title="async/await优势？"></a>async/await优势？</h2><p>async/await优势在于处理then链。<br>单一的Promise链并不能发现async/await的优势，当处理多个Promise组成的then链的时候，优势就能体现出来了。看下面的例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 传入参数 n，表示这个函数执行的时间（毫秒）</span></span><br><span class="line"><span class="comment"> * 执行的结果是 n + 200，这个值将用于下一步骤</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">takeLongTime</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(n + <span class="number">200</span>), n);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step1</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`step1 with <span class="subst">$&#123;n&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">return</span> takeLongTime(n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step2</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`step2 with <span class="subst">$&#123;n&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">return</span> takeLongTime(n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step3</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`step3 with <span class="subst">$&#123;n&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">return</span> takeLongTime(n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在用Promise来实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doIt</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.time(<span class="string">"doIt"</span>);</span><br><span class="line">    <span class="keyword">const</span> time1 = <span class="number">300</span>;</span><br><span class="line">    step1(time1)</span><br><span class="line">        .then(<span class="function"><span class="params">time2</span> =&gt;</span> step2(time2))</span><br><span class="line">        .then(<span class="function"><span class="params">time3</span> =&gt;</span> step3(time3))</span><br><span class="line">        .then(<span class="function"><span class="params">result</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`result is <span class="subst">$&#123;result&#125;</span>`</span>);</span><br><span class="line">            <span class="built_in">console</span>.timeEnd(<span class="string">"doIt"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">doIt();</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
+<li><p>await命令后面的Promise对象,运行结果可能是rejected,所以最好把await命令放在try…catch代码块中.</p>
+</li>
+<li><p>await命令只能用在async之中,如果用在普通函数,就会报错.</p>
+</li>
+<li><p>继发进行跟并发进行?</p>
+</li>
+</ol>
 
       
 
@@ -209,11 +218,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">work</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -225,11 +230,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue/work//" class="article-tag-list-link color5">work</a>
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -284,7 +285,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://carolinelh.github.io/2019/10/23/vue中使用mintui的infinite-scroll组件进行无限滚动加载/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://carolinelh.github.io/2020/07/22/js中async-await理解/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -298,18 +299,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/06/从promise、process-nextTick、setTimeout出发，谈谈Event-Loop中的Job-queue/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          从promise、process.nextTick、setTimeout出发，谈谈Event Loop中的Job queue 
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/14/html面试/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">html面试</div>
+    <a href="/2020/07/17/手写promise/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">手写promise</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -336,7 +328,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用："><span class="toc-number">2.</span> <span class="toc-text">使用：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-保证你的项目中安装了min-ui"><span class="toc-number">2.0.1.</span> <span class="toc-text">1. 保证你的项目中安装了min-ui</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-在vue中引入mint-ui"><span class="toc-number">2.0.2.</span> <span class="toc-text">2. 在vue中引入mint-ui</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-按需引入InfiniteScroll组件："><span class="toc-number">2.0.3.</span> <span class="toc-text">3. 按需引入InfiniteScroll组件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-在代码中使用："><span class="toc-number">2.0.4.</span> <span class="toc-text">4.在代码中使用：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-选项解释"><span class="toc-number">2.0.5.</span> <span class="toc-text">5.选项解释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-遇到的坑："><span class="toc-number">2.0.6.</span> <span class="toc-text">6.遇到的坑：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#一、就是当loadmore触发之后，getOrder方法无限触发，也就是无限调用获取数据函数。"><span class="toc-number">2.0.6.0.1.</span> <span class="toc-text">一、就是当loadmore触发之后，getOrder方法无限触发，也就是无限调用获取数据函数。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#二、滚动不加载："><span class="toc-number">2.0.6.0.2.</span> <span class="toc-text">二、滚动不加载：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#三、页面初始化的时候会自动调用一次loadmore"><span class="toc-number">2.0.6.0.3.</span> <span class="toc-text">三、页面初始化的时候会自动调用一次loadmore:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#四、页面中有类似tabbar，在切换tabbar页面的时候，loadmore会自动调用。"><span class="toc-number">2.0.6.0.4.</span> <span class="toc-text">四、页面中有类似tabbar，在切换tabbar页面的时候，loadmore会自动调用。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#首先搞清楚，async和await分别做了什么？"><span class="toc-number">2.</span> <span class="toc-text">首先搞清楚，async和await分别做了什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#async起什么作用？"><span class="toc-number">2.0.1.</span> <span class="toc-text">async起什么作用？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#await到底在等啥？"><span class="toc-number">2.0.2.</span> <span class="toc-text">await到底在等啥？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#await等到了要等的，之后呢？"><span class="toc-number">2.0.3.</span> <span class="toc-text">await等到了要等的，之后呢？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async-await优势？"><span class="toc-number">3.</span> <span class="toc-text">async/await优势？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意点"><span class="toc-number">4.</span> <span class="toc-text">注意点</span></a></li></ol>
                     </div>
                 </span>
             </div>
